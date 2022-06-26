@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<van-nav-bar title="阳朔糖舍Yangshuo Suger..." fixed="true" placeholder="true" z-index="66">
+    <button slot="left" class="share_btn" open-type="share">
+        <image src="/image/share.png"></image>
+    </button>
+</van-nav-bar>
+
+
+<!-- 这里根据设备屏幕的高度动态设置组件的高度 -->
+<view class="index_box">
+    <view style="position:relative;height:{{clientHeight?clientHeight+'px':'auto'}}">
+        <view class="top_banner_box">
+            <swiper current="{{currentTab}}" duration="1000" style="height:{{clientHeight?clientHeight+'px':'auto'}};padding-top: {{statusHeight?statusHeight+'px':'auto'}};" bindchange="bindTouch" autoplay circular="true" class="banner_box">
+                <swiper-item wx:for="{{banner_arr}}" wx:key="index">
+                    <view class="image_background">
+                        <image class="banner_image" src="{{item.src}}" style="height:{{clientHeight?clientHeight+'px':'auto'}}" bindtap='topic_preview' data-id='{{item.id}}' data-url='{{item.src}}'></image>
+                    </view>
+                </swiper-item>
+            </swiper>
+
+            <view class="baner_title">阳朔糖舍 桂林</view>
+            <view class="indicator_box">
+                <view wx:for="{{banner_arr}}" wx:key="index" class="{{currentTab==index?'active':''}}"></view>
+            </view>
+            <image class="bottom_array" src="/image/bottomArray.png"></image>
+        </view>
+    </view>
+
+
+    <view class="content">
+        <view class="main_info">
+            <view class="index_title">阳朔糖舍Yangshuo Suger House</view>
+            <view class="index_info">
+                阳朔以奇绝秀美的自然景观享有甲天下之美名，蜿蜒而过的漓江边则是由独特的喀斯特地貌形成的连绵青山，构成一幅极具中国韵味的风情水墨画。阳朔糖舍延续历史建筑年代感的同时，又将大气简约的现代建筑理念与之交融。老糖厂的变身，让糖舍拥有了今天这般集自然之美、工业之美、建筑之美、残缺之美于一身的特殊美感。
+            </view>
+            <text class="index_more">了解更多</text>
+        </view>
+
+        <view class="right_image">
+            <view class="info_box">
+                <view class="index_title">糖Food</view>
+                <view class="index_info">
+                    阳朔以奇绝秀美的自然景观享有甲天下之美名，蜿蜒而过的漓江边则是由独特的喀斯特地貌形成的连绵青山，构成一幅极具中国韵味的风情水墨画。阳朔糖舍延续历史建筑年代感的同时，又将大气简约的现代建筑理念与之交融。老糖厂的变身，让糖舍拥有了今天这般集自然之美、工业之美、建筑之美、残缺之美于一身的特殊美感。
+                </view>
+                <text class="index_more">了解更多</text>
+            </view>
+            <view class="info_image">
+                <image src="/image/test.jpg" mode="aspectFill"></image>
+            </view>
+        </view>
+        <view class="left_image">
+            <view class="info_image">
+                <image src="/image/test.jpg" mode="aspectFill"></image>
+            </view>
+            <view class="info_box">
+                <view class="index_title">糖Room</view>
+                <view class="index_info">
+                    阳朔以奇绝秀美的自然景观享有甲天下之美名，蜿蜒而过的漓江边则是由独特的喀斯特地貌形成的连绵青山，构成一幅极具中国韵味的风情水墨画。阳朔糖舍延续历史建筑年代感的同时，又将大气简约的现代建筑理念与之交融。老糖厂的变身，让糖舍拥有了今天这般集自然之美、工业之美、建筑之美、残缺之美于一身的特殊美感。
+                </view>
+                <text class="index_more">了解更多</text>
+            </view>
+
+        </view>
+        <view class="right_image">
+            <view class="info_box">
+                <view class="index_title">糖Event Space & 糖Live</view>
+                <view class="index_info">
+                    阳朔以奇绝秀美的自然景观享有甲天下之美名，蜿蜒而过的漓江边则是由独特的喀斯特地貌形成的连绵青山，构成一幅极具中国韵味的风情水墨画。阳朔糖舍延续历史建筑年代感的同时，又将大气简约的现代建筑理念与之交融。老糖厂的变身，让糖舍拥有了今天这般集自然之美、工业之美、建筑之美、残缺之美于一身的特殊美感。
+                </view>
+                <text class="index_more">了解更多</text>
+            </view>
+            <view class="info_image">
+                <image src="/image/test.jpg" mode="aspectFill"></image>
+            </view>
+        </view>
+        <view class="left_image">
+            <view class="info_image">
+                <image src="/image/test.jpg" mode="aspectFill"></image>
+            </view>
+            <view class="info_box">
+                <view class="index_title">水疗SPA</view>
+                <view class="index_info">
+                    阳朔以奇绝秀美的自然景观享有甲天下之美名，蜿蜒而过的漓江边则是由独特的喀斯特地貌形成的连绵青山，构成一幅极具中国韵味的风情水墨画。阳朔糖舍延续历史建筑年代感的同时，又将大气简约的现代建筑理念与之交融。老糖厂的变身，让糖舍拥有了今天这般集自然之美、工业之美、建筑之美、残缺之美于一身的特殊美感。
+                </view>
+                <text class="index_more">了解更多</text>
+            </view>
+
+        </view>
+    </view>
+</view>

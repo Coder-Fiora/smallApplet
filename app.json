@@ -1,0 +1,53 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/room/room",
+        "pages/mail/mail",
+        "pages/food/food",
+        "pages/mycenter/mycenter"
+    ],
+    "window": {
+        "navigationStyle": "custom",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color":"#333333",
+        "selectedColor":"#d81e06",
+        "list": [
+        {
+            "pagePath": "pages/index/index",
+            "text": "首页",
+            "iconPath": "image/home.png",
+            "selectedIconPath": "image/home1.png"
+        },
+        {
+            "pagePath": "pages/room/room",
+            "text": "糖Room",
+            "iconPath": "image/room.png",
+            "selectedIconPath": "image/room1.png"
+        },
+        {
+            "pagePath": "pages/mail/mail",
+            "text": "糖Mail",
+            "iconPath": "image/mail.png",
+            "selectedIconPath": "image/mail1.png"
+        },
+        {
+            "pagePath": "pages/food/food",
+            "text": "餐饮",
+            "iconPath": "image/food.png",
+            "selectedIconPath": "image/food1.png"
+        },
+        {
+            "pagePath": "pages/mycenter/mycenter",
+            "text": "我的",
+            "iconPath": "image/my.png",
+            "selectedIconPath": "image/my1.png"
+        }
+    ]
+    },
+    "sitemapLocation": "sitemap.json"
+}
