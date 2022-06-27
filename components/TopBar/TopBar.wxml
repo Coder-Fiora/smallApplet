@@ -1,0 +1,5 @@
+<van-nav-bar title="阳朔糖舍Yangshuo Suger..." fixed="true" placeholder="true" z-index="66">
+    <button slot="left" class="share_btn" open-type="share">
+        <image src="/image/share.png"></image>
+    </button>
+</van-nav-bar>

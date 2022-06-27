@@ -49,40 +49,5 @@ Page({
         that.setData({
             currentTab: id
         });
-    },
-    onShareAppMessage: function (options) {
-        return {
-            title: '官方资讯优惠，尽在小程序',
-            path: '/pages/index/index',
-        }
-    },
-    topic_preview(e) {
-        let that = this;
-        let id = e.currentTarget.dataset.id;
-        let url = e.currentTarget.dataset.url;
-        let previewImgArr = [];
-        let data = that.data.banner_arr;
-        for (let i in data) {
-            previewImgArr.push(data[i].src);
-        }
-        wx.previewImage({
-            current: url, // 当前显⽰图⽚的http链接
-            urls: previewImgArr // 需要预览的图⽚http链接列表
-        })
-    },
-    goDetailList(){
-        wx.navigateTo({
-          url: '/pages/index/DetailList/DetailList'
-        })
-    },
-    goDetail(){
-        wx.navigateTo({
-          url: '/pages/index/Detail/Detail'
-        })
-    },
-    goFoodDetail(){
-        wx.navigateTo({
-          url: '/pages/index/FoodDetail/FoodDetail'
-        })
     }
 })

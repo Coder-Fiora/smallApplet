@@ -1,0 +1,46 @@
+.swiper-tab {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #b2b2b2;
+}
+
+.swiper-tab-item {
+    width: 50%;
+    display: inline-block;
+    font-size: 12pt;
+    color: #666;
+}
+
+.on {
+    color: #09bb07;
+    border-bottom: 5rpx solid #09bb07;
+}
+
+.banner_image {
+    width: 100%;
+    height: 100%;
+}
+
+.index_box {
+    position: relative;
+}
+
+.top_banner_box {
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.baner_title {
+    color: white;
+    font-size: 44rpx;
+    text-align: center;
+    top: 700rpx;
+    position: absolute;
+    z-index: 2;
+    letter-spacing: 6rpx;
+    width: 100%;
+}

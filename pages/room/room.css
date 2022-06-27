@@ -1,0 +1,41 @@
+.noLogin {
+  background-color: #fef2f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx;
+  font-size: 26rpx;
+}
+.bgbox {
+  height: 400rpx;
+  position: relative;
+}
+.bg1 {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 300rpx;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 10;
+}
+.bg2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+}
+.centerCard {
+  position: relative;
+  margin: -100rpx 50rpx 0 50rpx;
+  z-index: 100;
+  border-radius: 8rpx;
+  background: #ffffff;
+  box-shadow: 0 0 5rpx #fff;
+}
+.centerCard map .image {
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  border: 1px solid #000;
+}
