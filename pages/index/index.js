@@ -71,5 +71,10 @@ Page({
             current: url, // 当前显⽰图⽚的http链接
             urls: previewImgArr // 需要预览的图⽚http链接列表
         })
+    },
+    gospalist(){
+        wx.navigateTo({
+          url: '/pages/SpaList/SpaList'
+        })
     }
 })

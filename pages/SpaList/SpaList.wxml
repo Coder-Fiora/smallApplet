@@ -1,0 +1,18 @@
+<!--pages/SpaList/SpaList.wxml-->
+
+<view class="list" bindtap="godetail">
+   <image mode="aspectFill" src="/image/test.jpg"></image>
+   <view class="title">
+        <view>健身中心/童聚（儿童乐园）</view>   
+        <text>详情</text>
+   </view>
+   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
+</view>
+<view class="list">
+   <image mode="aspectFill" src="/image/test.jpg"></image>
+   <view class="title">
+        <view>健身中心/童聚（儿童乐园）</view>   
+        <text>详情</text>
+   </view>
+   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
+</view>

@@ -73,7 +73,7 @@
                 <image src="/image/test.jpg" mode="aspectFill"></image>
             </view>
         </view>
-        <view class="left_image">
+        <view class="left_image" bindtap="gospalist">
             <view class="info_image">
                 <image src="/image/test.jpg" mode="aspectFill"></image>
             </view>
