@@ -1,36 +1,11 @@
-// pages/mail/mail.js
+// components/GoodsCard/GoodsCard.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        menus:[
-            {
-                icon:'',
-                title:'全部'
-            },
-            {
-                icon:'',
-                title:'精品店'
-            },
-            {
-                icon:'',
-                title:'客房套餐'
-            },
-            {
-                icon:'',
-                title:'餐饮'
-            },
-            {
-                icon:'',
-                title:'玩乐'
-            },
-            {
-                icon:'',
-                title:'SPA'
-            },
-        ]
+
     },
 
     /**

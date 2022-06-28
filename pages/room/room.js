@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        show:false
+        show: false
     },
     /**
      * 生命周期函数--监听页面加载
@@ -46,12 +46,17 @@ Page({
             url: '/pages/Login/Login'
         })
     },
-    onConfirm(){
+    onConfirm() {
 
     },
     onClose() {
         this.setData({
-            show:false
+            show: false
+        })
+    },
+    showTime() {
+        this.setData({
+            show: true
         })
     }
 })

@@ -1,5 +1,8 @@
 {
     "window": {
         "navigationStyle": "default"
+    },
+    "usingComponents": {
+        "Swipper": "/components/Swipper/Swipper"
     }
 }

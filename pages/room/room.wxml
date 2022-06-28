@@ -18,12 +18,12 @@
             </view>
         </view>
         <view class="date">
-            <view class="startTime">
+            <view class="startTime" data-type="start" bindtap="showTime">
                 <view>入住</view>
                 <view>2022-06-27</view>
             </view>
             <view class="tag">共1晚</view>
-            <view class="endTime">
+            <view class="endTime" data-type="end" bindtap="showTime">
                 <view>离店</view>
                 <view>2022-06-28</view>
             </view>
@@ -39,9 +39,16 @@
                 <view>协议代码</view>
                 <view>历史搜索协议价</view>
             </view>
-            <input placeholder="输入协议代码"/>
+            <input placeholder="输入协议代码" />
         </view>
-        <van-button type="primary" block round="{{true}}" color='#e6212b'>查  询</van-button>
+        <van-button type="primary" block round="{{true}}" color='#e6212b'>查 询</van-button>
+    </view>
+    <view class="hotRecommend">
+        <view class="title">热门推荐</view>
+        <view class="cards">
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+        </view>
     </view>
     <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
 </view>

@@ -1,0 +1,7 @@
+<swiper current="{{currentTab}}" duration="1000" autoplay circular="true" class="banner_box" indicator-dots="true" indicator-color="rgba(255,255,255)" indicator-active-color="rgba(255,126,158)">
+    <swiper-item wx:for="{{banner_arr}}" wx:key="index">
+        <view class="image_background">
+            <image mode="aspectFill" class="banner_image" src="{{item.src}}" bindtap='topic_preview' data-id='{{item.id}}' data-url='{{item.src}}'></image>
+        </view>
+    </swiper-item>
+</swiper>

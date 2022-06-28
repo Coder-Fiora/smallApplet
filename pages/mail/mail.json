@@ -1,4 +1,8 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "Swipper": "/components/Swipper/Swipper",
+        "TopBar": "/components/TopBar/TopBar",
+        "GoodsCard": "/components/GoodsCard/GoodsCard"
+    },
     "navigationStyle": "custom"
 }

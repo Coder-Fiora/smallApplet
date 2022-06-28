@@ -8,7 +8,9 @@
         "pages/index/Detail/Detail",
         "pages/index/DetailList/DetailList",
         "pages/index/FoodDetail/FoodDetail",
-        "pages/Login/Login"
+        "pages/Login/Login",
+        "components/GoodsCard/GoodsCard",
+        "components/Swipper/Swipper"
     ],
     "window": {
         "backgroundTextStyle": "light",

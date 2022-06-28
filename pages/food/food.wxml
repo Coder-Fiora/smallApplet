@@ -1,2 +1,11 @@
-<!--pages/food/food.wxml-->
-<text>pages/food/food.wxml</text>
+<view>
+    <TopBar></TopBar>
+    <Swipper></Swipper>
+    <van-tabs active="{{ active }}" bind:change="onChange">
+        <van-tab title="全部">
+            <view class="empty">
+                <van-empty description="暂无餐饮列表，敬请期待" />
+            </view>
+        </van-tab>
+    </van-tabs>
+</view>

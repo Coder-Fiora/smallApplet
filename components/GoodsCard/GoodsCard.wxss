@@ -1,0 +1,44 @@
+.card {
+  width: 45vw;
+  flex-shrink: 0;
+  margin-bottom: 40rpx;
+}
+.card image {
+  width: 100%;
+  height: 350rpx;
+  border: 1px solid #000;
+}
+.card .describe {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding: 10rpx 10rpx 0 10rpx;
+  background: #fafafa;
+}
+.card .money {
+  padding: 16rpx 10rpx 16rpx 10rpx;
+  display: flex;
+  align-items: flex-end;
+  background: #fafafa;
+}
+.card .money .new1,
+.card .money .new2 {
+  color: #c7141d;
+}
+.card .money .origin1,
+.card .money .origin2 {
+  color: #cfcfcf;
+}
+.card .money .new1,
+.card .money .origin1 {
+  font-size: 20rpx;
+  margin-bottom: 3rpx;
+}
+.card .money .new2 {
+  margin-right: 10rpx;
+}
+.card .money .origin2 {
+  text-decoration: line-through;
+}

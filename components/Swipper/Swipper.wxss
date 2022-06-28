@@ -1,0 +1,11 @@
+/* components/Swipper/Swipper.wxss */
+.banner_box{
+    height: 500rpx;
+}
+.image_background{
+    height: 600rpx;
+}
+.banner_image{
+    width: 100%;
+    height: 600rpx;
+}

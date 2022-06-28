@@ -1,35 +1,27 @@
-// pages/mail/mail.js
+// components/Swipper/Swipper.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        menus:[
-            {
-                icon:'',
-                title:'全部'
+        currentTab: 0,
+        banner_arr: [{
+                src: '/image/test3.jpg',
+                id: 0
             },
             {
-                icon:'',
-                title:'精品店'
+                src: '/image/test5.jpg',
+                id: 1
             },
             {
-                icon:'',
-                title:'客房套餐'
+                src: '/image/test6.jpg',
+                id: 2
             },
             {
-                icon:'',
-                title:'餐饮'
-            },
-            {
-                icon:'',
-                title:'玩乐'
-            },
-            {
-                icon:'',
-                title:'SPA'
-            },
+                src: '/image/test7.jpg',
+                id: 3
+            }
         ]
     },
 

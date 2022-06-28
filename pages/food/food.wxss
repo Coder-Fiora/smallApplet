@@ -1,1 +1,3 @@
-/* pages/food/food.wxss */
+.empty {
+  text-align: center;
+}

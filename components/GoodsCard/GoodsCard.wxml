@@ -1,0 +1,10 @@
+<view class="card">
+    <image></image>
+    <text class="describe">啊可是觉得卡的卡卡觉得啊可是觉得卡的卡卡觉得123123123</text>
+    <view class="money">
+        <view class="new1">¥</view>
+        <view class="new2">180</view>
+        <view class="origin1">¥</view>
+        <view class="origin2">220</view>
+    </view>
+</view>

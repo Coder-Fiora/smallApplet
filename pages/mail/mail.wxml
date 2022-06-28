@@ -1,2 +1,25 @@
-<!--pages/mail/mail.wxml-->
-<text>pages/mail/mail.wxml</text>
+<view class="mail">
+    <TopBar></TopBar>
+    <Swipper></Swipper>
+    <view class="bigPack">
+        <view class="title">
+            <view>组合大礼包</view>
+            <text>超值组合</text>
+            <text>体验优选</text>
+        </view>
+        <view class="goods">
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+        </view>
+    </view>
+    <view class="menu">
+        <view wx:for="{{menus}}" wx:key="index" class="{{index===0?'active':''}}">
+            <image src="{{item.icon}}"></image>
+            {{item.title}}
+        </view>
+    </view>
+    <view class="goods">
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+    </view>
+</view>
