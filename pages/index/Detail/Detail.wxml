@@ -1,0 +1,55 @@
+<!--pages/SpaDetail/SpaDetail.wxml-->
+<view class="top_banner">
+
+    <swiper current="{{currentTab}}" duration="1000" autoplay circular="true" class="banner_box" indicator-dots="true" 	indicator-color="rgba(255,255,255)" 	indicator-active-color="rgba(255,126,158)">
+        <swiper-item wx:for="{{banner_arr}}" wx:key="index">
+            <view class="image_background">
+                <image mode="aspectFill" class="banner_image" src="{{item.src}}"  bindtap='topic_preview' data-id='{{item.id}}' data-url='{{item.src}}'></image>
+            </view>
+        </swiper-item>
+    </swiper>
+    <button class="share" open-type="share">
+        <image src="/image/share.png"></image>
+    </button>
+</view>
+
+<view class="title"> {{detailpage=='main'?'大知闲闲民宿':detailpage=='room'?'健身中心/童聚（儿童乐园）':detailpage=='live'?'糖舍画廊/糖库多功能厅/喀斯特花园...':'糖舍三居大床房'}} </view>
+<view class="content" wx:if="{{detailpage=='room'}}">
+    <view class="lit_title">健身中心</view>
+    <view>设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需的专业场所。</view>
+    <view class="lit_title">童聚（儿童乐园）</view>
+    <view>设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需的专业所。</view>
+    <view class="phone"><text>电话：</text>0773-88839999</view>
+</view>
+
+<view class="content" wx:if="{{detailpage=='main'}}">
+   <view class="duanluo">民宿位于云南滇中抚仙湖畔的澄江禄充风景区，抚仙湖湖水清澈，明代旅行家徐霞客《徐霞客游记》中记载：“滇山惟多土，故多壅流而成海，而流多浑浊，惟抚仙湖最清”。</view>
+   <view class="duanluo">砖楼为三层半框架建筑。原建筑开大玻璃窗，填充少量红砖，外立面贴白色小瓷片。考虑到民宿功能的调整，全部敲掉填充材料，保留原始框架梁柱结构是最直接的改造方式，然而这种操作需要重新考虑合适的墙体材料和构造搭接。</view>
+   <view class="duanluo">“浮居”整合居住与船只可居可游的特性。设计首先把水引入场地，形成湖水界面。浮居保留传统住宅石头为墙基的基座，高为1.4米，并预留通风窗。上部通过钢构支撑1.4米高的长方体顶盖，且上下留0.1米高的窄缝隙。窄缝隙的预留形成了视觉宽度的最大化界面，且营造了互相之间的开放性。顶盖在前部突出基座，下底不封闭，形成了各自独立的水景视线区域——私密水院。以上整合可居的实用性和私密性，并创造了可游的景观面和开放性，但缺少可游的动态性。浮居在地面上适度保持坡度关系，人在走入时形成向上的趋势，增加了人上下“船”起伏的动性。</view>
+</view>
+
+<view class="content" wx:if="{{detailpage=='roomdetail'}}">
+    <view>面积：55㎡</view>
+    <view>床宽2m*2m</view>
+    <view>楼层1-3楼</view>
+</view>
+
+<view class="content" wx:if="{{detailpage=='live'}}">
+   <view class="duanluo">民宿位于云南滇中抚仙湖畔的澄江禄充风景区，抚仙湖湖水清澈，明代旅行家徐霞客《徐霞客游记》中记载：“滇山惟多土，故多壅流而成海，而流多浑浊，惟抚仙湖最清”。</view>
+   <view class="duanluo">砖楼为三层半框架建筑。原建筑开大玻璃窗，填充少量红砖，外立面贴白色小瓷片。考虑到民宿功能的调整，全部敲掉填充材料，保留原始框架梁柱结构是最直接的改造方式，然而这种操作需要重新考虑合适的墙体材料和构造搭接。</view>
+  
+</view>
+<view class="icon_phone" wx:if="{{detailpage=='room'|| detailpage=='live'}}" bindtap="bindcallphone">
+    <image src="/image/phone.png"></image>
+</view>
+
+<view class="address" wx:if="{{detailpage=='main'}}">
+   <view>
+      <text>0773-8883999</text> 
+      <image src="/image/call.png"></image>  
+   </view>
+   <view>
+      <text>云南滇中抚仙湖畔的澄江禄充风景区</text> 
+      <image src="/image/dh.png"></image>  
+   </view>
+</view>

@@ -4,7 +4,7 @@
 }
 .list >image{
    width: 100%;
-   height: 350rpx;
+   height: 380rpx;
 }
 .list .title{
     display: flex;
@@ -28,4 +28,8 @@
     color: #333333;
     padding: 0 60rpx;
     margin-top: 20rpx;
+}
+.list .room_detail{
+    font-size: 24rpx;
+    color: #666666;
 }

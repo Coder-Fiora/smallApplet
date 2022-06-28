@@ -1,4 +1,4 @@
-// pages/SpaList/SpaList.js
+// pages/components/TopBar/TopBar.js
 Page({
 
     /**
@@ -62,10 +62,5 @@ Page({
      */
     onShareAppMessage() {
 
-    },
-    godetail(){
-        wx.navigateTo({
-          url: '/pages/SpaDetail/SpaDetail',
-        })
     }
 })

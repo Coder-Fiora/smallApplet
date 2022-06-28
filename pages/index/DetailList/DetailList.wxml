@@ -1,0 +1,50 @@
+<!--pages/SpaList/SpaList.wxml-->
+
+<view class="list" bindtap="godetail" wx:if="{{showlist=='spa'}}" data-type="room">
+   <image mode="aspectFill" src="/image/test7.jpg"></image>
+   <view class="title">
+        <view>健身中心/童聚（儿童乐园）</view>   
+        <text>详情</text>
+   </view>
+   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
+</view>
+<view class="list" bindtap="godetail" wx:if="{{showlist=='spa'}}" data-type="room">
+   <image mode="aspectFill" src="/image/test8.jpg"></image>
+   <view class="title">
+        <view>健身中心/童聚（儿童乐园）</view>   
+        <text>详情</text>
+   </view>
+   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
+</view>
+<view class="list" wx:if="{{showlist=='spa'}}" data-type="room">
+   <image mode="aspectFill" src="/image/test5.jpg"></image>
+   <view class="title">
+        <view>健身中心/童聚（儿童乐园）</view>   
+        <text>详情</text>
+   </view>
+   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
+</view>
+<view class="list" wx:if="{{showlist=='room'}}" data-type="roomdetail">
+   <image mode="aspectFill" src="/image/test9.jpg"></image>
+   <view class="title">
+        <view>糖舍三居大床房</view>   
+        <text>详情</text>
+   </view>
+   <view class="content room_detail">55㎡ 大床 露台</view>
+</view>
+<view class="list" wx:if="{{showlist=='room'}}" data-type="roomdetail" bindtap="godetail">
+   <image mode="aspectFill" src="/image/test1.jpg"></image>
+   <view class="title">
+        <view>糖舍三居大床房</view>   
+        <text>详情</text>
+   </view>
+   <view class="content room_detail">55㎡ 大床 露台</view>
+</view>
+<view class="list" wx:if="{{showlist=='room'}}" data-type="roomdetail" bindtap="godetail">
+   <image mode="aspectFill" src="/image/test3.jpg"></image>
+   <view class="title">
+        <view>糖舍三居大床房</view>   
+        <text>详情</text>
+   </view>
+   <view class="content room_detail">55㎡ 大床 露台</view>
+</view>

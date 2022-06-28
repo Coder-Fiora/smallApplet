@@ -5,24 +5,20 @@ Page({
         currentTab: 0,
         statusHeight: 0,
         banner_arr: [{
-                src: '/image/banner3.jpg',
+                src: '/image/test3.jpg',
                 id: 0
             },
             {
-                src: '/image/banner4.jpg',
+                src: '/image/test5.jpg',
                 id: 1
             },
             {
-                src: '/image/banner5.jpg',
+                src: '/image/test6.jpg',
                 id: 2
             },
             {
-                src: '/image/banner1.jpg',
+                src: '/image/test7.jpg',
                 id: 3
-            },
-            {
-                src: '/image/baner2.jpg',
-                id: 4
             }
         ]
     },
@@ -57,24 +53,34 @@ Page({
         }
     },
     topic_preview(e) {
-        var that = this;
-        var id = e.currentTarget.dataset.id;
-        var url = e.currentTarget.dataset.url;
-        var previewImgArr = [];
-
-        var data = that.data.banner_arr;
-        for (var i in data) {
+        let that = this;
+        let id = e.currentTarget.dataset.id;
+        let url = e.currentTarget.dataset.url;
+        let previewImgArr = [];
+        let data = that.data.banner_arr;
+        for (let i in data) {
             previewImgArr.push(data[i].src);
         }
-        console.log(previewImgArr)
         wx.previewImage({
             current: url, // 当前显⽰图⽚的http链接
             urls: previewImgArr // 需要预览的图⽚http链接列表
         })
     },
-    gospalist(){
+    goDetailList(e){
+        var type=e.currentTarget.dataset.type;
         wx.navigateTo({
-          url: '/pages/SpaList/SpaList'
+          url: '/pages/index/DetailList/DetailList?type='+type
+        })
+    },
+    goDetail(e){
+        var type=e.currentTarget.dataset.type;
+        wx.navigateTo({
+          url: '/pages/index/Detail/Detail?type='+type
+        })
+    },
+    goFoodDetail(){
+        wx.navigateTo({
+          url: '/pages/index/FoodDetail/FoodDetail'
         })
     }
 })

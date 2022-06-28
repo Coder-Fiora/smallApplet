@@ -1,11 +1,5 @@
 <!--index.wxml-->
-<van-nav-bar title="阳朔糖舍Yangshuo Suger..." fixed="true" placeholder="true" z-index="66">
-    <button slot="left" class="share_btn" open-type="share">
-        <image src="/image/share.png"></image>
-    </button>
-</van-nav-bar>
-
-
+<TopBar></TopBar>
 <!-- 这里根据设备屏幕的高度动态设置组件的高度 -->
 <view class="index_box">
     <view style="position:relative;height:{{clientHeight?clientHeight+'px':'auto'}}">
@@ -17,8 +11,7 @@
                     </view>
                 </swiper-item>
             </swiper>
-
-            <view class="baner_title">阳朔糖舍 桂林</view>
+            <view class="baner_title">大知闲闲 云南</view>
             <view class="indicator_box">
                 <view wx:for="{{banner_arr}}" wx:key="index" class="{{currentTab==index?'active':''}}"></view>
             </view>
@@ -26,17 +19,16 @@
         </view>
     </view>
 
-
-    <view class="content">
-        <view class="main_info">
-            <view class="index_title">阳朔糖舍Yangshuo Suger House</view>
+    <view class="content" >
+        <view class="main_info" data-type="main" bindtap="goDetail">
+            <view class="index_title">大知闲闲民宿</view>
             <view class="index_info">
-                阳朔以奇绝秀美的自然景观享有甲天下之美名，蜿蜒而过的漓江边则是由独特的喀斯特地貌形成的连绵青山，构成一幅极具中国韵味的风情水墨画。阳朔糖舍延续历史建筑年代感的同时，又将大气简约的现代建筑理念与之交融。老糖厂的变身，让糖舍拥有了今天这般集自然之美、工业之美、建筑之美、残缺之美于一身的特殊美感。
+                云南滇中抚仙湖畔的澄江禄充风景区，抚仙湖湖水清澈，明代旅行家徐霞客《徐霞客游记》中记载：“滇山惟多土，故多壅流而成海，而流多浑浊，惟抚仙湖最清”。为促进对抚仙湖水质的保护，当地政府逐步迁移湖边居住区，希望减少人为因素对湖水的污染。
             </view>
             <text class="index_more">了解更多</text>
         </view>
 
-        <view class="right_image">
+        <view class="right_image" bindtap="goFoodDetail">
             <view class="info_box">
                 <view class="index_title">糖Food</view>
                 <view class="index_info">
@@ -45,12 +37,12 @@
                 <text class="index_more">了解更多</text>
             </view>
             <view class="info_image">
-                <image src="/image/test.jpg" mode="aspectFill"></image>
+                <image src="/image/test1.jpg" mode="aspectFill"></image>
             </view>
         </view>
-        <view class="left_image">
+        <view class="left_image" data-type="room" bindtap="goDetailList">
             <view class="info_image">
-                <image src="/image/test.jpg" mode="aspectFill"></image>
+                <image src="/image/test4.jpg" mode="aspectFill"></image>
             </view>
             <view class="info_box">
                 <view class="index_title">糖Room</view>
@@ -59,9 +51,8 @@
                 </view>
                 <text class="index_more">了解更多</text>
             </view>
-
         </view>
-        <view class="right_image">
+        <view class="right_image" data-type="live" bindtap="goDetail">
             <view class="info_box">
                 <view class="index_title">糖Event Space & 糖Live</view>
                 <view class="index_info">
@@ -70,12 +61,12 @@
                 <text class="index_more">了解更多</text>
             </view>
             <view class="info_image">
-                <image src="/image/test.jpg" mode="aspectFill"></image>
+                <image src="/image/test1.jpg" mode="aspectFill"></image>
             </view>
         </view>
-        <view class="left_image" bindtap="gospalist">
+        <view class="left_image" data-type="spa" bindtap="goDetailList">
             <view class="info_image">
-                <image src="/image/test.jpg" mode="aspectFill"></image>
+                <image src="/image/test4.jpg" mode="aspectFill"></image>
             </view>
             <view class="info_box">
                 <view class="index_title">水疗SPA</view>
@@ -84,7 +75,6 @@
                 </view>
                 <text class="index_more">了解更多</text>
             </view>
-
         </view>
     </view>
 </view>

@@ -5,13 +5,15 @@
         "pages/mail/mail",
         "pages/food/food",
         "pages/mycenter/mycenter",
-        "pages/SpaDetail/SpaDetail",
-        "pages/SpaList/SpaList"
+        "pages/index/Detail/Detail",
+        "pages/index/DetailList/DetailList",
+        "pages/index/FoodDetail/FoodDetail",
+        "pages/Login/Login"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "阳朔糖舍Yangshuo Suger House",
+        "navigationBarTitleText": "大知闲闲民宿",
         "navigationBarTextStyle": "black"
     },
     "tabBar": {

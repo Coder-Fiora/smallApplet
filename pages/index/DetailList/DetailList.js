@@ -1,18 +1,20 @@
-// pages/SpaDetail/SpaDetail.js
+// pages/SpaList/SpaList.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        showlist:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        this.setData({
+            showlist:options.type
+        })  
     },
 
     /**
@@ -62,5 +64,11 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+    godetail(e){
+        var type=e.currentTarget.dataset.type;
+        wx.navigateTo({
+          url: '/pages/index/Detail/Detail?type='+type,
+        })
     }
 })

@@ -1,4 +1,9 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index",
+        "van-calendar": "@vant/weapp/calendar/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "TopBar": "/components/TopBar/TopBar"
+    },
     "navigationStyle": "custom"
 }
