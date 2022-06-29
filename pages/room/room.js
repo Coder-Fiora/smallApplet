@@ -5,7 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        show: false
+        show: false, //日历
+        roomShow: false, //房间
+        roomNum: 1,
+        peopleNum: 1,
+        childNum: 1,
     },
     /**
      * 生命周期函数--监听页面加载
@@ -34,13 +38,6 @@ Page({
     onReachBottom() {
 
     },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    },
     goLogin() {
         wx.navigateTo({
             url: '/pages/Login/Login'
@@ -58,5 +55,31 @@ Page({
         this.setData({
             show: true
         })
+    },
+    showRoomConfig() {
+        this.setData({
+            roomShow: true
+        })
+    },
+    onCloseRoom() {
+        this.setData({
+            roomShow: false
+        })
+    },
+    onChange(event) {
+        const {
+            currentTarget: {
+                dataset: {
+                    type
+                }
+            },
+            detail
+        } = event
+        this.setData({
+            [type]: detail
+        })
+    },
+    confirmRoom(){
+        this.onCloseRoom()
     }
 })

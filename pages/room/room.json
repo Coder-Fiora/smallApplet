@@ -4,7 +4,9 @@
         "van-calendar": "@vant/weapp/calendar/index",
         "van-icon": "@vant/weapp/icon/index",
         "TopBar": "/components/TopBar/TopBar",
-        "GoodsCard": "/components/GoodsCard/GoodsCard"
+        "GoodsCard": "/components/GoodsCard/GoodsCard",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-stepper": "@vant/weapp/stepper/index"
     },
     "navigationStyle": "custom"
 }

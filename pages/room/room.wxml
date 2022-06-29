@@ -28,9 +28,9 @@
                 <view>2022-06-28</view>
             </view>
         </view>
-        <view class="roomInfo">
+        <view class="roomInfo" bindtap="showRoomConfig">
             <view>
-                <text>1间客房</text> · <text>1客人</text>
+                <text>{{roomNum}}间客房</text> · <text>{{peopleNum}}客人</text>
             </view>
             <van-icon name="arrow" />
         </view>
@@ -55,4 +55,24 @@
         </view>
     </view>
     <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+    <van-popup custom-class='popup' show="{{ roomShow }}" round position="bottom" custom-style="height: 600rpx" bind:close="onCloseRoom" closeable>
+        <view class="roomConfig">
+            <view class="title">
+                入住人数及房间数
+            </view>
+            <view class="config">
+                <view>客房</view>
+                <van-stepper value="{{ roomNum }}" data-type="roomNum" bind:change="onChange" plus-class='add' />
+            </view>
+            <view class="config">
+                <view>成人（每间）</view>
+                <van-stepper value="{{ peopleNum }}" data-type="peopleNum" bind:change="onChange" plus-class='add' />
+            </view>
+            <view class="config">
+                <view>儿童（每间）</view>
+                <van-stepper value="{{ childNum }}" data-type="childNum" bind:change="onChange" plus-class='add' />
+            </view>
+            <van-button bindtap="confirmRoom" type="primary" block round="{{true}}" color='#e6212b'>确 定</van-button>
+        </view>
+    </van-popup>
 </view>

@@ -85,6 +85,7 @@
   display: flex;
   padding: 30rpx 0;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 20rpx;
 }
 .centerCard .code > view view:nth-of-type(2) {
@@ -94,9 +95,9 @@
   margin-top: 10rpx;
   letter-spacing: 2rpx;
 }
-.centerCard .code input{
-    text-align: right;
-    font-size: 24rpx;
+.centerCard .code input {
+  font-size: 24rpx;
+  text-align: right;
 }
 .hotRecommend {
   padding: 30rpx 0;
@@ -111,4 +112,27 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 50rpx;
+}
+.roomConfig {
+  padding: 28rpx 50rpx;
+}
+.roomConfig .title {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.roomConfig .config {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+}
+.roomConfig .config + .config {
+  border-top: 1px solid #ececec;
+}
+.roomConfig .config:nth-last-of-type(1) {
+  margin-bottom: 20rpx;
+}
+.roomConfig .add {
+  background: #e51f2b;
+  color: #efd9d8;
 }

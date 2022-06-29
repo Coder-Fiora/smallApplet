@@ -99,6 +99,7 @@
         display: flex;
         padding: 30rpx 0;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 20rpx;
 
         >view {
@@ -129,5 +130,28 @@
         flex-wrap: wrap;
         justify-content: space-between;
         padding: 0 50rpx;
+    }
+}
+.roomConfig{
+    padding: 28rpx 50rpx;
+    .title{
+        text-align: center;
+        margin-bottom: 20rpx;
+    }
+    .config{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30rpx 0;
+    }
+    .config+.config{
+        border-top: 1px solid #ececec;
+    }
+    .config:nth-last-of-type(1){
+        margin-bottom: 20rpx;
+    }
+    .add{
+        background: #e51f2b;
+        color: #efd9d8;
     }
 }
