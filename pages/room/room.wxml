@@ -5,16 +5,16 @@
         <van-button plain type="danger" size="mini" bindtap="goLogin">去登陆</van-button>
     </view>
     <view class="bgbox">
-        <image src="/image/baner2.jpg" class="bg2" />
+        <image src="/image/test1.jpg" class="bg2" />
     </view>
     <view class="centerCard">
         <view class="map">
             <view>
-                <image class="icon"></image>
-                <text>桂林</text>
+                <image class="icon" src="/image/location.png"></image>
+                <text>云南</text>
             </view>
             <view>
-                阳朔糖舍Yangshuo Suger
+                大知闲闲民宿
             </view>
         </view>
         <view class="date">
@@ -39,13 +39,17 @@
                 <view>协议代码</view>
                 <view>历史搜索协议价</view>
             </view>
-            <input placeholder="输入协议代码" />
+            <input placeholder="输入协议代码" placeholder-style="color:#999999;font-weight:400" />
         </view>
         <van-button type="primary" block round="{{true}}" color='#e6212b'>查 询</van-button>
     </view>
     <view class="hotRecommend">
         <view class="title">热门推荐</view>
         <view class="cards">
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
             <GoodsCard></GoodsCard>
             <GoodsCard></GoodsCard>
         </view>

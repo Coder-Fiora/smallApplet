@@ -21,5 +21,11 @@
     <view class="goods">
         <GoodsCard></GoodsCard>
         <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
     </view>
 </view>

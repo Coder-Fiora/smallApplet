@@ -1,1 +1,98 @@
 /* pages/mycenter/mycenter.wxss */
+page{
+    background: #ededed;
+}
+.top_image{
+    width: 100%;
+    height: 450rpx;
+    position: relative;
+}
+.top_image image{
+    width: 100%;
+    height: 100%;
+}
+.setting{
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    border: 1px solid #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 56rpx;
+    left: 30rpx;
+}
+.setting image{
+    width: 36rpx;
+    height: 36rpx;
+}
+.head_image{
+    position: absolute;
+    top: 200rpx;
+    left: 80rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 40rpx;
+    font-weight: 500;
+    letter-spacing: 2rpx;
+}
+.head_box{
+    width: 120rpx;
+    height: 120rpx;
+    background: #b6b6b6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40rpx;
+}
+.head_image image{
+    width: 80rpx;
+    height: 80rpx;
+}
+.menue_list{
+    width: 100%;
+    height: 200rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+}
+.menue_list >view{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+}
+.menue_list  image{
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.cord{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 60rpx;
+    border-bottom:1px solid #e6e6e6 ;
+    padding: 50rpx 0;
+}
+.cord .left_info{
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.cord .left_info image{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 40rpx;
+}
+.cord >image{
+    width: 20rpx;
+    height: 20rpx;
+}

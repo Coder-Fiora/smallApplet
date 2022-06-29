@@ -7,27 +7,27 @@ Page({
     data: {
         menus:[
             {
-                icon:'',
+                icon:'/image/all.png',
                 title:'全部'
             },
             {
-                icon:'',
+                icon:'/image/liwu.png',
                 title:'精品店'
             },
             {
-                icon:'',
+                icon:'/image/xiangji.png',
                 title:'客房套餐'
             },
             {
-                icon:'',
+                icon:'/image/canyin.png',
                 title:'餐饮'
             },
             {
-                icon:'',
+                icon:'/image/game.png',
                 title:'玩乐'
             },
             {
-                icon:'',
+                icon:'/image/SPA.png',
                 title:'SPA'
             },
         ]

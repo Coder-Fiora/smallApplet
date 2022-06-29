@@ -30,7 +30,7 @@
   font-size: 28rpx;
   position: relative;
   margin: -100rpx 50rpx 0 50rpx;
-  z-index: 100;
+  z-index: 5;
   border-radius: 8rpx;
   background: #ffffff;
   box-shadow: 0 0 10rpx #e6e6e6;
@@ -52,9 +52,8 @@
 }
 .centerCard .map view .icon {
   display: block;
-  width: 20rpx;
-  height: 20rpx;
-  border: 1px solid #000;
+  width: 30rpx;
+  height: 30rpx;
   margin-right: 5rpx;
 }
 .centerCard .date {
@@ -84,7 +83,6 @@
 }
 .centerCard .code {
   display: flex;
-  align-items: center;
   padding: 30rpx 0;
   justify-content: space-between;
   margin-bottom: 20rpx;
@@ -93,16 +91,24 @@
   color: #a2a2a2;
   font-size: 20rpx;
   text-decoration: underline;
+  margin-top: 10rpx;
+  letter-spacing: 2rpx;
+}
+.centerCard .code input{
+    text-align: right;
+    font-size: 24rpx;
 }
 .hotRecommend {
   padding: 30rpx 0;
+  margin-top: 20rpx;
 }
 .hotRecommend .title {
   text-align: center;
-  margin-bottom: 30rpx;
+  margin-bottom: 40rpx;
 }
 .hotRecommend .cards {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0 50rpx;
 }
