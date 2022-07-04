@@ -6,8 +6,8 @@
     </button>
 </view>
 
-<view class="title"> {{detailpage=='main'?'大知闲闲民宿':detailpage=='room'?'健身中心/童聚（儿童乐园）':detailpage=='live'?'糖舍画廊/糖库多功能厅/喀斯特花园...':'糖舍三居大床房'}} </view>
-<view class="content" wx:if="{{detailpage=='room'}}">
+<view class="title"> {{detailpage=='main'?'大知闲闲民宿':detailpage=='room'?'健身中心/童聚（儿童乐园）':detailpage=='canting'?'糖舍餐厅':detailpage=='live'?'糖舍画廊/糖库多功能厅/喀斯特花园...':'糖舍三居大床房'}} </view>
+<view class="content" wx:if="{{detailpage=='room' || detailpage=='canting'}}">
     <view class="lit_title">健身中心</view>
     <view>设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需的专业场所。</view>
     <view class="lit_title">童聚（儿童乐园）</view>
@@ -32,7 +32,7 @@
    <view class="duanluo">砖楼为三层半框架建筑。原建筑开大玻璃窗，填充少量红砖，外立面贴白色小瓷片。考虑到民宿功能的调整，全部敲掉填充材料，保留原始框架梁柱结构是最直接的改造方式，然而这种操作需要重新考虑合适的墙体材料和构造搭接。</view>
   
 </view>
-<view class="icon_phone" wx:if="{{detailpage=='room'|| detailpage=='live'}}" bindtap="bindcallphone">
+<view class="icon_phone" wx:if="{{detailpage=='room'|| detailpage=='live'|| detailpage=='canting'}}" bindtap="bindcallphone">
     <image src="/image/phone.png"></image>
 </view>
 

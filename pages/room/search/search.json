@@ -1,7 +1,8 @@
 {
     "usingComponents": {
         "van-button": "@vant/weapp/button/index",
-        "TopBar":"/components/TopBar/TopBar"
+        "TopBar":"/components/TopBar/TopBar",
+        "Swipper": "/components/Swipper/Swipper"
     },
     "navigationStyle": "custom"
 }

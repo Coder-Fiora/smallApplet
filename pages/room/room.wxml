@@ -41,7 +41,7 @@
             </view>
             <input placeholder="输入协议代码" placeholder-style="color:#999999;font-weight:400" />
         </view>
-        <van-button type="primary" block round="{{true}}" color='#e6212b'>查 询</van-button>
+        <van-button type="primary" block round="{{true}}" color='#e6212b' bindtap="bindgosearch">查 询</van-button>
     </view>
     <view class="hotRecommend">
         <view class="title">热门推荐</view>

@@ -8,21 +8,3 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-.share_btn{
-    width: 58rpx;
-    height: 58rpx;
-    border-radius: 50%;
-    border: 1px solid #ededed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent!important;
-    padding: 0;
-}
-.share_btn::after{
-    content: none;
-}
-.share_btn image{
-    width: 30rpx;
-    height: 30rpx;
-}

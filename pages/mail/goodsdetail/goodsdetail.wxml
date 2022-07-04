@@ -1,0 +1,91 @@
+<!--pages/mail/goodsdetail/goodsdetail.wxml-->
+<view class="goodsDetail">
+    <Swipper></Swipper>
+    <view class="title">
+        <view>
+            <view>大知闲闲AURUA周边</view>
+            <text>大知闲闲AURUA周边</text>
+        </view>
+        <image class="shareGoods" src="/image/goods.png"></image>
+    </view>
+    <view class="address">
+        <text>快递</text>
+        <view>未添加收货地址，点击添加</view>
+    </view>
+    <view class="goods">
+        <view class="tit">大知闲闲AURUA周边</view>
+        <view class="type">
+            <text>帆布袋+AURUA PAPER+胸针</text>
+            <text>帆布袋</text>
+            <text>胸针</text>
+        </view>
+        <view class="price_image">
+            <view class="image_box">
+                <image src="/image/test1.jpg" mode="aspectFit"></image>
+            </view>
+            <view class="price">
+                <view>大知闲闲AURUA周边:帆布袋+AURUA PAPER+胸针</view>
+                <view class="number">￥188 <text>￥122</text></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="goods_num">
+        <text>数量</text>
+        <view class="choose_num">
+            <view>
+                <image src="/image/reduce.png"></image>
+            </view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}
+                </view>
+            </picker>
+            <view>
+                <image src="/image/add.png"></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="detail_info">
+        <view class="same_tit">商品详情</view>
+        <view class="content">
+            德雷克斯完全完全perk为充分开发快乐放大镜看见温柔我欺骗了某些成分
+        </view>
+
+        <view class="same_tit">使用条款</view>
+        <view class="content">
+            德雷克斯完全完全perk为充分开发快乐放大镜看见温柔我欺骗了某些成分
+        </view>
+    </view>
+
+    <view class="card_phone">
+        <view class="name">大知闲闲民宿</view>
+        <view><text>广西壮族自治区桂林市阳朔县</text>
+            <image src="/image/address.png"></image>
+        </view>
+        <view><text>0773-883999</text>
+            <image src="/image/callme.png"></image>
+        </view>
+    </view>
+
+    <!-- 热门推荐 -->
+    <view class="hotRecommend">
+        <view class="title">热门推荐</view>
+        <view class="cards">
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+            <GoodsCard></GoodsCard>
+        </view>
+    </view>
+
+    <van-goods-action>
+        <van-goods-action-icon icon="orders-o" text="订单" url="" />
+        <van-goods-action-icon icon="cart-o" text="购物车" info="5" url="" />
+        <van-goods-action-button text="加入购物车" type="warning" />
+        <van-goods-action-button text="立即购买" url="" />
+    </van-goods-action>
+</view>

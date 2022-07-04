@@ -79,5 +79,18 @@ Page({
      */
     onShareAppMessage() {
 
-    }
+    },
+    topic_preview(e) {
+        let that = this;
+        let url = e.currentTarget.dataset.url;
+        let previewImgArr = [];
+        let data = that.data.banner_arr;
+        for (let i in data) {
+            previewImgArr.push(data[i].src);
+        }
+        wx.previewImage({
+            current: url, // 当前显⽰图⽚的http链接
+            urls: previewImgArr // 需要预览的图⽚http链接列表
+        })
+    },
 })

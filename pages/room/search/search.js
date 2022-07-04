@@ -1,4 +1,4 @@
-// pages/room/room.js
+// pages/room/search/search.js
 Page({
 
     /**
@@ -11,6 +11,7 @@ Page({
         peopleNum: 1,
         childNum: 1,
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -19,9 +20,30 @@ Page({
     },
 
     /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady() {
+
+    },
+
+    /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload() {
 
     },
 
@@ -38,12 +60,11 @@ Page({
     onReachBottom() {
 
     },
-    goLogin() {
-        wx.navigateTo({
-            url: '/pages/Login/Login'
-        })
-    },
-    onConfirm() {
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage() {
 
     },
     onClose() {
@@ -82,9 +103,4 @@ Page({
     confirmRoom(){
         this.onCloseRoom()
     },
-    bindgosearch(){
-        wx.navigateTo({
-          url: '/pages/room/search/search',
-        })
-    }
 })

@@ -1,26 +1,10 @@
 // index.js
+import http from '../../api/request'
 Page({
     data: {
         clientHeight: 0,
         currentTab: 0,
         statusHeight: 0,
-        banner_arr: [{
-                src: '/image/test3.jpg',
-                id: 0
-            },
-            {
-                src: '/image/test5.jpg',
-                id: 1
-            },
-            {
-                src: '/image/test6.jpg',
-                id: 2
-            },
-            {
-                src: '/image/test7.jpg',
-                id: 3
-            }
-        ]
     },
     onLoad: function (options) {
         var that = this;
@@ -28,8 +12,6 @@ Page({
         wx.getSystemInfo({
             success: function (res) {
                 let custom = wx.getMenuButtonBoundingClientRect();
-                console.log('custom', custom)
-                console.log('res', res)
                 let height = custom.height + (custom.top - res.statusBarHeight) * 2 + res.statusBarHeight;
                 that.setData({
                     clientHeight: res.windowHeight,
@@ -37,6 +19,19 @@ Page({
                 });
             }
         });
+        http.queryIndex({
+              success: res => {
+                console.log('接口请求成功', res) 
+                var newcarousel=res.data.carouselList.slice(1)
+                this.setData({
+                    ...res.data,
+                    newcarousel:newcarousel
+                })
+              },
+              fail: err => {
+                console.log(err)
+              }
+        })
     },
 
     bindTouch: function (e) {
@@ -57,9 +52,9 @@ Page({
         let id = e.currentTarget.dataset.id;
         let url = e.currentTarget.dataset.url;
         let previewImgArr = [];
-        let data = that.data.banner_arr;
+        let data = that.data.newcarousel;
         for (let i in data) {
-            previewImgArr.push(data[i].src);
+            previewImgArr.push(data[i].icurl);
         }
         wx.previewImage({
             current: url, // 当前显⽰图⽚的http链接

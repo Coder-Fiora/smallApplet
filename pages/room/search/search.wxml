@@ -1,0 +1,63 @@
+<!--pages/room/search/search.wxml-->
+<TopBar tabs="true"></TopBar>
+<view class="top_banner">
+    <Swipper></Swipper>
+</view>
+<view class="title">
+    <view class="name" bindtap="bindgodetail">
+        <text>大知闲闲民宿</text>
+        <image src="/image/next.png"></image>
+    </view>
+    <view class="address" bindtap="openmap">
+        <text>广西壮族自治区桂林市阳朔县东岭路102号</text>
+        <image src="/image/daohang.png"></image>
+    </view>
+</view>
+<view class="code">
+    <view>
+        <view>协议代码</view>
+        <view>历史搜索协议价</view>
+    </view>
+    <input placeholder="输入协议代码" placeholder-style="color:#999999;font-weight:400" />
+</view>
+
+<view class="centerCard">
+    <view class="date">
+        <view class="startTime" data-type="start" bindtap="showTime">
+            <view>06-27</view>
+            <view>入住</view>
+        </view>
+        <view class="tag">1晚</view>
+        <view class="endTime" data-type="end" bindtap="showTime">
+            <view>06-28</view>
+            <view>离店</view>
+        </view>
+    </view>
+    <view class="roomInfo" bindtap="showRoomConfig">
+        <view>
+            <text>{{roomNum}}间房</text> · <text>{{peopleNum}}客人</text>
+        </view>
+        <van-icon name="arrow" />
+    </view>
+</view>
+<van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+    <van-popup custom-class='popup' show="{{ roomShow }}" round position="bottom" custom-style="height: 600rpx" bind:close="onCloseRoom" closeable>
+        <view class="roomConfig">
+            <view class="title">
+                入住人数及房间数
+            </view>
+            <view class="config">
+                <view>客房</view>
+                <van-stepper value="{{ roomNum }}" data-type="roomNum" bind:change="onChange" plus-class='add' />
+            </view>
+            <view class="config">
+                <view>成人（每间）</view>
+                <van-stepper value="{{ peopleNum }}" data-type="peopleNum" bind:change="onChange" plus-class='add' />
+            </view>
+            <view class="config">
+                <view>儿童（每间）</view>
+                <van-stepper value="{{ childNum }}" data-type="childNum" bind:change="onChange" plus-class='add' />
+            </view>
+            <van-button bindtap="confirmRoom" type="primary" block round="{{true}}" color='#e6212b'>确 定</van-button>
+        </view>
+    </van-popup>

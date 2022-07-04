@@ -39,7 +39,7 @@
     color: white;
     font-size: 44rpx;
     text-align: center;
-    top: 700rpx;
+    top: 500rpx;
     position: absolute;
     z-index: 2;
     letter-spacing: 6rpx;

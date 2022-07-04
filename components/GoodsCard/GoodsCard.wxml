@@ -1,5 +1,5 @@
-<view class="card" >
-    <image src="/image/test5.jpg" mode="aspectFill"></image>
+<view class="card" bindtap="godetail">
+    <view class="image"><image src="/image/test5.jpg" mode="aspectFill"></image></view>
     <text class="describe">糖 | 纵享映夏</text>
     <view class="money">
         <view class="new1">¥</view>

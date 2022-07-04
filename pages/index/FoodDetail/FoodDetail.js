@@ -34,5 +34,10 @@ Page({
         that.setData({
             currentTab: id
         });
+    },
+    godetail(){
+       wx.navigateTo({
+         url: '/pages/index/Detail/Detail?type=canting',
+       })
     }
 })

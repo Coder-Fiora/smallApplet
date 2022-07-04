@@ -10,7 +10,9 @@
         "pages/index/FoodDetail/FoodDetail",
         "pages/Login/Login",
         "components/GoodsCard/GoodsCard",
-        "components/Swipper/Swipper"
+        "components/Swipper/Swipper",
+        "pages/room/search/search",
+        "pages/mail/goodsdetail/goodsdetail"
     ],
     "window": {
         "backgroundTextStyle": "light",

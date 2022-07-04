@@ -1,1 +1,50 @@
 /* pages/components/TopBar/TopBar.wxss */
+.share_btn{
+    width: 58rpx;
+    height: 58rpx;
+    border-radius: 50%;
+    border: 1px solid #ededed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent!important;
+    padding: 0;
+}
+.share_btn::after{
+    content: none;
+}
+.share_btn image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.back_share{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ededed;
+    height: 56rpx;
+    width: 140rpx;
+    border-radius: 28rpx;
+    justify-content: center;
+    position: relative;
+}
+.back_share >image{
+    width: 40rpx;
+    height:40rpx;
+    padding: 10rpx;
+    padding-right: 20rpx;
+}
+.back_share .share_btn{
+    border: none;
+    margin: 0;
+    
+}
+.back_share::after{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 70rpx;
+  top: 13rpx;
+  width: 1px;
+  height: 30rpx;
+  background: #ededed;
+}
