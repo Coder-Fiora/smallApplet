@@ -15,7 +15,7 @@
 
 .swiper_box {
     height: 800rpx;
-    margin-top: 300rpx;
+    margin-top: 330rpx;
     position: relative;
     z-index: 66;
 }
@@ -33,7 +33,13 @@
     padding: 0 60rpx 0 100rpx;
     box-sizing: border-box;
 }
-
+.banner_content view{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+}
 .banner_content text {
     font-size: 28rpx;
     font-weight: 600;

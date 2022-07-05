@@ -1,4 +1,5 @@
 // pages/SpaList/SpaList.js
+import http from '../../../api/request'
 Page({
 
     /**
@@ -12,8 +13,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        var type=options.type;
+        if(type=='room'){
+            this.getroomlist()
+        }else if(type=='live'){
+            this.getLivelist()
+        }
+        else if(type=='spa'){
+            this.getSpalist()
+        }
         this.setData({
-            showlist:options.type
+            showlist:type
         })  
     },
 
@@ -23,7 +33,45 @@ Page({
     onReady() {
 
     },
-
+    getroomlist(){
+        http.queryRoom({
+            data:{roid:1},
+            success: res => {
+              this.setData({
+                  ...res.data,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getLivelist(){
+        http.queryThree({
+            data:{itid:1},
+            success: res => {
+              this.setData({
+                roomList:res.data.indexThreeList,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getSpalist(){
+        http.queryFour({
+            data:{ifid:1},
+            success: res => {
+              this.setData({
+                roomList:res.data.indexFourDesc,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
     /**
      * 生命周期函数--监听页面显示
      */
@@ -67,8 +115,10 @@ Page({
     },
     godetail(e){
         var type=e.currentTarget.dataset.type;
+        var obj=e.currentTarget.dataset.obj;
+        obj=JSON.stringify(obj);
         wx.navigateTo({
-          url: '/pages/index/Detail/Detail?type='+type,
+          url: '/pages/index/Detail/Detail?type='+type+'&obj='+obj,
         })
     }
 })

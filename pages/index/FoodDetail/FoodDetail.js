@@ -1,31 +1,22 @@
 // index.js
+import http from '../../../api/request'
 Page({
     data: {
         currentTab: 0,
-        banner_arr: [{
-            src: '/image/test10.jpg',
-            id: 0,
-            title:'1969吧'
-        },
-        {
-            src: '/image/test6.jpg',
-            id: 1,
-            title:'糖舍餐厅'
-        },
-        {
-            src: '/image/test8.jpg',
-            id: 2,
-            title:'1969吧'
-        },
-        {
-            src: '/image/test11.jpg',
-            id: 3,
-            title:'糖舍餐厅'
-        }
-    ]
     },
     onLoad: function (options) {
-       
+        http.queryIndexFood({
+            data:{fid:"1"},
+            success: res => {
+              console.log('接口请求成功', res) 
+              this.setData({
+                  ...res.data,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
     },
 
     bindTouch: function (e) {
@@ -35,9 +26,11 @@ Page({
             currentTab: id
         });
     },
-    godetail(){
+    godetail(e){
+       var obj=e.currentTarget.dataset.obj;
+       obj=JSON.stringify(obj);
        wx.navigateTo({
-         url: '/pages/index/Detail/Detail?type=canting',
+         url: '/pages/index/Detail/Detail?type=canting&obj='+obj,
        })
     }
 })

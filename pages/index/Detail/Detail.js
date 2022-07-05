@@ -1,4 +1,5 @@
 // pages/SpaDetail/SpaDetail.js
+import http from '../../../api/request'
 Page({
 
     /**
@@ -7,23 +8,6 @@ Page({
     data: {
         currentTab: 0,
         detailpage:1,
-        banner_arr: [{
-            src: '/image/test3.jpg',
-            id: 0
-        },
-        {
-            src: '/image/test5.jpg',
-            id: 1
-        },
-        {
-            src: '/image/test6.jpg',
-            id: 2
-        },
-        {
-            src: '/image/test7.jpg',
-            id: 3
-        }
-    ]
     },
 
     /**
@@ -31,9 +15,22 @@ Page({
      */
     onLoad(options) {
         var type=options.type;
+        var obj=JSON.parse(options.obj) ;
         this.setData({
+            detailinfo:obj,
             detailpage:type
-        }) 
+        })
+        if(type=='main'){
+            this.getControditon()
+        }else if(type=='canting'){
+            this.getCanting(obj.fdid);
+        }else if(type=='roomdetail'){
+            this.getRoomdetail(obj.rdid);
+        }else if(type=='live'){
+            this.getThreedetail(obj.tdid);
+        }else if(type=='room'){
+            this.getfourdetail(obj.fdid);
+        }
     },
 
     /**
@@ -87,22 +84,77 @@ Page({
             path: '/pages/index/Detail/Detail',
         }
     },
-    topic_preview(e) {
-        let that = this;
-        let url = e.currentTarget.dataset.url;
-        let previewImgArr = [];
-        let data = that.data.banner_arr;
-        for (let i in data) {
-            previewImgArr.push(data[i].src);
-        }
-        wx.previewImage({
-            current: url, // 当前显⽰图⽚的http链接
-            urls: previewImgArr // 需要预览的图⽚http链接列表
-        })
-    },
+    
     bindcallphone(){
         wx.makePhoneCall({
           phoneNumber: '0773-8883999',
         })
+    },
+    getControditon(){
+        http.queryControdition({
+            success: res => {
+              this.setData({
+                  ...res.data,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getCanting(id){
+        http.queryCanting({
+            data:{fdid:id},
+            success: res => {
+              this.setData({
+                pictureList:res.data.foodPictureList,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getRoomdetail(id){
+        http.queryRoomdetail({
+            data:{rdid:id},
+            success: res => {
+              console.log('接口请求成功', res) 
+              this.setData({
+                pictureList:res.data.roomPictureList,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getThreedetail(id){
+        http.queryThreedetail({
+            data:{tdid:id},
+            success: res => {
+              console.log('接口请求成功', res) 
+              this.setData({
+                pictureList:res.data.indexThreeList,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getfourdetail(id){
+        http.queryFourDetail({
+            data:{fdid:id},
+            success: res => {
+              console.log('接口请求成功', res) 
+              this.setData({
+                pictureList:res.data.indexFourList,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
     }
 })

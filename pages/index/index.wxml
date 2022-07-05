@@ -52,7 +52,7 @@
                 <text class="index_more">了解更多</text>
             </view>
         </view>
-        <view class="right_image" data-type="live" bindtap="goDetail">
+        <view class="right_image" data-type="live" bindtap="goDetailList">
             <view class="info_box">
                 <view class="index_title">{{indexThree.title}}</view>
                 <view class="index_info">

@@ -1,10 +1,10 @@
 <view class="card" bindtap="godetail">
-    <view class="image"><image src="/image/test5.jpg" mode="aspectFill"></image></view>
-    <text class="describe">糖 | 纵享映夏</text>
+    <view class="image"><image src="{{obj.purl}}" mode="aspectFill"></image></view>
+    <text class="describe">{{obj.name}}</text>
     <view class="money">
         <view class="new1">¥</view>
-        <view class="new2">199</view>
+        <view class="new2">{{obj.newprice}}</view>
         <view class="origin1">¥</view>
-        <view class="origin2">220</view>
+        <view class="origin2">{{obj.price}}</view>
     </view>
 </view>

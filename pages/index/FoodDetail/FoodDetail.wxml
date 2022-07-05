@@ -1,18 +1,18 @@
 <view class="top_banner_box">
     <swiper current="{{currentTab}}" duration="1000" bindchange="bindTouch" circular="true" class="swiper_box" previous-margin="150rpx">
-        <swiper-item wx:for="{{banner_arr}}" wx:key="index" class="banner_box">
+        <swiper-item wx:for="{{foodDescList}}" wx:key="index" class="banner_box">
             <view class="image_background">
-                <image class="banner_image {{currentTab==index?'active':''}}" src="{{item.src}}" bindtap='godetail'></image>
+                <image class="banner_image {{currentTab==index?'active':''}}" src="{{item.coverurl}}" bindtap='godetail' data-obj="{{item}}"></image>
             </view>
         </swiper-item>
     </swiper>
 
     <!-- 判断显示哪一张图片 -->
     <view class="banner_content">
-        <text>{{banner_arr[currentTab].title}}</text>
-        <view>餐厅提供全天候的用餐体验，将本地新鲜食材用"田园到餐桌"的理念完美呈现。</view>
+        <text>{{foodDescList[currentTab].title}}</text>
+        <view>{{foodDescList[currentTab].details}}</view>
     </view>
     <view class="default_image">
-        <image src="{{banner_arr[currentTab].src}}"></image>
+        <image src="{{foodDescList[currentTab].coverurl}}"></image>
     </view>
 </view>

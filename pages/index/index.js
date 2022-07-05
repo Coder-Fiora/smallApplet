@@ -69,8 +69,10 @@ Page({
     },
     goDetail(e){
         var type=e.currentTarget.dataset.type;
+        var obj=type=="main"?this.data.indexIntroduction:'';
+        obj=JSON.stringify(obj)
         wx.navigateTo({
-          url: '/pages/index/Detail/Detail?type='+type
+          url: '/pages/index/Detail/Detail?type='+type+'&obj='+obj
         })
     },
     goFoodDetail(){

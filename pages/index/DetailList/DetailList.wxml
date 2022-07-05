@@ -1,50 +1,23 @@
 <!--pages/SpaList/SpaList.wxml-->
+<block  wx:if="{{showlist=='spa'}}">
+<view class="list" bindtap="godetail" wx:for="{{roomList}}" wx:key="index" data-type="room" data-obj="{{item}}">
+   <image mode="aspectFill" src="{{item.coverurl}}"></image>
+   <view class="title">
+        <view>{{item.title}}</view>   
+        <text>详情</text>
+   </view>
+   <view class="content">{{item.area}}</view>
+</view>
+</block>
 
-<view class="list" bindtap="godetail" wx:if="{{showlist=='spa'}}" data-type="room">
-   <image mode="aspectFill" src="/image/test7.jpg"></image>
+<block wx:if="{{showlist=='room' || showlist=='live'}}" >
+<view class="list"  data-type="{{showlist=='room'?'roomdetail':'live'}}" wx:for="{{roomList}}" wx:key="index" bindtap="godetail" data-obj="{{item}}">
+   <image mode="aspectFill" src="{{item.coverurl}}"></image>
    <view class="title">
-        <view>健身中心/童聚（儿童乐园）</view>   
+        <view>{{item.title}}</view>   
         <text>详情</text>
    </view>
-   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
+   <view class="content room_detail" wx:if="{{showlist=='room'}}">{{item.area}}㎡ {{item.type==1?'大床':'双床'}} {{item.isterrace==1?'露台':''}}</view>
+   <view class="content room_detail" wx:if="{{showlist=='live'}}">{{item.area}}</view>
 </view>
-<view class="list" bindtap="godetail" wx:if="{{showlist=='spa'}}" data-type="room">
-   <image mode="aspectFill" src="/image/test8.jpg"></image>
-   <view class="title">
-        <view>健身中心/童聚（儿童乐园）</view>   
-        <text>详情</text>
-   </view>
-   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
-</view>
-<view class="list" wx:if="{{showlist=='spa'}}" data-type="room">
-   <image mode="aspectFill" src="/image/test5.jpg"></image>
-   <view class="title">
-        <view>健身中心/童聚（儿童乐园）</view>   
-        <text>详情</text>
-   </view>
-   <view class="content">设计风格明快的健身房配有完整的健身设施，为宾客提供健身所需要的专业场所。</view>
-</view>
-<view class="list" wx:if="{{showlist=='room'}}" data-type="roomdetail">
-   <image mode="aspectFill" src="/image/test9.jpg"></image>
-   <view class="title">
-        <view>糖舍三居大床房</view>   
-        <text>详情</text>
-   </view>
-   <view class="content room_detail">55㎡ 大床 露台</view>
-</view>
-<view class="list" wx:if="{{showlist=='room'}}" data-type="roomdetail" bindtap="godetail">
-   <image mode="aspectFill" src="/image/test1.jpg"></image>
-   <view class="title">
-        <view>糖舍三居大床房</view>   
-        <text>详情</text>
-   </view>
-   <view class="content room_detail">55㎡ 大床 露台</view>
-</view>
-<view class="list" wx:if="{{showlist=='room'}}" data-type="roomdetail" bindtap="godetail">
-   <image mode="aspectFill" src="/image/test3.jpg"></image>
-   <view class="title">
-        <view>糖舍三居大床房</view>   
-        <text>详情</text>
-   </view>
-   <view class="content room_detail">55㎡ 大床 露台</view>
-</view>
+</block>

@@ -1,43 +1,20 @@
 // pages/mail/mail.js
+import http from '../../api/request'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        menus:[
-            {
-                icon:'/image/all.png',
-                title:'全部'
-            },
-            {
-                icon:'/image/liwu.png',
-                title:'精品店'
-            },
-            {
-                icon:'/image/xiangji.png',
-                title:'客房套餐'
-            },
-            {
-                icon:'/image/canyin.png',
-                title:'餐饮'
-            },
-            {
-                icon:'/image/game.png',
-                title:'玩乐'
-            },
-            {
-                icon:'/image/SPA.png',
-                title:'SPA'
-            },
-        ]
+        page:1,
+        tid:0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        this.getMalldata(1)
     },
 
     /**
@@ -79,7 +56,10 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-
+       var page=this.data.page;
+       var tid=this.data.tid;
+       page++;
+       this.getMallList(tid,page)
     },
 
     /**
@@ -87,5 +67,71 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+    getMalldata(page){
+        http.queryMall({
+            data:{
+                pageNum:page?page:1,
+                pageSize:4,
+            },
+            success: res => {
+              var data=res.data;
+              var nowprice=data.commodList;
+              nowprice.map(i=>{
+                 i.newprice=(i.price * i.dis).toFixed(2)
+              })
+              this.setData({
+                  ...data,
+              })
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    getMallList(tid,page){
+        if(this.data.hasload){return false};
+        var that=this;
+        console.log(tid)
+        http.queryMallList({
+            data:{
+                tid:tid+'',
+                pageNum:page?page:1,
+                pageSize:4,
+            },
+            success: res => {
+              var data=res.data;
+              var nowprice=data.commodList;
+              var list=that.data.commodList;
+              if(nowprice && nowprice.length>0){
+                  nowprice.map(i=>{
+                     i.newprice=(i.price * i.dis).toFixed(2)
+                  })
+                  list=list.concat(nowprice);
+                  that.setData({
+                      page:page,
+                      commodList:list
+                  })
+              }else{
+                that.setData({
+                     hasload:true
+                 })
+              }
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    checkType(e){
+        var tid=e.currentTarget.dataset.id;
+        this.setData({
+            tid:tid,
+            page:1,
+            commodList:[],
+            hasload:false
+        },()=>{
+            this.getMallList(tid,1)
+        })
     }
 })
