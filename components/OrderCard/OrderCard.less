@@ -1,0 +1,57 @@
+.xyflex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.orderCard {
+    padding: 30rpx;
+    background-color: #ffffff;
+    .top:extend(.xyflex){
+        margin-bottom: 20rpx;
+        view:nth-of-type(1){
+            color: #000000;
+            font-weight: bolder;
+        }
+        view:nth-of-type(2){
+            color: #c81a2b;
+            font-size: 28rpx;
+        }
+    }
+    .middle:extend(.xyflex){
+        image{
+            width: 160rpx;
+            height: 160rpx;
+            border: 1px solid #000;
+            margin-right: 15rpx;
+        }
+        .subTitle{
+            font-size: 22rpx;
+            color: #969696;
+            margin-top: 10rpx;
+        }
+        .money{
+            view:nth-of-type(1){
+                color: #c81a2b;
+            }
+            text{
+                font-size: 24rpx;
+            }
+            view:nth-of-type(2){
+                color: #999999;
+                font-size: 22rpx;
+                margin-top: 10rpx;
+            }
+        }
+    }
+    .handle:extend(.xyflex){
+        justify-content: flex-end;
+        font-size: 28rpx;
+        >view{
+            padding: 10rpx;
+            margin-right: 40rpx;
+        }
+    }
+}
+.empty{
+    // padding: 0 30rpx;
+}

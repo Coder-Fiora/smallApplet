@@ -1,0 +1,20 @@
+<TopBar></TopBar>
+<view>
+    <van-tabs active="{{ active }}" bind:change="onChange">
+        <van-tab title="全部">
+            <OrderCard></OrderCard>
+        </van-tab>
+        <van-tab title="待发货">
+            <OrderCard></OrderCard>
+        </van-tab>
+        <van-tab title="待收货">
+            <OrderCard></OrderCard>
+        </van-tab>
+        <van-tab title="待使用">
+           
+        </van-tab>
+        <van-tab title="已完成">
+           
+        </van-tab>
+    </van-tabs>
+</view>

@@ -1,0 +1,16 @@
+.hotRecommend {
+    padding: 30rpx 0;
+    margin-top: 20rpx;
+}
+
+.hotRecommend .title {
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+
+.hotRecommend .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 50rpx;
+}

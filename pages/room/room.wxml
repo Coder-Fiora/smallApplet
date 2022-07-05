@@ -43,17 +43,7 @@
         </view>
         <van-button type="primary" block round="{{true}}" color='#e6212b' bindtap="bindgosearch">查 询</van-button>
     </view>
-    <view class="hotRecommend">
-        <view class="title">热门推荐</view>
-        <view class="cards">
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-        </view>
-    </view>
+    <HotRecommend />
     <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
     <van-popup custom-class='popup' show="{{ roomShow }}" round position="bottom" custom-style="height: 600rpx" bind:close="onCloseRoom" closeable>
         <view class="roomConfig">

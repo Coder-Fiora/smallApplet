@@ -1,0 +1,11 @@
+<view class="hotRecommend">
+    <view class="title">热门推荐</view>
+    <view class="cards">
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+        <GoodsCard></GoodsCard>
+    </view>
+</view>

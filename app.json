@@ -12,7 +12,10 @@
         "components/GoodsCard/GoodsCard",
         "components/Swipper/Swipper",
         "pages/room/search/search",
-        "pages/mail/goodsdetail/goodsdetail"
+        "pages/mail/goodsdetail/goodsdetail",
+        "pages/mycenter/ShopOrders/ShopOrders",
+        "components/OrderCard/OrderCard",
+        "components/HotRecommend/HotRecommend"
     ],
     "window": {
         "backgroundTextStyle": "light",

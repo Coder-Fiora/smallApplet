@@ -1,4 +1,4 @@
-// pages/mycenter/mycenter.js
+// components/HotRecommend/HotRecommend.js
 Page({
 
     /**
@@ -7,12 +7,7 @@ Page({
     data: {
 
     },
-    goPage(e){
-      const type =  e.currentTarget.dataset.type
-      wx.navigateTo({
-        url: `/pages/mycenter/${type}/${type}`
-      })
-    },
+
     /**
      * 生命周期函数--监听页面加载
      */
