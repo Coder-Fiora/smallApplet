@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "TopBar": "/components/TopBar/TopBar",
+        "HotRecommend": "/components/HotRecommend/HotRecommend",
+        "van-empty": "@vant/weapp/empty/index"
+    },
+    "navigationStyle": "custom"
+}

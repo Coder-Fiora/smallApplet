@@ -1,0 +1,11 @@
+<TopBar tabs="{{true}}"></TopBar>
+<view class="coupons">
+    <block wx:if="{{!isHistory}}">
+        <view class="exchange">
+            <input class="input" placeholder="请输入兑换码（区分大小写）" />
+            <van-button size='small' type='danger'>兑换</van-button>
+        </view>
+    </block>
+    <van-empty description="没有{{isHistory?'历史':''}}卡券" />
+    <view wx:if="{{!isHistory}}" class="historical" bindtap="goHistory">历史卡券</view>
+</view>

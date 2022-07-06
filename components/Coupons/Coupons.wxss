@@ -1,0 +1,26 @@
+.coupons {
+  padding-top: 30rpx;
+  position: relative;
+}
+.coupons .exchange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60rpx;
+}
+.coupons .exchange .input {
+  flex: 1;
+  background-color: #f8f8f8;
+  padding: 10rpx;
+  margin-right: 20rpx;
+  color: #858585;
+}
+.coupons .historical {
+  position: fixed;
+  text-decoration: underline;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #535353;
+  font-size: 26rpx;
+}

@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index",
+        "TopBar": "/components/TopBar/TopBar",
+        "van-empty": "@vant/weapp/empty/index",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index"
+    },
+    "navigationStyle": "custom"
+}

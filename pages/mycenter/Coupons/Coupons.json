@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "Coupons": "/components/Coupons/Coupons"
+    },
+    "navigationStyle": "custom"
+}

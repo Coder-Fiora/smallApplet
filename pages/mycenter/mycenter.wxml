@@ -1,47 +1,49 @@
 <!--pages/mycenter/mycenter.wxml-->
 <view class="top_image">
-   <image mode="aspectFill" src="/image/test1.jpg"></image>
-   <view class="setting">
-      <image src="/image/set.png"></image>
-   </view>
-   <view class="head_image">
-       <view class="head_box"><image src="/image/head.png"></image></view>
-       <view>注册/登录</view>
-   </view>
+    <image mode="aspectFill" src="/image/test1.jpg"></image>
+    <view class="setting">
+        <image src="/image/set.png"></image>
+    </view>
+    <view class="head_image">
+        <view class="head_box">
+            <image src="/image/head.png"></image>
+        </view>
+        <view>注册/登录</view>
+    </view>
 </view>
 
 <view class="menue_list">
-   <view bindtap="goPage" data-type="ShopOrders"> 
-      <image src="/image/order.png"></image>
-      <text>商城订单</text>
-   </view>
-   <view bindtap="goPage" data-type="room"> 
-      <image src="/image/bed.png"></image>
-      <text>客房订单</text>
-   </view>
-   <view bindtap="goPage" data-type="coupons"> 
-      <image src="/image/youhui.png"></image>
-      <text>优惠券</text>
-   </view>
-   <view bindtap="goPage" data-type="card"> 
-      <image src="/image/ka.png"></image>
-      <text>卡券</text>
-   </view>
-   <view bindtap="goPage" data-type="booking"> 
-      <image src="/image/yuyue.png"></image>
-      <text>我的预约</text>
-   </view>
+    <view bindtap="goPage" data-type="ShopOrders">
+        <image src="/image/order.png"></image>
+        <text>商城订单</text>
+    </view>
+    <view bindtap="goPage" data-type="RoomOrders">
+        <image src="/image/bed.png"></image>
+        <text>客房订单</text>
+    </view>
+    <view bindtap="goPage" data-type="Coupons">
+        <image src="/image/youhui.png"></image>
+        <text>优惠券</text>
+    </view>
+    <view bindtap="goPage" data-type="CardCoupons">
+        <image src="/image/ka.png"></image>
+        <text>卡券</text>
+    </view>
+    <view bindtap="goPage" data-type="booking">
+        <image src="/image/yuyue.png"></image>
+        <text>我的预约</text>
+    </view>
 </view>
 
-<view class="cord">
+<view class="cord" bindtap="goPage" data-type="GiftRecords">
     <view class="left_info">
-      <image src="/image/liwu.png"></image><text>赠送记录</text>
+        <image src="/image/liwu.png"></image><text>赠送记录</text>
     </view>
     <image src="/image/right.png"></image>
 </view>
-<view class="cord">
+<view class="cord" bindtap="goPage" data-type="RefundRecords">
     <view class="left_info">
-      <image src="/image/back.png"></image><text>退款记录</text>
+        <image src="/image/back.png"></image><text>退款记录</text>
     </view>
     <image src="/image/right.png"></image>
 </view>

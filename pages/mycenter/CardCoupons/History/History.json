@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "CardCoupons": "/components/CardCoupons/CardCoupons"
+    },
+    "navigationStyle": "custom"
+}

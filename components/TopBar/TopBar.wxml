@@ -1,16 +1,15 @@
 <van-nav-bar title="大知闲闲民宿" fixed="true" placeholder="true" z-index="66">
-    
     <block wx:if="{{tabs}}">
-    <view slot="left" class="back_share" >
-       <image src="/image/prev.png" bindtap="bindprev"></image>
-       <button open-type="share" class="share_btn">
-           <image src="/image/share.png"></image>
-       </button>
-    </view>
+        <view slot="left" class="back_share">
+            <image src="/image/prev.png" bindtap="bindprev"></image>
+            <button open-type="share" class="share_btn">
+                <image src="/image/share.png"></image>
+            </button>
+        </view>
     </block>
     <block wx:else>
-    <button slot="left" class="share_btn" open-type="share">
-        <image src="/image/share.png"></image>
-    </button>
+        <button slot="left" class="share_btn" open-type="share">
+            <image src="/image/share.png"></image>
+        </button>
     </block>
 </van-nav-bar>

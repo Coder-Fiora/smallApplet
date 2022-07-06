@@ -1,0 +1,5 @@
+<TopBar tabs="{{false}}"/>
+<view>
+    <van-empty description="没有相关退款记录" />
+    <HotRecommend />
+</view>
