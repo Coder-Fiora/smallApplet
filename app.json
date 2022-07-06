@@ -15,7 +15,8 @@
         "pages/mail/goodsdetail/goodsdetail",
         "pages/mycenter/ShopOrders/ShopOrders",
         "components/OrderCard/OrderCard",
-        "components/HotRecommend/HotRecommend"
+        "components/HotRecommend/HotRecommend",
+        "pages/mail/mycar/mycar"
     ],
     "window": {
         "backgroundTextStyle": "light",

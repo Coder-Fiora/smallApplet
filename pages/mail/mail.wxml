@@ -3,14 +3,14 @@
     <Swipper list="{{mallPictureList}}"></Swipper>
 
     <view class="menu">
-        <view wx:for="{{mallTypeList}}" wx:key="index" class="{{index===tid-1?'active':''}}" bindtap="checkType" data-id="{{item.tid}}">
+        <view wx:for="{{mallTypeList}}" wx:key="index" class="{{index==tid?'active':''}}" bindtap="checkType" data-id="{{item.tid}}">
             <image src="{{item.curl}}"></image>
             {{item.name}}
         </view>
     </view>
     <view class="goods">
          <block wx:for="{{commodList}}" wx:key="index">
-           <GoodsCard url="/pages/mail/goodsdetail/goodsdetail" obj="{{item}}"></GoodsCard>
+           <GoodsCard url="/pages/mail/goodsdetail/goodsdetail?tid={{item.tid}}&&cid={{item.cid}}" obj="{{item}}"></GoodsCard>
          </block>
     </view>
 </view>

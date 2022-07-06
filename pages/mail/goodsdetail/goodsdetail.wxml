@@ -1,31 +1,43 @@
 <!--pages/mail/goodsdetail/goodsdetail.wxml-->
 <view class="goodsDetail">
-    <Swipper></Swipper>
+    <Swipper list="{{pictureList}}"></Swipper>
     <view class="title">
+        <view class="flex">
         <view>
-            <view>大知闲闲AURUA周边</view>
-            <text>大知闲闲AURUA周边</text>
+            <view>{{name || '大知闲闲周边'}}</view>
+            <text wx:if="{{specCount>1}}">{{commodityDesc.intr || '大知闲闲周边'}}</text>
+            <view class="goods_price" wx:if="{{specCount==1}}">￥279 <text>￥504</text></view>
         </view>
         <image class="shareGoods" src="/image/goods.png"></image>
+        </view>
+        <view class="yuyue_phone" wx:if="{{specCount==1}}">
+           <view class="phoneflex">
+             <image src="/image/phone2.png"></image><text>查看预约电话</text>
+           </view>
+           <image src="/image/right.png"></image>
+        </view>
     </view>
-    <view class="address">
+    
+    <view class="address" wx:if="{{tid==1}}">
         <text>快递</text>
-        <view>未添加收货地址，点击添加</view>
+        <view>{{!ifload?'登陆后查看运费,点击登录':surroundingInfo.useraddress?surroundingInfo.useraddress:'未添加收货地址，点击添加'}}</view>
     </view>
-    <view class="goods">
-        <view class="tit">大知闲闲AURUA周边</view>
+    <view class="goods" wx:if="{{specCount>1}}">
+        <view class="tit" >{{tid==2?'床型':name}}</view>
         <view class="type">
-            <text>帆布袋+AURUA PAPER+胸针</text>
-            <text>帆布袋</text>
-            <text>胸针</text>
+            <text class="{{index==typeid?'active':''}}" wx:for="{{specList}}" wx:key="{{index}}" bindtap="chooseType" data-type="{{index}}">{{item.name}}</text>
         </view>
         <view class="price_image">
             <view class="image_box">
-                <image src="/image/test1.jpg" mode="aspectFit"></image>
+                <image src="{{specList[typeid].surl}}" mode="aspectFit"></image>
             </view>
             <view class="price">
-                <view>大知闲闲AURUA周边:帆布袋+AURUA PAPER+胸针</view>
-                <view class="number">￥188 <text>￥122</text></view>
+                <view wx:if="{{tid==1}}">大知闲闲周边:{{specList[typeid].name}}</view>
+                <view wx:if="{{tid==2}}">床型：{{specList[typeid].name}}</view>
+                <view wx:else>{{specList[typeid].name}}</view>
+                <view class="number">￥{{specList[typeid].newprice}} <text>￥{{specList[typeid].price}}</text></view>
+                <view class="kucun" >库存：{{specList[typeid].stock}}份</view>
+                <view class="yuyue" wx:if="{{tid==2}}">在线预约</view>
             </view>
         </view>
     </view>
@@ -34,15 +46,15 @@
         <text>数量</text>
         <view class="choose_num">
             <view>
-                <image src="/image/reduce.png"></image>
+                <image bindtap="handleNumber" data-type="reduce" mode="aspectFit" src="/image/reduce.png"></image>
             </view>
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                 <view class="picker">
-                    {{array[index]}}
+                    {{number}}
                 </view>
             </picker>
             <view>
-                <image src="/image/add.png"></image>
+                <image bindtap="handleNumber" data-type="add" mode="aspectFit" src="/image/add.png"></image>
             </view>
         </view>
     </view>
@@ -50,27 +62,27 @@
     <view class="detail_info">
         <view class="same_tit">商品详情</view>
         <view class="content">
-            德雷克斯完全完全perk为充分开发快乐放大镜看见温柔我欺骗了某些成分
+         <rich-text nodes="{{commodityDesc.desc}}"></rich-text>
         </view>
 
         <view class="same_tit">使用条款</view>
         <view class="content">
-            德雷克斯完全完全perk为充分开发快乐放大镜看见温柔我欺骗了某些成分
+            <rich-text nodes="{{commodityDesc.terms}}"></rich-text>
         </view>
     </view>
 
     <view class="card_phone">
         <view class="name">大知闲闲民宿</view>
-        <view><text>广西壮族自治区桂林市阳朔县</text>
+        <view><text>{{commodityDesc.address }}</text>
             <image src="/image/address.png"></image>
         </view>
-        <view><text>0773-883999</text>
+        <view><text>{{commodityDesc.phone }}</text>
             <image src="/image/callme.png"></image>
         </view>
     </view>
 
     <!-- 热门推荐 -->
-    <view class="hotRecommend">
+    <!-- <view class="hotRecommend">
         <view class="title">热门推荐</view>
         <view class="cards">
             <GoodsCard></GoodsCard>
@@ -80,12 +92,20 @@
             <GoodsCard></GoodsCard>
             <GoodsCard></GoodsCard>
         </view>
-    </view>
+    </view> -->
 
-    <van-goods-action>
-        <van-goods-action-icon icon="orders-o" text="订单" url="" />
-        <van-goods-action-icon icon="cart-o" text="购物车" info="5" url="" />
-        <van-goods-action-button text="加入购物车" type="warning" />
-        <van-goods-action-button text="立即购买" url="" />
-    </van-goods-action>
+    <view class="goods_action">
+       <view class="order">
+         <image src="/image/order.png"></image>
+         <text>订单</text>
+         <view>5</view>
+       </view>
+       <view class="order">
+         <image src="/image/car.png"></image>
+         <text>购物车</text>
+         <view>5</view>
+       </view>
+       <view class="buycar" bindtap="addBuyCar">加入购物车</view>
+       <view class="buycar buy">立即购买</view>
+    </view>
 </view>
