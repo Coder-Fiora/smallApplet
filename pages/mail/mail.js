@@ -77,6 +77,10 @@ Page({
             success: res => {
               var data=res.data;
               var nowprice=data.commodList;
+              var typelist=data.mallTypeList;
+              var arr=[{tid:'0',name:'全部',curl:'/image/all.jpg'}];
+              typelist=arr.concat(typelist);
+              data.mallTypeList=typelist;
               nowprice.map(i=>{
                  i.newprice=(i.price * i.dis).toFixed(2)
               })

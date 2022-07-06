@@ -1,17 +1,18 @@
 /* pages/mail/goodsdetail/goodsdetail.wxss */
+.goodsDetail{
+    padding-bottom: 100rpx;
+}
 .title{
     padding: 30rpx 30rpx;
-    display: flex;
-    justify-content: space-between;
     font-size: 32rpx;
     line-height: 48rpx;
     letter-spacing: 2rpx;
-    border-bottom: 16rpx solid #ededed;
+    border-bottom: 16rpx solid #f6f6f6;
     font-weight: 500;
 }
 .title >view text{
     font-size: 24rpx;
-    color: #666666;
+    color: #999999;
     font-weight: normal;
 }
 .title image{
@@ -44,7 +45,7 @@
     flex-wrap: wrap;
     align-items: center;
     margin-top: 20rpx;
-    padding-bottom: 50rpx;
+    padding-bottom: 34rpx;
     border-bottom: 1px solid #ededed;
 }
 .goods .type text{
@@ -55,6 +56,11 @@
     font-size: 24rpx;
     color: #666666;
     margin-right: 18rpx;
+    margin-bottom: 16rpx;
+}
+.goods .type text.active{
+    border-color: #ee352b;
+    color: #ee352b;
 }
 .price_image{
     display: flex;
@@ -90,7 +96,7 @@
     display: flex;
     justify-content: space-between;
     padding: 40rpx 30rpx;
-    border-bottom: 16rpx solid #ededed;
+    border-bottom: 16rpx solid #f6f6f6;
     font-size: 28rpx;
     align-items: center;
 }
@@ -101,7 +107,7 @@
 }
 .goods_num .choose_num  .picker{
     padding: 10rpx 40rpx;
-    background-color: #ededed;
+    background-color: #f6f6f6;
     margin: 0 20rpx;
 }
 .goods_num .choose_num  >view image{
@@ -131,37 +137,38 @@
     top: 130%;
 }
 .detail_info .content{
-    font-size: 28rpx;
-    line-height: 44rpx;
-    text-indent: 2em;
+    font-size: 24rpx;
+    line-height: 48rpx;
     margin-top: 60rpx;
-    color: #333333;
+    color:#888888;
     padding-bottom: 50rpx;
+    text-align: justify;
 }
 .card_phone{
     width:690rpx;
-    height: 300rpx;
     border-radius: 12rpx;
     border: 1px solid #ededed;
     margin: 40rpx auto;
-    padding: 50rpx 30rpx;
+    padding: 40rpx 30rpx;
     font-size: 32rpx;
     box-sizing: border-box;
 }
 .card_phone text{
-    font-size: 28rpx;
+    font-size: 24rpx;
     line-height: 48rpx;
+    color: #555555;
 }
 .card_phone view{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .card_phone view image{
     width: 30rpx;
     height: 30rpx;
 }
 .card_phone .name{
-    margin-bottom: 60rpx;
+    margin-bottom: 40rpx;
 }
 
 .hotRecommend {
@@ -182,3 +189,111 @@
     justify-content: space-between;
     padding: 0 50rpx;
   }
+  .kucun{
+      font-size: 20rpx;
+      color: #555555;
+  }
+  .yuyue{
+      background-color: #ee352b;
+      color: white;
+      font-size: 20rpx;
+      text-align: center;
+      width: 110rpx;
+      height: 36rpx;
+      line-height: 35rpx;
+      margin-top: 6rpx;
+  }
+.goods_price{
+    color: #ee352b;
+    font-size: 32rpx;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 24rpx;
+}
+.goods_price text{
+    font-size: 20rpx;
+    color: #666666;
+    text-decoration: line-through;
+    margin-left: 10rpx;
+    letter-spacing: 0;
+}
+.flex{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.yuyue_phone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px dashed #f6f6f6;
+    border-radius: 12rpx;
+    padding: 10rpx 20rpx;
+    margin-top: 20rpx;
+}
+.phoneflex{
+    display: flex;
+    align-items: center;
+}
+.phoneflex image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 16rpx;
+}
+.yuyue_phone >image{
+    width: 22rpx;
+    height: 22rpx;
+}
+.yuyue_phone .phoneflex text{
+    font-size: 22rpx;
+    color: #666666;
+}
+.goods_action{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #f6f6f6;
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+}
+.goods_action .order{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20rpx;
+    position: relative;
+    width: 120rpx;
+}
+.goods_action .order image{
+    width: 36rpx;
+    height: 36rpx;
+}
+.goods_action .order view{
+    position: absolute;
+    right: 20rpx;
+    top: -6rpx;
+    font-size: 18rpx;
+    color: white;
+    width: 24rpx;
+    height: 24rpx;
+    border-radius: 50%;
+    background-color: #ee352b;
+    text-align: center;
+    line-height: 24rpx;
+}
+.buycar{
+    width: 210rpx;
+    height: 75rpx;
+    background-color: #ee352b;
+    color: white;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 75rpx;
+    margin-left: 50rpx;
+}
+.buy{
+    background-color: #000000;
+    margin-left: 10rpx;
+}

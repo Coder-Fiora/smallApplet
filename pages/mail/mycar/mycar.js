@@ -1,41 +1,20 @@
-// pages/mail/goodsdetail/goodsdetail.js
-import http from '../../../api/request'
+// pages/mail/mycar/mycar.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        array:[1,2,3,4,5,6,7,8,9],
-        index:0,
-        typeid:0,
-        number:1
+       list:[{name:'阳朔糖舍周边',content:'阳朔糖舍周边:胸针',price:'70',number:3,status:false},{name:'阳朔糖舍周边22',content:'阳朔糖舍周边:胸针22',price:'50',number:2,status:false}],
+       array:[1,2,3,4,5,6,7,8,9],
+       index:0,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        http.queryMallDetail({
-            data:{
-               cid:options.cid
-            },
-            success: res => {
-              console.log('接口请求成功', res) 
-              var data=res.data;
-              var speclist=data.specList;
-              speclist && speclist.map(i=>{
-                  i.newprice=(i.price * i.discount).toFixed(2)
-              })
-              this.setData({
-                  ...data,
-                  tid:options.tid
-              })
-            },
-            fail: err => {
-              console.log(err)
-            }
-      })
+
     },
 
     /**
@@ -93,15 +72,10 @@ Page({
             number
         })
     },
-    chooseType(e){
-       var type=e.currentTarget.dataset.type;
-       this.setData({
-        typeid:type
-       })
-    },
     handleNumber(e){
         var type=e.currentTarget.dataset.type;
-        var number=this.data.number;
+        var number=e.currentTarget.dataset.obj;
+        var idx=e.currentTarget.dataset.index;
         if(type=='add'){
             number++
         }else{
@@ -109,10 +83,7 @@ Page({
         }
         number=number<1?1:number;
         this.setData({
-            number
+            ["list["+idx+"].number"]:number
         })
     },
-    addBuyCar(){
-
-    }
 })

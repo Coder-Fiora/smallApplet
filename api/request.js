@@ -37,6 +37,9 @@ function queryMall(params) {
 function queryMallList(params) { 
     http('mall/getMallListByType', 'post', params)  
 } 
+function queryMallDetail(params) { 
+    http('mall/getMallDesc', 'post', params)  
+} 
 export default { // 暴露接口
     queryIndex,
     queryControdition,
@@ -49,5 +52,6 @@ export default { // 暴露接口
     queryFour,
     queryFourDetail,
     queryMall,
-    queryMallList
+    queryMallList,
+    queryMallDetail
 }

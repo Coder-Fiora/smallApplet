@@ -24,7 +24,8 @@
         "pages/mycenter/CardCoupons/CardCoupons",
         "pages/mycenter/CardCoupons/History/History",
         "pages/mycenter/GiftRecords/GiftRecords",
-        "pages/mycenter/RefundRecords/RefundRecords"
+        "pages/mycenter/RefundRecords/RefundRecords",
+        "pages/mail/mycar/mycar"
     ],
     "window": {
         "backgroundTextStyle": "light",

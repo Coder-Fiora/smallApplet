@@ -1,0 +1,54 @@
+<!--pages/mail/mycar/mycar.wxml-->
+<TopBar></TopBar>
+<view class="maneger">
+    <text>我的购物车</text>
+    <view>管理</view>
+</view>
+<view class="likegoods">
+    <checkbox-group bindchange="checkboxChange">
+        <block wx:for="{{list}}" wx:key="index">
+            <view class="head">
+                <view>
+                    <checkbox class="checkbox" value="" checked="{{item.status}}" />
+                </view>
+                <view>
+                    <view class="home">
+                        <image src="/image/store.png"></image> 大知闲闲民宿 <image src="/image/next.png"></image>
+                    </view>
+                    <view class="content_price">
+                        <view class="left_image">
+                            <image src="/image/test1.jpg" mode="aspectFill"></image>
+                        </view>
+                        <view class="content">
+                            <view class="title">{{item.name}}</view>
+                            <view class="price_box">
+                                <text>￥{{item.price}}</text>
+                                <view class="choose_num">
+                                    <view>
+                                        <image bindtap="handleNumber" data-obj="{{item.number}}" data-index="{{index}}" data-type="reduce" src="/image/reduce.png"></image>
+                                    </view>
+                                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                                        <view class="picker">
+                                            {{item.number}}
+                                        </view>
+                                    </picker>
+                                    <view>
+                                        <image bindtap="handleNumber" data-obj="{{item.number}}" data-index="{{index}}" data-type="add" src="/image/add.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </checkbox-group>
+
+    <view class="compute">
+        <label class="chooseall" for=""><checkbox checked=""  bindtap="selectall" />全选</label>
+        <view class="all_price">
+           总计：￥<text>0</text>
+        </view>
+        <view class="hanlecompute">结算</view>
+    </view>
+</view>
