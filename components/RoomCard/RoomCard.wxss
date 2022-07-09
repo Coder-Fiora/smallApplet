@@ -1,0 +1,95 @@
+.roomCard {
+  padding: 20rpx 30rpx;
+  background: #ffffff;
+  border-bottom: 10rpx solid #f4f4f4;
+}
+.roomCard .topInfo {
+  display: flex;
+}
+.roomCard .topInfo image {
+  flex-shrink: 0;
+  width: 140rpx;
+  height: 140rpx;
+  border: 1px solid #000;
+  margin-right: 10rpx;
+}
+.roomCard .topInfo .info {
+  flex: 1;
+}
+.roomCard .topInfo .info .title {
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.roomCard .topInfo .info .title .arr {
+  font-size: 20rpx;
+}
+.roomCard .topInfo .info .roomInfo {
+  color: #a0a0a0;
+  font-size: 22rpx;
+  margin-bottom: 6rpx;
+}
+.roomCard .topInfo .info .tip {
+  color: #e6c7a4;
+  font-size: 20rpx;
+}
+.roomCard .topInfo .info .tip .icon {
+  margin-right: 5rpx;
+}
+.roomCard .topInfo .collapse {
+  width: 100%;
+  font-size: 20rpx;
+  color: #a1a1a1;
+  text-align: right;
+}
+.roomCard .topInfo .collapse .icon {
+  transition: all 0.3s;
+}
+.roomCard .topInfo .collapse .icon.open {
+  transform: rotate(0deg);
+}
+.roomCard .topInfo .collapse .icon.close {
+  transform: rotate(180deg);
+}
+.roomCard .bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #f3f3f3;
+  padding-top: 20rpx;
+  margin-top: 20rpx;
+}
+.roomCard .bottomInfo .left .title {
+  font-size: 30rpx;
+}
+.roomCard .bottomInfo .left .tip1 {
+  font-size: 22rpx;
+  color: #b23f47;
+  margin: 10rpx 0;
+}
+.roomCard .bottomInfo .left .tip2 {
+  font-size: 22rpx;
+  color: #989898;
+}
+.roomCard .bottomInfo .right view:nth-of-type(1) {
+  text-align: right;
+  color: #d05f6a;
+  font-size: 22rpx;
+}
+.roomCard .bottomInfo .right .money {
+  display: flex;
+}
+.roomCard .bottomInfo .right .money > view:nth-of-type(1) {
+  text-align: right;
+  color: #d05f6a;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+.roomCard .bottomInfo .right .money > view:nth-of-type(1) text {
+  font-weight: normal;
+  font-size: 20rpx;
+}
+.roomCard .bottomInfo .right .money .btn {
+  font-size: 10rpx;
+  color: #fff;
+}

@@ -2,7 +2,11 @@
     "usingComponents": {
         "van-button": "@vant/weapp/button/index",
         "TopBar":"/components/TopBar/TopBar",
-        "Swipper": "/components/Swipper/Swipper"
+        "RoomCard":"/components/RoomCard/RoomCard",
+        "Swipper": "/components/Swipper/Swipper",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-calendar": "@vant/weapp/calendar/index",
+        "van-stepper": "@vant/weapp/stepper/index"
     },
     "navigationStyle": "custom"
 }

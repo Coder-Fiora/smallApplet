@@ -60,6 +60,18 @@ function queryChangeaddress(params) {
 } 
 function queryDefaultaddress(params) { 
     http('mall/updateDefaultAddress', 'post', params)  
+}
+// 商城订单
+function getMallOrderList(params) { 
+    http('mall/getMallOrderList', 'post', params)  
+} 
+// 房间列表
+function guestRoomIndexLoad(params) { 
+    http('guest/guestRoomIndexLoad', 'post', params)  
+} 
+// 房间详情
+function guestRoomTypeDetails(params) { 
+    http('guest/guestRoomTypeDetails', 'post', params)  
 } 
 export default { // 暴露接口
     queryIndex,
@@ -81,5 +93,8 @@ export default { // 暴露接口
     queryAddaddress,
     queryAddressList,
     queryChangeaddress,
-    queryDefaultaddress
+    queryDefaultaddress,
+    getMallOrderList,
+    guestRoomIndexLoad,
+    guestRoomTypeDetails
 }

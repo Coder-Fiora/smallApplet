@@ -1,0 +1,14 @@
+<van-overlay show="{{ visible }}" bind:click="close">
+    <view class="container">
+        <Swipper list="{{data.roomtypePictureList}}" />
+        <view class="info">
+            <view class="title">{{data.roomType.name}}</view>
+            <view class="basic">基本信息</view>
+            <view class="area">面积：{{data.roomType.area}}m²</view>
+            <view class="floor">楼层：{{data.roomType.floor}}F</view>
+            <view class="width">床宽：{{data.roomType.bwidth}}</view>
+            <view class="gift">专享礼遇</view>
+            <rich-text nodes="{{data.roomType.additional}}"></rich-text>
+        </view>
+    </view>
+</van-overlay>

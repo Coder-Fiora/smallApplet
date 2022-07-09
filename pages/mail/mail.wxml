@@ -1,5 +1,5 @@
 <view class="mail">
-    <TopBar></TopBar>
+    <TopBar tabs="{{true}}"></TopBar>
     <Swipper list="{{mallPictureList}}"></Swipper>
 
     <view class="menu">

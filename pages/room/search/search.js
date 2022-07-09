@@ -1,4 +1,6 @@
 // pages/room/search/search.js
+import http from '../../../api/request'
+import moment from 'moment'
 Page({
 
     /**
@@ -7,65 +9,32 @@ Page({
     data: {
         show: false, //日历
         roomShow: false, //房间
+        startDate: moment().format('MM-DD'),
+        endDate: moment().add(1, 'days').format('MM-DD'),
+        dataRange: [moment().format('YYYY-MM-DD'), moment().add(1, 'days').format('YYYY-MM-DD')],
         roomNum: 1,
         peopleNum: 1,
         childNum: 1,
+        picList: [], //轮播
+        roomInfo: {}, //房间信息
+        roomList: [], // 房间列表
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+        http.guestRoomIndexLoad({
+            data: {},
+            success: (res) => {
+                const { guestroomInfo, pictureList, roomTypePriceList } = res.data || {}
+                this.setData({
+                    picList: pictureList,
+                    roomInfo: guestroomInfo,
+                    roomList: roomTypePriceList,
+                })
+            }
+        })
     },
     onClose() {
         this.setData({
@@ -73,8 +42,19 @@ Page({
         })
     },
     showTime() {
+        const { startDate, endDate } = this.data
+        const year = moment().format('YYYY')
         this.setData({
-            show: true
+            show: true,
+            dataRange: [year + '-' + startDate, year + '-' + endDate]
+        })
+    },
+    onConfirm(e) {
+        const { detail } = e
+        this.setData({
+            startDate: moment(detail[0]).format('MM-DD'),
+            endDate: moment(detail[1]).format('MM-DD'),
+            show: false
         })
     },
     showRoomConfig() {
@@ -88,19 +68,12 @@ Page({
         })
     },
     onChange(event) {
-        const {
-            currentTarget: {
-                dataset: {
-                    type
-                }
-            },
-            detail
-        } = event
+        const { currentTarget: { dataset: { type } }, detail } = event
         this.setData({
             [type]: detail
         })
     },
-    confirmRoom(){
+    confirmRoom() {
         this.onCloseRoom()
     },
 })

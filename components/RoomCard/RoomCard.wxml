@@ -1,0 +1,42 @@
+<view class="roomCard">
+    <view class="topInfo" bindtap="openDetail" data-info="{{data}}">
+        <image />
+        <view class="info">
+            <view class="title">{{data.name}}
+                <van-icon class="arr" name="play" />
+            </view>
+            <view class="roomInfo">{{data.area}}m² {{data.bedtype}}</view>
+            <view class="tip">
+                <van-icon class="icon" name="info-o" />每间最多入住{{data.pnum}}人
+            </view>
+            <view class="collapse" catchtap="changeOpen">
+                {{open?'收起':'展开'}}
+                <van-icon name="arrow-up" class="icon {{open?'open':'close'}}" />
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{open}}" wx:for="{{data.housePriceList}}" class="bottomInfo">
+        <view class="left">
+            <view class="title">{{item.name}}</view>
+            <view class="tip1">
+                <view wx:if="{{item.iscancel==2}}">
+                    <van-icon style="margin-right: 6rpx;" name="close" />不可取消
+                </view>
+                <view wx:else>
+                    <van-icon style="margin-right: 6rpx;" name="passed" />可取消
+                </view>
+            </view>
+            <view class="tip2">{{item.breakfast==='1'?'不含早餐':item.breakfast==='2'?'单早':'双早'}}</view>
+        </view>
+        <view class="right">
+            <view>仅剩{{item.hnum}}间</view>
+            <view class="money">
+                <view><text>￥</text>{{item.nowprice}}</view>
+                <view class="btn">
+                    <van-button size='mini' type="danger" disabled="{{item.hnum==0}}">{{item.hnum==0?'满房':'预定'}}</van-button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<RoomDetail visible="{{visilbe}}" bindonClose="onClose" data="{{roomInfo}}"/>

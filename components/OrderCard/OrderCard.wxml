@@ -1,26 +1,29 @@
-<view wx:if="{{false}}" class="orderCard">
-    <view class="top">
-        <view>订单编号：{{123123123}}</view>
-        <view>待支付 {{'29:38'}}</view>
-    </view>
-    <view class="middle">
+<view wx:if="{{orderList}}">
+    <view wx:for="{{orderList}}" wx:key="key" class="orderCard">
+        <view class="top">
+            <view>订单编号：{{item.oid}}</view>
+            <!-- <view>待支付 {{'29:38'}}</view> -->
+        </view>
         <view class="middle">
-            <image></image>
-            <view>
-                <view class="title">周边</view>
-                <view class="subTitle">胸针</view>
+            <view class="middle">
+                <image src="{{item.gurl}}"></image>
+                <view>
+                    <view class="title">{{item.gname}}</view>
+                    <view class="subTitle">{{item.sname}}</view>
+                </view>
+            </view>
+            <view class="money">
+                <view>
+                    <text>￥</text>{{item.price}}
+                </view>
+                <view>共 {{item.quantity}} 分</view>
             </view>
         </view>
-        <view class="money">
-            <view>
-                <text>￥</text>70
-            </view>
-            <view>共 {{1}} 分</view>
+        <view class="handle">
+            <!-- <view class="time">{{item.cretime}}</view> -->
+            <view wx:if="{{['1','2','3','4'].includes(item.status)}}">取消订单</view>
+            <van-button wx:if="{{item.status==1}}" type='danger' size='small' round>立即付款</van-button>
         </view>
-    </view>
-    <view class="handle">
-        <view>取消订单</view>
-        <van-button type='danger' size='small' round>立即付款</van-button>
     </view>
 </view>
 <view wx:else class="empty">
