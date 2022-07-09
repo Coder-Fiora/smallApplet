@@ -24,7 +24,6 @@
 .orderCard .middle image {
   width: 160rpx;
   height: 160rpx;
-  border: 1px solid #000;
   margin-right: 15rpx;
 }
 .orderCard .middle .subTitle {
@@ -46,8 +45,14 @@
 .orderCard .handle {
   justify-content: flex-end;
   font-size: 28rpx;
+  height: 30px;
+  line-height: 30px;
 }
 .orderCard .handle > view {
   padding: 10rpx;
   margin-right: 40rpx;
+}
+.orderCard .handle .time {
+  position: absolute;
+  left: 20rpx;
 }

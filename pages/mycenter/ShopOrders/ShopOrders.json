@@ -6,5 +6,6 @@
         "van-tabs": "@vant/weapp/tabs/index",
         "van-empty": "@vant/weapp/empty/index"
     },
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
 }

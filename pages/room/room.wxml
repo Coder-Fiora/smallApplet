@@ -34,16 +34,8 @@
             </view>
             <van-icon name="arrow" />
         </view>
-        <view class="code">
-            <view>
-                <view>协议代码</view>
-                <view>历史搜索协议价</view>
-            </view>
-            <input placeholder="输入协议代码" placeholder-style="color:#999999;font-weight:400" />
-        </view>
         <van-button type="primary" block round="{{true}}" color='#e6212b' bindtap="bindgosearch">查 询</van-button>
     </view>
-    <HotRecommend />
     <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
     <van-popup custom-class='popup' show="{{ roomShow }}" round position="bottom" custom-style="height: 600rpx" bind:close="onCloseRoom" closeable>
         <view class="roomConfig">

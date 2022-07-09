@@ -12,6 +12,11 @@
   "resolved" "https://registry.npmjs.org/@vant/weapp/-/weapp-1.10.3.tgz"
   "version" "1.10.3"
 
+"moment@^2.29.4":
+  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
+  "resolved" "https://registry.npmmirror.com/moment/-/moment-2.29.4.tgz"
+  "version" "2.29.4"
+
 "yarn@^1.22.19":
   "integrity" "sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ=="
   "resolved" "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"

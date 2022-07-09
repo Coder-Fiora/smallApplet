@@ -4,7 +4,7 @@ module.exports = {
       let sign = '' // 获取签名
       let data = {
         token,
-        sign
+        sign,
       } 
       if (params.data) { // 在这里判断一下data是否存在，params表示前端需要传递的数据，params是一个对象，有三组键值对，data：表示请求要发送的数据，success：成功的回调，fail：失败的回调，这三个字段可缺可无，其余字段会忽略
         for (let key in params.data) { // 在这里判断传过来的参数值为null，就删除这个属性

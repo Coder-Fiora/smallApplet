@@ -1,0 +1,21 @@
+<van-overlay show="{{ visible }}" bind:click="close">
+    <view class="container {{visible?'open':'close'}}">
+        <Swipper list="{{data.roomtypePictureList}}" height="400"/>
+        <view class="info">
+            <view class="title">{{data.roomType.name}}</view>
+            <view class="basic">基本信息</view>
+            <view class="area">面积：{{data.roomType.area}}m²</view>
+            <view class="floor">楼层：{{data.roomType.floor}}F</view>
+            <view class="width">床宽：{{data.roomType.bwidth}}</view>
+            <view class="gift">专享礼遇</view>
+            <rich-text nodes="{{data.roomType.additional}}"></rich-text>
+        </view>
+
+        <view class="info mgtop100">
+            <view class="title">房间设施服务</view>
+            <view class="room_sheshi">
+                <view wx:for="{{data.facilityReList}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</van-overlay>

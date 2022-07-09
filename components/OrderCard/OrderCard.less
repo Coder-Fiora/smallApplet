@@ -21,7 +21,6 @@
         image{
             width: 160rpx;
             height: 160rpx;
-            border: 1px solid #000;
             margin-right: 15rpx;
         }
         .subTitle{
@@ -46,9 +45,15 @@
     .handle:extend(.xyflex){
         justify-content: flex-end;
         font-size: 28rpx;
+        height: 30px;
+        line-height: 30px;
         >view{
             padding: 10rpx;
             margin-right: 40rpx;
+        }
+        .time{
+            position: absolute;
+            left: 20rpx;
         }
     }
 }

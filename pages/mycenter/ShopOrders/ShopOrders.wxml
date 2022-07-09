@@ -1,20 +1,8 @@
 <TopBar tabs="{{true}}"></TopBar>
 <view>
     <van-tabs active="{{ active }}" bind:change="onChange">
-        <van-tab title="全部">
-            <OrderCard></OrderCard>
-        </van-tab>
-        <van-tab title="待发货">
-            <OrderCard></OrderCard>
-        </van-tab>
-        <van-tab title="待收货">
-            <OrderCard></OrderCard>
-        </van-tab>
-        <van-tab title="待使用">
-           
-        </van-tab>
-        <van-tab title="已完成">
-           
+        <van-tab wx:for="{{tabs}}" wx:key="key" title="{{item.title}}">
+            <OrderCard orderList="{{orderList}}"></OrderCard>
         </van-tab>
     </van-tabs>
 </view>

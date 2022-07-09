@@ -1,4 +1,4 @@
-<swiper current="{{currentTab}}" duration="1000" autoplay circular="true" class="banner_box" indicator-dots="true" indicator-color="rgba(255,255,255)" indicator-active-color="rgba(255,126,158)">
+<swiper style="{{height?'height:'+height+'rpx':''}}" current="{{currentTab}}" duration="1000" autoplay circular="true" class="banner_box" indicator-dots="true" indicator-color="rgba(255,255,255)" indicator-active-color="rgba(255,126,158)">
     <swiper-item wx:for="{{list}}" wx:key="index">
         <view class="image_background">
             <image mode="aspectFill" class="banner_image" src="{{item.purl || item.murl}}" bindtap='topic_preview'  data-url='{{item.purl || item.murl}}'></image>

@@ -1,0 +1,110 @@
+.roomCard {
+    padding: 20rpx 30rpx;
+    background: #ffffff;
+    border-bottom: 10rpx solid #f4f4f4;
+    .topInfo {
+        display: flex;
+        // padding-bottom: 20rpx;
+        // border-bottom: 1px solid #f3f3f3;
+        image {
+            flex-shrink: 0;
+            width: 140rpx;
+            height: 140rpx;
+            border: 1px solid #000;
+            margin-right: 10rpx;
+        }
+
+        .info {
+            flex: 1;
+
+            .title {
+                margin-bottom: 10rpx;
+                display: flex;
+                align-items: center;
+                font-size: 30rpx;
+                .arr {
+                    font-size: 20rpx;
+                }
+            }
+
+            .roomInfo {
+                color: #a0a0a0;
+                font-size: 22rpx;
+                margin-bottom: 6rpx;
+            }
+
+            .tip {
+                color: #e6c7a4;
+                font-size: 20rpx;
+
+                .icon {
+                    margin-right: 5rpx;
+                }
+            }
+        }
+
+        .collapse {
+            width: 100%;
+            font-size: 20rpx;
+            color: #a1a1a1;
+            text-align: right;
+            .icon{
+                transition: all .3s;
+                &.open{
+                    transform: rotate(0deg);
+                }
+                &.close{
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    .bottomInfo {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #f3f3f3;
+        padding-top: 20rpx;
+        margin-top: 20rpx;
+        .left {
+            .title {
+                font-size: 30rpx;
+            }
+
+            .tip1 {
+                font-size: 22rpx;
+                color: #b23f47;
+                margin: 10rpx 0;
+            }
+
+            .tip2 {
+                font-size: 22rpx;
+                color: #989898;
+            }
+        }
+        .right{
+            view:nth-of-type(1){
+                text-align: right;
+                color: #d05f6a;
+                font-size: 22rpx;
+            }
+            .money{
+                display: flex;
+                >view:nth-of-type(1){
+                    text-align: right;
+                    color: #d05f6a;
+                    font-size: 34rpx;
+                    margin-right: 10rpx;
+                    text{
+                        font-weight: normal;
+                        font-size: 20rpx;
+                    }
+                }
+                .btn{
+                    font-size: 10rpx;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

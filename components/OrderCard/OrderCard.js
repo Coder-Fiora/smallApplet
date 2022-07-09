@@ -1,6 +1,8 @@
 // components/OrderCard/OrderCard.js
 Component({
-    properties: {},
+    properties: {
+        orderList: Array,
+    },
     methods: {
 
     }
