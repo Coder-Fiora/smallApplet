@@ -6,18 +6,20 @@
   transform: translate(-50%, -50%);
   background: #ffffff;
   width: 600rpx;
-  height: 980rpx;
+  height: 900rpx;
   border-radius: 16rpx;
   overflow: hidden;
 }
 .container .info {
   padding: 30rpx 30rpx 10rpx 30rpx;
   color: #676767;
+  font-size: 24rpx;
 }
 .container .info .title {
   color: #000;
   font-weight: bolder;
   margin-bottom: 10rpx;
+  font-size: 32rpx;
 }
 .container .info > view {
   margin: 5rpx 0;
