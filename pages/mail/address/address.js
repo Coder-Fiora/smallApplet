@@ -14,7 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-       this.getaddressList()
+
     },
     chooseAddress(e){
        var aid=e.currentTarget.dataset.id;
@@ -69,7 +69,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-       this.onLoad() 
+        this.getaddressList()
     },
 
     /**
@@ -107,10 +107,16 @@ Page({
 
     },
     confirmRoom(e){
-        var obj=e.currentTarget.dataset.obj || '';
-        obj=JSON.stringify(obj);
-        wx.navigateTo({
-          url: '/pages/mail/addAddress/addAddress?obj='+obj,
-        })
+        var obj=e.currentTarget.dataset.obj;
+        if(obj && obj.name){
+            obj=JSON.stringify(obj);
+            wx.navigateTo({
+              url: '/pages/mail/addAddress/addAddress?obj='+obj,
+            })
+        }else{
+            wx.navigateTo({
+                url: '/pages/mail/addAddress/addAddress',
+              })
+        }
     },
 })

@@ -3,7 +3,7 @@
 <radio-group bindchange="radioChange" wx:if="{{rewardAddressList.length>0}}">
     <view class="address_list" wx:for="{{rewardAddressList}}" wx:key="{{index}}">
         <label for="" class="label_add" bindtap="chooseAddress" data-id="{{item.aid}}">
-        <radio></radio>
+        <radio checked="{{item.isdefault==2}}"></radio>
         <view class="address_info">
             <view class="province">{{item.province}}{{item.twoadr}}</view>
             <view class="user_info">{{item.name}} {{item.phone}}</view>

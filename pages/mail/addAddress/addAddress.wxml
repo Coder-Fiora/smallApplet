@@ -43,3 +43,8 @@
     </view>
 </view>
 <view class="btn" bindtap="submit">确定</view>
+
+
+<view class="Map {{showmap?'active':''}}">
+    <map id="qqMap" style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}" show-location></map>
+</view>

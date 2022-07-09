@@ -261,3 +261,18 @@
       border-radius: 8rpx;
       letter-spacing: 2rpx;
   }
+  .Map{
+      position: absolute;
+      bottom: -100%;
+      transition: all 0.2s;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      z-index: 9999;
+  }
+  .Map.active{
+     bottom: 0;  
+  }
+  page{
+      overflow: hidden;
+  }

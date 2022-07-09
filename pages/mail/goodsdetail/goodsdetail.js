@@ -157,5 +157,27 @@ Page({
         wx.navigateTo({
           url: '/pages/mail/address/address',
         })
+    },
+    callMe(){
+        wx.makePhoneCall({
+            phoneNumber:this.data.commodityDesc.phone
+        })
+    },
+    goMap(){
+        wx.getLocation({
+            type: 'gcj02',
+            success:(res)=>{
+                wx.openLocation({
+                  latitude: res.latitude,
+                  longitude: res.longitude,
+                  scale:8,
+                  name:'大知闲闲民宿',
+                  address:this.data.commodityDesc.address,
+                  success:(r)=>{
+                     console.log(r)
+                  }
+                })
+            }
+          })
     }
 })

@@ -61,6 +61,9 @@ function queryChangeaddress(params) {
 function queryDefaultaddress(params) { 
     http('mall/updateDefaultAddress', 'post', params)  
 } 
+function queryDeletaddress(params) { 
+    http('mall/delAddress', 'post', params)  
+} //删除地址
 export default { // 暴露接口
     queryIndex,
     queryControdition,
@@ -81,5 +84,6 @@ export default { // 暴露接口
     queryAddaddress,
     queryAddressList,
     queryChangeaddress,
-    queryDefaultaddress
+    queryDefaultaddress,
+    queryDeletaddress
 }

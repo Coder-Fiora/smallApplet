@@ -1,4 +1,6 @@
 // pages/mail/addAddress/addAddress.js
+// let QQMapWX = require('./../../static/js/qqmap-wx-jssdk.js');
+// let qqmapsdk;
 const App=getApp();
 import http from '../../../api/request'
 Page({
@@ -7,10 +9,14 @@ Page({
    */
   data: {
     region: [],
+    showmap:false,
     consigneeName: "", 
     phone: "",
     detailedAddress: "",
-    ifchecked:false
+    ifchecked:false,
+    latitude: 0,//地图初次加载时的纬度坐标
+    longitude: 0, //地图初次加载时的经度坐标
+    name: "" //选择的位置名称
   },
   consigneeNameInput: function(e) {
     this.setData({
@@ -138,17 +144,36 @@ Page({
             id:obj.aid
           })
       }
+    //   qqmapsdk = new QQMapWX({
+    //     key: 'key'
+    //   });
+    //   this.moveToLocation();
   },
   bindRegionChange: function (e) {
     this.setData({
       region: e.detail.value
     })
   },
+  //移动选点
+  moveToLocation: function () {
+    var that = this;
+    wx.chooseLocation({
+      success: function (res) {
+        app.globalData.lat = res.latitude,
+        app.globalData.lng = res.longitude
+      
+        //选择地点之后返回的结果
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
- 
+
   },
  
   /**
@@ -185,7 +210,41 @@ Page({
   onReachBottom: function () {
  
   },
- 
+  deletAddress(){
+    wx.showModal({
+        title: '删除地址',
+        content:'确定删除该地址吗?',
+        showCancel:true,
+        cancelColor:'#999999',
+        confirmColor:'#fd2f0a',
+        success:res=>{
+            if(res.confirm){
+                http.queryDeletaddress({
+                    data:{
+                       uid:App.globalData.uid,
+                       aid:this.data.id
+                    },
+                    success: res => {
+                      if(res.code==200){
+                          wx.showToast({
+                            title: '删除成功',
+                            icon:'success'
+                          })
+                          setTimeout(function(){
+                             wx.navigateBack({
+                               delta: 1,
+                             })
+                          },1000)
+                      }
+                    },
+                    fail: err => {
+                      console.log(err)
+                    }
+              })
+            }
+        }
+    })
+  },
   /**
    * 用户点击右上角分享
    */
@@ -193,20 +252,8 @@ Page({
  
   },
   getLocation(){
-      wx.getLocation({
-        type: 'gcj02',
-        success:(res)=>{
-            wx.openLocation({
-              latitude: res.latitude,
-              longitude: res.longitude,
-              scale:8,
-              name:'测试',
-              address:'测试地址',
-              success:(r)=>{
-                 console.log(r)
-              }
-            })
-        }
+      this.setData({
+          showmap:true
       })
   }
 })

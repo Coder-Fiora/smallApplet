@@ -8,7 +8,7 @@
             <text wx:if="{{specCount>1}}">{{commodityDesc.intr || '大知闲闲周边'}}</text>
             <view class="goods_price" wx:if="{{specCount==1}}">￥279 <text>￥504</text></view>
         </view>
-        <image class="shareGoods" src="/image/goods.png"></image>
+        <button open-type="share" class="shareGoods"><image src="/image/goods.png"></image></button>
         </view>
         <view class="yuyue_phone" wx:if="{{specCount==1}}">
            <view class="phoneflex">
@@ -81,10 +81,10 @@
 
     <view class="card_phone">
         <view class="name">大知闲闲民宿</view>
-        <view><text>{{commodityDesc.address }}</text>
+        <view bindtap="goMap"><text>{{commodityDesc.address }}</text>
             <image src="/image/address.png"></image>
         </view>
-        <view><text>{{commodityDesc.phone }}</text>
+        <view bindtap="callMe"><text>{{commodityDesc.phone }}</text>
             <image src="/image/callme.png"></image>
         </view>
     </view>
@@ -110,7 +110,7 @@
        <view class="order" bindtap="gocar">
          <image src="/image/car.png"></image>
          <text>购物车</text>
-         <view>{{myCartCount || ''}}</view>
+         <view wx:if="{{myCartCount}}">{{myCartCount}}</view>
        </view>
        <view class="buycar" bindtap="addBuyCar">加入购物车</view>
        <view class="buycar buy">立即购买</view>
