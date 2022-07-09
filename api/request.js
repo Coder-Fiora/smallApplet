@@ -40,6 +40,27 @@ function queryMallList(params) {
 function queryMallDetail(params) { 
     http('mall/getMallDesc', 'post', params)  
 } 
+function queryLookshopping(params) { 
+    http('mall/checkShoppingCart', 'post', params)  
+} 
+function queryAddshopping(params) { 
+    http('mall/joinInShoppingCart', 'post', params)  
+} 
+function queryChangeshopping(params) { 
+    http('mall/updateInShoppingCart', 'post', params)  
+} 
+function queryAddaddress(params) { 
+    http('mall/saveShippingAddress', 'post', params)  
+} 
+function queryAddressList(params) { 
+    http('mall/getShippingAddress', 'post', params)  
+} 
+function queryChangeaddress(params) { 
+    http('mall/updateShippingAddress', 'post', params)  
+} 
+function queryDefaultaddress(params) { 
+    http('mall/updateDefaultAddress', 'post', params)  
+} 
 export default { // 暴露接口
     queryIndex,
     queryControdition,
@@ -53,5 +74,12 @@ export default { // 暴露接口
     queryFourDetail,
     queryMall,
     queryMallList,
-    queryMallDetail
+    queryMallDetail,
+    queryLookshopping,
+    queryAddshopping,
+    queryChangeshopping,
+    queryAddaddress,
+    queryAddressList,
+    queryChangeaddress,
+    queryDefaultaddress
 }

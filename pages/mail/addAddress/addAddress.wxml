@@ -1,0 +1,45 @@
+<!--pages/mail/addAddress/addAddress.wxml-->
+<view class="redact-address">
+    <view class="possess-layout">
+        <view class="mains">
+            <view class="address-msg">
+                <view class="item-msg">收货人</view>
+                <view class="section">
+                    <input type="text" placeholder="请填写收货人姓名" value="{{consigneeName}}" bindblur="consigneeNameInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg">
+                <view class="item-msg">手机号码</view>
+                <view class="section">
+                    <input type="number" placeholder="请填写收货人手机号" value="{{phone}}" maxlength="11" bindblur="phoneInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg">
+                <view class="item-msg">所在地区</view>
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                    <text wx:if="{{region==''}}">请选择省市区</text>
+                    <text wx:if="{{region!=''}}">{{region[0]}}、{{region[1]}}、{{region[2]}}</text>
+                </picker>
+            </view>
+            <view class="address-msg" bindtap="getLocation">
+                <view class="item-msg" style="width: 50%;">详细地址 (例如：**街**号)</view>
+                <image class="location" src="/image/address.png"></image>
+            </view>
+            <view class="detail_address">
+                <textarea placeholder="街道、楼牌号等" name="" id="" value="{{detailedAddress}}" bindblur="detailedAddressInput" placeholder-class="phcolor"></textarea>
+            </view>
+
+            <view class="default-setting">
+                <label class="defaul-setting-left" bindtap="bindSetdefault">
+                    <checkbox checked="{{ifchecked}}" ></checkbox>
+                    <view>设置默认地址</view>
+                </label>
+            </view>
+
+            <view class="deletaddress" wx:if="{{consigneeName}}" bindtap="deletAddress">
+                删除地址
+            </view>
+        </view>
+    </view>
+</view>
+<view class="btn" bindtap="submit">确定</view>

@@ -20,7 +20,15 @@
     
     <view class="address" wx:if="{{tid==1}}">
         <text>快递</text>
-        <view>{{!ifload?'登陆后查看运费,点击登录':surroundingInfo.useraddress?surroundingInfo.useraddress:'未添加收货地址，点击添加'}}</view>
+        <view class="kuaidi_address" wx:if="{{ifload && rewardAddress.oneadr}}" bindtap="address">
+           <view class="detail_address">
+              <view>云南昆明 <text></text> 大知闲闲</view>
+              <text>配送至:{{rewardAddress.oneadr}}</text>
+           </view>
+           <image mode="aspectFit" src="/image/right.png"></image>
+        </view>
+        <view wx:if="{{ifload && !rewardAddress.oneadr}}" bindtap="address">未添加收货地址，点击添加</view>
+        <view wx:if="{{!ifload}}">登陆后查看运费,点击登录</view>
     </view>
     <view class="goods" wx:if="{{specCount>1}}">
         <view class="tit" >{{tid==2?'床型':name}}</view>
@@ -35,7 +43,7 @@
                 <view wx:if="{{tid==1}}">大知闲闲周边:{{specList[typeid].name}}</view>
                 <view wx:if="{{tid==2}}">床型：{{specList[typeid].name}}</view>
                 <view wx:else>{{specList[typeid].name}}</view>
-                <view class="number">￥{{specList[typeid].newprice}} <text>￥{{specList[typeid].price}}</text></view>
+                <view class="number"><text>￥</text>{{specList[typeid].newprice}} <text>￥{{specList[typeid].price}}</text></view>
                 <view class="kucun" >库存：{{specList[typeid].stock}}份</view>
                 <view class="yuyue" wx:if="{{tid==2}}">在线预约</view>
             </view>
@@ -98,12 +106,11 @@
        <view class="order">
          <image src="/image/order.png"></image>
          <text>订单</text>
-         <view>5</view>
        </view>
-       <view class="order">
+       <view class="order" bindtap="gocar">
          <image src="/image/car.png"></image>
          <text>购物车</text>
-         <view>5</view>
+         <view>{{myCartCount || ''}}</view>
        </view>
        <view class="buycar" bindtap="addBuyCar">加入购物车</view>
        <view class="buycar buy">立即购买</view>

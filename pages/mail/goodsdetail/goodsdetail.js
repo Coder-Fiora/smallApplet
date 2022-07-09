@@ -1,5 +1,6 @@
 // pages/mail/goodsdetail/goodsdetail.js
-import http from '../../../api/request'
+import http from '../../../api/request';
+const App=getApp();
 Page({
 
     /**
@@ -9,27 +10,36 @@ Page({
         array:[1,2,3,4,5,6,7,8,9],
         index:0,
         typeid:0,
-        number:1
+        number:1,
+        ifload:true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+      this.setData({
+          cid:options.cid,
+          tid:options.tid
+      })
+    },
+    getdata(options){
         http.queryMallDetail({
             data:{
-               cid:options.cid
+               cid:options.cid,
+               uid:App.globalData.uid
             },
             success: res => {
-              console.log('接口请求成功', res) 
               var data=res.data;
               var speclist=data.specList;
               speclist && speclist.map(i=>{
                   i.newprice=(i.price * i.discount).toFixed(2)
               })
+              var address=data.rewardAddress;
+              var addressarr=address.oneadr.split(',')
+              address.oneadr=addressarr[0]+' '+addressarr[1]+' '+addressarr[2];
               this.setData({
-                  ...data,
-                  tid:options.tid
+                  ...data
               })
             },
             fail: err => {
@@ -37,7 +47,6 @@ Page({
             }
       })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -49,7 +58,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+     var options={
+         cid:this.data.cid,
+         tid:this.data.tid
+     }
+      this.getdata(options)
     },
 
     /**
@@ -113,6 +126,36 @@ Page({
         })
     },
     addBuyCar(){
-
+        var info=this.data.commodityDesc;
+        var cid=info.cid,sid=info.sid,quantity=this.data.number;
+        http.queryAddshopping({
+            data:{
+              uid:'u001',
+              cid:cid,
+              sid:sid,
+              quantity:quantity
+            },
+            success: res => {
+               if(res.code==200){
+                   wx.showToast({
+                     title: '添加成功',
+                     icon:'success'
+                   })
+               }
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+    },
+    gocar(){
+        wx.navigateTo({
+          url: '/pages/mail/mycar/mycar',
+        })
+    },
+    address(){
+        wx.navigateTo({
+          url: '/pages/mail/address/address',
+        })
     }
 })

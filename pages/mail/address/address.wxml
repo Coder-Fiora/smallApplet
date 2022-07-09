@@ -1,0 +1,21 @@
+<!--pages/mail/address/address.wxml-->
+<view class="chooseaddress">选择收货地址</view>
+<radio-group bindchange="radioChange" wx:if="{{rewardAddressList.length>0}}">
+    <view class="address_list" wx:for="{{rewardAddressList}}" wx:key="{{index}}">
+        <label for="" class="label_add" bindtap="chooseAddress" data-id="{{item.aid}}">
+        <radio></radio>
+        <view class="address_info">
+            <view class="province">{{item.province}}{{item.twoadr}}</view>
+            <view class="user_info">{{item.name}} {{item.phone}}</view>
+            <view wx:if="{{item.isdefault==2}}" class="default_label">默认地址</view>
+        </view>
+        </label>
+        <image src="/image/edit.png" class="changestate" bindtap="confirmRoom" data-obj="{{item}}"></image>
+    </view>
+</radio-group>
+<view class="empty" wx:else>
+    <van-empty description="还没有添加收货地址~" />
+</view>
+    <view class="add_address">
+        <van-button bindtap="confirmRoom" type="primary" block round="{{true}}" color='#e6212b'>+ 新增地址</van-button>
+    </view>

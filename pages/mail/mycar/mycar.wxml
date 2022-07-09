@@ -2,14 +2,14 @@
 <TopBar></TopBar>
 <view class="maneger">
     <text>我的购物车</text>
-    <view>管理</view>
+    <view bindtap="changemaneger">{{showmaneger?'管理':'完成'}}</view>
 </view>
 <view class="likegoods">
-    <checkbox-group bindchange="checkboxChange">
-        <block wx:for="{{list}}" wx:key="index">
+    <checkbox-group>
+        <block wx:for="{{mapList}}" wx:key="index" >
             <view class="head">
                 <view>
-                    <checkbox class="checkbox" value="" checked="{{item.status}}" />
+                    <checkbox class="checkbox" value="{{item.mcid}}" checked="{{item.checked}}" bindtap="radioChange" data-index="{{index}}" data-id="{{item.mcid}}" />
                 </view>
                 <view>
                     <view class="home">
@@ -17,23 +17,23 @@
                     </view>
                     <view class="content_price">
                         <view class="left_image">
-                            <image src="/image/test1.jpg" mode="aspectFill"></image>
+                            <image src="{{item.curl}}" mode="aspectFill"></image>
                         </view>
                         <view class="content">
-                            <view class="title">{{item.name}}</view>
+                            <view class="title">{{item.gname}}</view>
                             <view class="price_box">
-                                <text>￥{{item.price}}</text>
+                                <text><text>￥</text>{{item.price}}</text>
                                 <view class="choose_num">
                                     <view>
-                                        <image bindtap="handleNumber" data-obj="{{item.number}}" data-index="{{index}}" data-type="reduce" src="/image/reduce.png"></image>
+                                        <image bindtap="handleNumber" data-obj="{{item.quantity}}" data-index="{{index}}" data-type="reduce" src="/image/reduce.png"></image>
                                     </view>
-                                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                                    <picker bindchange="bindPickerChange" data-index="{{index}}" value="{{index}}" range="{{array}}">
                                         <view class="picker">
-                                            {{item.number}}
+                                            {{item.quantity}}
                                         </view>
                                     </picker>
                                     <view>
-                                        <image bindtap="handleNumber" data-obj="{{item.number}}" data-index="{{index}}" data-type="add" src="/image/add.png"></image>
+                                        <image bindtap="handleNumber" data-obj="{{item.quantity}}" data-index="{{index}}" data-type="add" src="/image/add.png"></image>
                                     </view>
                                 </view>
                             </view>
@@ -45,10 +45,11 @@
     </checkbox-group>
 
     <view class="compute">
-        <label class="chooseall" for=""><checkbox checked=""  bindtap="selectall" />全选</label>
-        <view class="all_price">
-           总计：￥<text>0</text>
+        <label class="chooseall" for=""><checkbox checked="{{isAllselected}}"  bindtap="selectall" />全选</label>
+        <view class="all_price" wx:if="{{showmaneger}}">
+           总计:￥<text>{{totalPrice}}</text>
         </view>
-        <view class="hanlecompute">结算</view>
+        <view class="hanlecompute" wx:if="{{showmaneger}}">结算</view>
+        <view class="hanlecompute redback" wx:if="{{!showmaneger}}" bindtap="delet">删除</view>
     </view>
 </view>

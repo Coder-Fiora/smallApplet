@@ -48,3 +48,9 @@
   height: 40rpx;
   margin-bottom: 5rpx;
 }
+.mail .menu>view:nth-of-type(1) image{
+    width: 54rpx;
+    height: 54rpx;
+    margin-bottom: -5rpx;
+    margin-top: -4rpx;
+}

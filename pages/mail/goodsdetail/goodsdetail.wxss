@@ -24,7 +24,7 @@
     align-items: center;
     padding: 40rpx 30rpx;
     border-bottom: 16rpx solid #ededed;
-    font-size: 28rpx;
+    font-size: 26rpx;
     letter-spacing: 2rpx;
 }
 .address view{
@@ -85,7 +85,10 @@
 .price_image .price .number{
    color: #ee352b;
 }
-.price_image .price .number text{
+.price_image .price .number text:nth-of-type(1){
+    font-size: 20rpx;
+}
+.price_image .price .number text:nth-of-type(2){
     text-decoration: line-through;
     color: #666666;
     font-size: 20rpx;
@@ -296,4 +299,34 @@
 .buy{
     background-color: #000000;
     margin-left: 10rpx;
+}
+.kuaidi_address{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+.kuaidi_address >image{
+    width: 20rpx;
+    height: 20rpx;
+}
+.kuaidi_address  .detail_address{
+    margin:0
+}
+.kuaidi_address  .detail_address view{
+   font-size: 26rpx;
+   display: flex;
+   align-items: center;
+   margin: 0;
+   color: #000;
+}
+.kuaidi_address  .detail_address view text{
+    display: block;
+    width: 1px;
+    height: 20rpx;
+    background-color: #ededed;
+    margin: 0 20rpx;
+}
+.kuaidi_address  .detail_address>text{
+    color: #999999;
+    font-size: 22rpx;
 }
