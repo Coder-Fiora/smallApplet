@@ -21,8 +21,9 @@
                         </view>
                         <view class="content">
                             <view class="title">{{item.gname}}</view>
+                            <view class="title guige">{{item.sname}}</view>
                             <view class="price_box">
-                                <text><text>￥</text>{{item.price}}</text>
+                                <text><text>￥</text>{{item.newprice}}</text>
                                 <view class="choose_num">
                                     <view>
                                         <image bindtap="handleNumber" data-obj="{{item.quantity}}" data-index="{{index}}" data-type="reduce" src="/image/reduce.png"></image>
@@ -49,7 +50,11 @@
         <view class="all_price" wx:if="{{showmaneger}}">
            总计:￥<text>{{totalPrice}}</text>
         </view>
-        <view class="hanlecompute" wx:if="{{showmaneger}}">结算</view>
+        <view class="hanlecompute" wx:if="{{showmaneger}}" bindtap="goDetail">结算</view>
         <view class="hanlecompute redback" wx:if="{{!showmaneger}}" bindtap="delet">删除</view>
     </view>
+</view>
+<view wx:if="{{!mapList || mapList.length==0}}" class="empty">
+    <van-empty description="还没有商品哦~" />
+    <view class="buy_btn" bindtap="gomail">去购物</view>
 </view>

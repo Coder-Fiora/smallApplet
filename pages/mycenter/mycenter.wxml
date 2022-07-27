@@ -1,14 +1,20 @@
 <!--pages/mycenter/mycenter.wxml-->
 <view class="top_image">
     <image mode="aspectFill" src="/image/test1.jpg"></image>
-    <view class="setting">
+    <view class="setting" catchtap="gosetting">
         <image src="/image/set.png"></image>
     </view>
-    <view class="head_image">
+    <view class="head_image" catchtap="gologin">
         <view class="head_box">
-            <image src="/image/head.png"></image>
+            <image wx:if="{{!token.uid}}" src="/image/head.png"></image>
+            <image class="myhead" wx:if="{{token.uid}}" src="{{userInfo.avatarurl}}"></image>
         </view>
-        <view>注册/登录</view>
+        <view wx:if="{{!token.uid}}">注册/登录</view>
+        <view wx:else>
+           <view class="nickname">{{userInfo.nikename}}</view>
+           <view class="vip_level"><image src="/image/vip.png" mode="aspectFit"></image> 微信会员</view>
+           <view class="vip_number">NO.{{vipNo}}</view>
+        </view>
     </view>
 </view>
 
@@ -35,15 +41,16 @@
     </view>
 </view>
 
-<view class="cord" bindtap="goPage" data-type="GiftRecords">
-    <view class="left_info">
-        <image src="/image/liwu.png"></image><text>赠送记录</text>
-    </view>
-    <image src="/image/right.png"></image>
-</view>
+
 <view class="cord" bindtap="goPage" data-type="RefundRecords">
     <view class="left_info">
         <image src="/image/back.png"></image><text>退款记录</text>
+    </view>
+    <image src="/image/right.png"></image>
+</view>
+<view class="cord" bindtap="goPage" data-type="cardManerger">
+    <view class="left_info">
+        <image src="/image/fapiao.png"></image><text>发票管理</text>
     </view>
     <image src="/image/right.png"></image>
 </view>

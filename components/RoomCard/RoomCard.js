@@ -5,7 +5,12 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        data: Object
+        data: Object,
+        startDate:String,
+        endDate:String,
+        roomNum:Number,
+        peopleNum:Number,
+        childNum:Number
     },
 
     /**
@@ -45,6 +50,33 @@ Component({
                         roomInfo: res.data
                     })
                 }
+            })
+        },
+        goorder(e){
+            var obj=e.currentTarget.dataset.obj;
+            if(obj.hnum==0){return false}
+            var proty=this.properties;
+            var pname= proty.data.name;
+            var cmid=obj.riid;
+            var hpid=obj.hpid;
+            var newobj={
+                cmid:cmid,
+                hpid:hpid,
+                pname:pname,
+                name:obj.name,
+                iscancel:obj.iscancel,
+                startDate:proty.startDate,
+                endDate:proty.endDate,
+                roomNum:proty.roomNum,
+                peopleNum:proty.peopleNum,
+                childNum:proty.childNum,
+                unitprice:obj.nowprice,
+                price:obj.price,
+                hnum:obj.hnum
+            }
+            newobj=JSON.stringify(newobj)
+            wx.navigateTo({
+              url: '/pages/room/order/order?obj='+newobj,
             })
         }
     }

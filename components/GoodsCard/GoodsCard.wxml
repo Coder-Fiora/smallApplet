@@ -1,5 +1,5 @@
 <view class="card" bindtap="godetail">
-    <view class="image"><image src="{{obj.purl}}" mode="aspectFill"></image></view>
+    <view class="image"><image src="{{obj.purl}}" mode="aspectFill" lazy-load></image></view>
     <text class="describe">{{obj.name}}</text>
     <view class="money">
         <view class="new1">¥</view>

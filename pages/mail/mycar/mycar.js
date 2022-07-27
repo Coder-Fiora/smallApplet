@@ -22,7 +22,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.lookcart()
+        var token=wx.getStorageSync('token');
+        var uid=token.uid;
+        this.lookcart(uid);
+        this.setData({
+          uid
+        })
+    },
+    gomail(){
+      wx.reLaunch({
+        url: '/pages/mail/mail',
+      })
     },
     radioChange(e){
        var that=this;
@@ -53,7 +63,7 @@ Page({
       let goods=this.data.mapList;
       goods.map(i=>{
           if(i.checked){
-            totalPrice+=i.price*i.quantity
+            totalPrice+=((i.price*i.discount*i.quantity).toFixed(2)*1)
           }
       })
       this.setData({
@@ -67,7 +77,28 @@ Page({
     onReady() {
 
     },
-
+    goDetail(){
+      var list=this.data.mapList;
+      var arr=[];
+      list.map(i=>{
+          if(i.checked){
+              var obj={
+                  number:i.quantity,
+                  tid:i.type,
+                  gname:i.gname,
+                  sname:i.sname,
+                  cid:i.cid,
+                  curl:i.curl,
+                  price:i.newprice,
+                  sid:i.sid
+              }
+              arr.push(obj)
+          }
+      })
+      wx.navigateTo({
+        url: '/pages/mail/mycar/Carpay?data='+JSON.stringify(arr),
+      })
+    },
     /**
      * 生命周期函数--监听页面显示
      */
@@ -129,6 +160,14 @@ Page({
         }else{
             number--
         }
+       
+        if(number<1){
+            wx.showToast({
+              title: '最后一件,不能再减了~',
+              icon:'none'
+            })
+            return false
+        }
         number=number<1?1:number;
         this.setData({
             ["mapList["+idx+"].quantity"]:number
@@ -173,18 +212,25 @@ Page({
            }
        })
     },
-    lookcart(){
+    lookcart(uid){
         http.queryLookshopping({
             data:{
-              uid:'u001'
+              uid:uid
             },
             success: res => {
-              let isAllselected=res.data.mapList.every(r=>r.checked);
-              this.setData({
-                  ...res.data,
-                  isAllselected
-              })
-              this.total()
+              if(res.data){
+                  let isAllselected=res.data.mapList.every(r=>r.checked);
+                  var data=res.data.mapList;
+    
+                  data.map(i=>{
+                      i.newprice=(i.price * i.discount).toFixed(2)
+                  })
+                  this.setData({
+                      mapList:data,
+                      isAllselected
+                  })
+                  this.total()
+              }  
             },
             fail: err => {
               console.log(err)
@@ -199,12 +245,17 @@ Page({
             },
             success: res => {
                if(res.code==200 && type=='del'){
+                   wx.showToast({
+                     title: '删除成功!',
+                     icon:'none'
+                   })
                    var list=this.data.mapList;
                    list.map(i=>{
                        if(i.mcid==mcid){
                            list.splice(i,1)
                        }
                    })
+                   this.onLoad()
                }  
             },
             fail: err => {

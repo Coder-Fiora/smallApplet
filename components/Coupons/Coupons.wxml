@@ -6,6 +6,25 @@
             <van-button size='small' type='danger'>兑换</van-button>
         </view>
     </block>
+    <view class="list_box" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="couponDeo"  >
+          <view class="couponValues">
+            <view class="symbol coin">￥</view>
+            <view class="symbol price ">50</view>
+          </view>
+          <view class="chit">代金券</view>
+        </view>
+        <view class="couponMsg">
+          <view class='sellout_box'>
+            <view class='sellout'>
+              可使用
+            </view>
+          </view>
+
+          <view class="shiyongName">满100-50</view>
+          <view class="couTime">2022.01.02-2022.03.06</view>
+        </view>
+    </view>
     <van-empty description="没有{{isHistory?'历史':''}}优惠券" />
     <view wx:if="{{!isHistory}}" class="historical" bindtap="goHistory">历史优惠券</view>
 </view>

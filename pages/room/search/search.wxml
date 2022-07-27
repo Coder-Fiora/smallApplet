@@ -19,7 +19,7 @@
             <view>{{startDate}}</view>
             <view>入住</view>
         </view>
-        <view class="tag">1晚</view>
+        <view class="tag">{{day}}晚</view>
         <view class="endTime" data-type="end" bindtap="showTime">
             <view>{{endDate}}</view>
             <view>离店</view>
@@ -27,13 +27,13 @@
     </view>
     <view class="roomInfo" bindtap="showRoomConfig">
         <view>
-            <text>{{roomNum}}间房</text> · <text>{{peopleNum}}客人</text>
+            <text>{{roomNum}}间房</text> · <text>{{peopleNum + childNum}}客人</text>
         </view>
         <van-icon name="arrow" />
     </view>
 </view>
 <view>
-    <RoomCard wx:for="{{roomList}}" wx:key="key" data="{{item}}" />
+    <RoomCard wx:for="{{roomList}}" wx:key="key" data="{{item}}" startDate="{{startYDate}}" endDate="{{endYDate}}" roomNum="{{roomNum}}" peopleNum="{{peopleNum}}" childNum="{{childNum}}" />
 </view>
 <van-calendar show="{{ show }}" default-date="{{dataRange}}" bind:close="onClose" bind:confirm="onConfirm" type="range" />
 <van-popup custom-class='popup' show="{{ roomShow }}" round position="bottom" custom-style="height: 600rpx" bind:close="onCloseRoom" closeable>

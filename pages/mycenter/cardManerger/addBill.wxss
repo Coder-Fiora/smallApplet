@@ -1,0 +1,305 @@
+/* pages/mycenter/cardManerger/addBill.wxss */
+.redact-address {
+    background: white;
+    margin-bottom: 20rpx;
+  }
+   
+  .address-msg {
+    height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    font-size: 26rpx;
+    color: #333333;
+    margin: 0 40rpx;
+  }
+  .address-right image {
+    width: 15rpx;
+    height: 25rpx;
+  }
+  .address-rights {
+    display: flex;
+    align-items: center;
+    width: 100rpx;
+    flex-direction: row-reverse;
+  }
+  .address-rights image {
+    width: 22rpx;
+    height: 32rpx; 
+  }
+  .address-rights view {
+    font-size: 28.68rpx;
+  }
+  .address-msg:last-child {
+    border-bottom: none;
+  }
+   
+  .section {
+    width: 58%;
+  }
+  .section input{
+      text-align: right;
+  }
+  .phcolor {
+    color: #999999;
+  }
+  .item-msg {
+    width: 20%;
+    letter-spacing: 2rpx;
+  }
+   
+  .img {
+    width: 35rpx;
+    height: 35rpx;
+    align-self: center;
+  }
+   
+  .address-right {
+    width: 100rpx;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+   
+  /* 标签 */
+  .label {
+    display: flex;
+    height: 128rpx;
+    align-items: center;
+    margin-top: 73rpx;
+    border-top: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    margin: 0 20rpx;
+  }
+  .label-title {
+    font-size: 28.68rpx;
+    color: #333333;
+    margin-right: 83rpx;
+  }
+  .label .label-list {
+    display: flex;
+  }
+  .label .label-list .labels{
+    height: 40rpx;
+    width: 96rpx;
+    border: 1px solid #efefef;
+    margin-right: 37rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #343434; 
+    border-radius: 10rpx;
+  }
+  .label .label-list .labels.labels-active{
+    background: #FFF7E5;
+    color:  #FF8808;
+  }
+  /* 默认设置 */
+  .default-setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 160rpx;
+    padding: 0 40rpx;
+  }
+  .default-setting label{
+      display: flex;
+      align-items: center;
+      font-size: 24rpx;
+      font-weight: 600;
+      letter-spacing: 2rpx;
+  }
+ 
+   
+  .btn {
+    width: 670rpx;
+    height: 80rpx;
+    background: #fd2f0a;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 20rpx;
+    left: 40rpx;
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 80rpx;
+  }
+   
+  /* 城市选择 */
+  .picker {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 12;
+    background-color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0rpx;
+  }
+  .picker-view {
+    width: 100%;
+    display: flex;
+    z-index: 12;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0rpx;
+    height: 40vh;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+  }
+   
+  .gangedBtn {
+    border-top: 1px solid #efefef;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    width: 100%;
+    height: 90rpx;
+    padding: 0 66rpx;
+    box-sizing: border-box;
+    line-height: 90rpx;
+    text-align: center;
+    color: black;
+    font-size: 0.8rem;
+    display: flex;
+    background: white;
+    justify-content: space-between;
+  }
+   
+  .cont {
+    width: 100%;
+    height: 389rpx;
+  }
+   
+  .picker-item {
+    line-height: 70rpx;
+    margin-left: 5rpx;
+    margin-right: 5rpx;
+    text-align: center;
+  }
+   
+  .address {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #f1f1f1;
+  }
+  .city-cancel {
+    color: gray;
+  }
+  
+  .sex-btn image{
+      width: 30rpx;
+      height: 30rpx;
+      margin-right: 10rpx;
+  }
+  
+  .sex{
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 40%;
+  }
+  
+  .sex-btn{
+      align-items: center; 
+  }
+  .location{
+      width: 30rpx;
+      height: 30rpx;
+  }
+  .detail_address textarea{
+      background: #f6f6f6;
+      width: 670rpx;
+      height: 330rpx;
+      margin: 0 auto;
+      font-size:26rpx ;
+      padding: 30rpx 20rpx;
+      box-sizing: border-box;
+      margin-top: -20rpx;
+  }
+
+  checkbox .wx-checkbox-input {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+  }
+  
+  /*checkbox选中后样式  */
+  checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #dd3113;
+    border: 1px solid #dd3113;
+  }
+  
+  /*checkbox选中后图标样式  */
+  checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 32rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+  }
+  .deletaddress{
+      width: 520rpx;
+      height: 80rpx;
+      background-color: #f6f6f6;
+      color: #999999;
+      font-size: 26rpx;
+      text-align: center;
+      line-height: 80rpx;
+      margin: 0 auto;
+      border-radius: 8rpx;
+      letter-spacing: 2rpx;
+      margin-top: 70rpx;
+  }
+  .Map{
+      position: absolute;
+      bottom: -100%;
+      transition: all 0.2s;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      z-index: 9999;
+  }
+  .Map.active{
+     bottom: 0;  
+  }
+  page{
+      overflow: hidden;
+  }
+  .title{
+      padding: 30rpx;
+      font-size: 28rpx;
+      font-weight: 600;
+  }
+  .menue{
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 30rpx;
+    margin-bottom: 80rpx;
+  }
+  .menue view{
+     width: 160rpx;
+     height: 54rpx;
+     border-radius: 27rpx;
+     font-size: 24rpx;
+     background-color: #f6f6f6;
+     text-align: center;
+     line-height: 54rpx;
+     margin-right: 20rpx;
+  }
+  .menue .active{
+      background-color: #fd2f0a;
+      color: white;
+  }

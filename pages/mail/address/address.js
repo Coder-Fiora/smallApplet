@@ -14,13 +14,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        var token=wx.getStorageSync('token');
+        var uid=token.uid;
+        this.setData({
+          uid
+        })
     },
     chooseAddress(e){
        var aid=e.currentTarget.dataset.id;
        http.queryDefaultaddress({
         data:{
-           uid:App.globalData.uid,
+           uid:this.data.uid,
            aid:aid
         },
         success: res => {
@@ -40,10 +44,9 @@ Page({
     getaddressList(){
         http.queryAddressList({
             data:{
-               uid:App.globalData.uid 
+               uid:this.data.uid 
             },
             success: res => {
-              console.log('接口请求成功', res) 
               var newarr=res.data;
               var data=newarr.rewardAddressList;
               data.map(i=>{

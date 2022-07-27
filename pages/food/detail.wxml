@@ -1,0 +1,18 @@
+<!--pages/food/detail.wxml-->
+<Swipper list="{{foodCarouselList}}"></Swipper>
+<view>
+   <view class="name">{{name}}</view>
+   <view class="food_jianjie">
+    <rich-text nodes=" {{foodDetails.present}}"></rich-text>
+  
+   </view>
+   <view class="title">主要食材</view>
+   <view class="shicai">
+    <rich-text nodes=" {{foodDetails.stuff}}"></rich-text>
+  </view>
+   <view class="title">烹饪方法</view>
+   <view class="shicai">
+    <rich-text nodes=" {{foodDetails.cooking}}"></rich-text>
+   </view>
+</view>
+<view class="btn_food">立即点餐</view>

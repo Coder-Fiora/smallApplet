@@ -1,6 +1,6 @@
 <view class="roomCard">
     <view class="topInfo" bindtap="openDetail" data-info="{{data}}">
-        <image src="{{data.coverurl}}" mode="aspectFill" />
+        <image src="{{data.coverurl}}" lazy-load mode="aspectFill" />
         <view class="info">
             <view class="title">{{data.name}}
                 <van-icon class="arr" name="play" />
@@ -21,7 +21,7 @@
             </view>
         </view>
     </view>
-    <view wx:if="{{open}}" wx:for="{{data.housePriceList}}" class="bottomInfo">
+    <view wx:if="{{open}}" wx:for="{{data.housePriceList}}" class="bottomInfo" wx:key="{{index}}">
         <view class="left">
             <view class="title">{{item.name}}</view>
             <view class="tip1">
@@ -38,7 +38,7 @@
             <view>仅剩{{item.hnum}}间</view>
             <view class="money">
                 <view><text>￥</text>{{item.nowprice}}</view>
-                <view class="btn {{item.hnum==0?'full':''}}">
+                <view class="btn {{item.hnum==0?'full':''}}" catchtap="goorder" data-obj="{{item}}">
                     {{item.hnum==0?'满房':'预订'}}
                 </view>
             </view>

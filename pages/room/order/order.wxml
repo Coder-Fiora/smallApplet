@@ -1,0 +1,173 @@
+<!--pages/room/order/order.wxml-->
+<view class="basic_info">
+    <view class="title">大知闲闲民宿</view>
+    <view class="name">
+        <view>{{infoobj.pname}}</view>
+        <view>{{infoobj.name}}</view>
+        <view wx:if="{{infoobj.iscancel==2}}">
+            <van-icon style="margin-right: 6rpx;" name="close" />不可取消
+        </view>
+        <view wx:else>
+            <van-icon style="margin-right: 6rpx;" name="passed" />可取消
+        </view>
+
+    </view>
+
+    <view class="date">
+        <view class="startTime" data-type="start" bindtap="showTime">
+            <view>{{infoobj.startDate}}</view>
+            <view>入住</view>
+        </view>
+        <view class="tag">{{infoobj.day}}晚</view>
+        <view class="endTime" data-type="end" bindtap="showTime">
+            <view>{{infoobj.endDate}}</view>
+            <view>离店</view>
+        </view>
+    </view>
+
+    <view class="price">
+        <text>{{infoobj.startDate}}</text>
+        <view>￥{{infoobj.unitprice}}X{{infoobj.roomNum}}</view>
+    </view>
+    <view class="price read_info">
+        <view class="top_title">
+            <view>
+                <image src="/image/warning.png"></image>订房必读
+            </view>
+            <text bindtap="lookDetail">查看全部</text>
+        </view>
+        <view>宠物政策：</view>
+        <text>酒店不可携带宠物入住。</text>
+    </view>
+</view>
+
+<view class="ruzhu_info">
+  <view class="tips"><image src="/image/zhuyi.png"></image>每间房需分别填写入住人姓名</view>
+  <view class="info_item">
+     <view>预订人</view>
+     <view><input type="text" value="" bindinput="getYdname" placeholder="请输入预订人"/></view>
+  </view>
+  <view class="info_item">
+     <view>手机号</view>
+     <view><input type="text" value="" bindinput="getYdphone" placeholder="请输入手机号"/></view>
+  </view>
+  <view class="info_item">
+     <view class="left_name">
+       房间数
+       <view>可预订最大数量为<text>{{infoobj.hnum}}</text></view>
+     </view>
+     <view class="right_info">
+       <image src="/image/reduce.png" bindtap="handleNumber" data-type="reduceroom" mode="aspectFit"></image>
+       <picker bindchange="bindPickerChange" value="{{room_idx}}" range="{{roomnumber}}">
+                <view class="picker">
+                    {{infoobj.roomNum}}
+                </view>
+        </picker>
+        <image bindtap="handleNumber" data-type="addroom" mode="aspectFit" src="/image/add.png"></image>
+     </view>
+  </view>
+
+  <view class="info_item">
+     <view class="left_name">
+       成人数（每间）
+       <view>每间最多入住<text>2人</text></view>
+     </view>
+     <view class="right_info">
+       <image src="/image/reduce.png" bindtap="handleNumber" data-type="reducepeople" mode="aspectFit"></image>
+       <picker bindchange="bindPickerChange2" value="{{people_idx}}" range="{{peoplenumber}}">
+                <view class="picker">
+                    {{infoobj.peopleNum}}
+                </view>
+        </picker>
+        <image bindtap="handleNumber" data-type="addpeople" mode="aspectFit" src="/image/add.png"></image>
+     </view>
+  </view>
+
+  <view class="info_item">
+     <view class="left_name">
+       儿童数（每间）
+     </view>
+     <view class="right_info">
+       <image src="/image/reduce.png" bindtap="handleNumber" data-type="reducechild" mode="aspectFit"></image>
+       <picker bindchange="bindPickerChange3" value="{{child_idx}}" range="{{childnumber}}">
+                <view class="picker">
+                    {{infoobj.childNum}}
+                </view>
+        </picker>
+        <image bindtap="handleNumber" data-type="addchild" mode="aspectFit" src="/image/add.png"></image>
+     </view>
+  </view>
+
+  <view class="info_item" wx:for="{{infoobj.roomNum}}" wx:key="{{index}}">
+     <view>房间{{index+1}}</view>
+     <view><input type="text" bindinput="getRuzhuname" data-index="{{index}}" placeholder-class="room_name" placeholder="入住人姓名"/></view>
+  </view>
+</view>
+
+<view class="info_item pay_method">
+  <view>微信支付</view>
+  <checkbox checked="true"></checkbox>
+</view>
+
+<view class="diss_card">
+   <view class="info_item">
+     <view>优惠券</view>
+     <view class="youhui_choose" bindtap="chooseyouhui">{{count==0?'暂无可用优惠券':'有可使用的优惠券'}} <image src="/image/right.png"></image></view>
+   </view>
+   <view class="info_item">
+     <view>备注</view>
+     <input type="text" bindinput="getBeizhu" placeholder-class="room_name" placeholder="请填写备注信息"/>
+   </view>
+</view>
+
+<view class="all_price">
+    <view class="info_item">
+     <view>房价总额</view>
+     <input type="text" value="￥{{infoobj.unitprice * infoobj.roomNum}}" disabled="true"/>
+  </view>
+  <view class="info_item">
+     <view>服务费</view>
+     <input type="text" value="￥0" disabled="true"/>
+  </view>
+</view>
+
+<view class="btn_submit">
+  <view>
+    <view class="total_price"><text>￥</text>{{infoobj.unitprice * infoobj.roomNum}}</view>
+    <view wx:if="{{infoobj.price!=infoobj.unitprice}}" class="youhui_price">
+        已优惠<text>-￥{{infoobj.newprice}}</text>
+    </view>
+  </view>
+  <!-- <view class="detail_zd">账单明细 <image src="/image/down.png"></image></view> -->
+  <view class="btn" bindtap="createOrder">提交订单</view>
+</view>
+
+<view class="coupon_box {{showCoupon?'active':''}}" catchtap="closecoupon">
+   <view class="coupon" catchtap="!closecoupon">
+      <view class="title">选择优惠券</view>
+      <view class="ipt_get">
+         <input type="text" placeholder-style="color:#999999" placeholder="请输入兑换码（区分大小写）"/>
+         <view>兑换</view>
+      </view>
+      <view class="coupon_list" wx:if="{{returnList && returnList.length>0}}">
+      
+      </view>
+      <view wx:else class="empty">
+         <van-empty description="暂无可用优惠券~"></van-empty>
+      </view>
+      <view class="close" bindtap="closecoupon">关闭</view>
+   </view>
+</view>
+
+<view class="coupon_box {{showDetail?'active':''}}" catchtap="closeDetail">
+   <view class="coupon" catchtap="!closeDetail" style="height: 70vh;">
+      <view class="title choosetab">预订须知</view>
+     <view class="text_info"> 
+        宠物政策:
+     </view>
+     <view class="close_box">
+      <view class="close" bindtap="closeDetail">确定</view>
+     </view>
+   </view>
+</view>
+<van-calendar show="{{ show }}" default-date="{{dataRange}}" bind:close="onClose" bind:confirm="onConfirm" type="range" />

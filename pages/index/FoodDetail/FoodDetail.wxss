@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     overflow:unset;
 }
 
@@ -49,8 +49,8 @@
 }
 
 .image_background {
-    width: 510rpx;
-    height: 540rpx;
+    width: 480rpx;
+    height: 580rpx;
 }
 
 .image_background image {
@@ -74,7 +74,7 @@
 }
 
 .banner_image.active {
-    transform: scale(1.2);
+    transform: scale(1.15);
     transition: all .2s ease-in 0s;
     z-index: 20;
 }

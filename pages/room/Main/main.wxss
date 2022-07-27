@@ -1,0 +1,177 @@
+/* pages/room/Main/main.wxss */
+.menue{
+    width: 100%;
+    padding: 20rpx 30rpx;
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+.menue .info{
+    width: 90%;
+    height: 90rpx;
+    border-radius: 45rpx;
+    background: #f6f6f6;
+    display: flex;
+    align-items: center;
+}
+.menue .info >text{
+    font-size: 30rpx;
+    width: 124rpx;
+    text-align: center;
+    border-right: 1px solid #ededed;
+}
+.menue .info .time{
+    width:180rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 22rpx;
+}
+.menue .info  .during{
+    color: #f82d2d;
+    width: 60rpx;
+    text-align: center;
+    font-size: 24rpx;
+    border-right: 1px solid #ededed;
+    padding: 10rpx 0;
+    padding-right: 15rpx;
+}
+.menue .info .people{
+    flex: 1;
+    font-size: 24rpx;
+    text-align: center;
+}
+.menue .check{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22rpx;
+}
+.menue .check image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.img_logo{
+    width: 100%;
+    height: 800rpx;
+}
+.detail_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx;
+    line-height: 40rpx;
+}
+.detail_info .address{
+    font-size: 36rpx;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.detail_info .address text{
+    font-size: 24rpx;
+    color: #999999;
+    font-weight: normal;
+}
+.detail_info .address view{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+.detail_info .address image{
+    width: 28rpx;
+    height: 28rpx;
+}
+.detail_info .price{
+    font-size: 40rpx;
+    color: #f82d2d;
+    letter-spacing: 2rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: normal;
+}
+.detail_info .price view>text{
+   font-size: 24rpx;
+}
+.detail_info .price>text{
+    color: #999999;
+    font-size: 24rpx;
+    font-weight: normal;
+}
+.map_box{
+    width: 100%;
+    height: 100vh;
+}
+.map_box map{
+    width: 100%;
+    height: 100vh;
+}
+.hotel_info{
+    width: 600rpx;
+    padding: 20rpx 30rpx;
+    box-sizing: border-box;
+    background-color: white;
+    position: absolute;
+    bottom: 50rpx;
+    left: 75rpx;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 2rpx;
+}
+.hotel_info>image{
+    width: 180rpx;
+    height: 180rpx;
+}
+.hotel_info .msg{
+    font-size: 28rpx;
+    font-weight: 600;
+    height: 180rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20rpx;
+}
+.hotel_info .msg text{
+    color: #999999;
+    display: block;
+    font-size: 22rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+}
+.hotel_info .msg view{
+    display: flex;
+    align-items: center;
+}
+.hotel_info .msg image{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 12rpx;
+}
+.hotel_info .msg .price{
+    font-size: 36rpx;
+    color: #f82d2d;
+}
+.hotel_info .msg .price text:nth-of-type(1){
+    font-size: 22rpx;
+    color: #f82d2d;
+}
+.hotel_info .msg .price text{
+    margin-top: 8rpx;
+}
+.hotel_info .msg .price text:nth-of-type(2){
+    margin-left: 14rpx;
+}

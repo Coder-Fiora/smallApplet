@@ -4,13 +4,13 @@
     <view class="title">
         <view class="flex">
         <view>
-            <view>{{name || '大知闲闲周边'}}</view>
-            <text wx:if="{{specCount>1}}">{{commodityDesc.intr || '大知闲闲周边'}}</text>
+            <view>{{name}}</view>
+            <text wx:if="{{specCount>1}}">{{commodityDesc.intr}}</text>
             <view class="goods_price" wx:if="{{specCount==1}}">￥279 <text>￥504</text></view>
         </view>
         <button open-type="share" class="shareGoods"><image src="/image/goods.png"></image></button>
         </view>
-        <view class="yuyue_phone" wx:if="{{specCount==1}}">
+        <view class="yuyue_phone" wx:if="{{specCount==1}}" bindtap="callMe">
            <view class="phoneflex">
              <image src="/image/phone2.png"></image><text>查看预约电话</text>
            </view>
@@ -20,15 +20,15 @@
     
     <view class="address" wx:if="{{tid==1}}">
         <text>快递</text>
-        <view class="kuaidi_address" wx:if="{{ifload && rewardAddress.oneadr}}" bindtap="address">
+        <view class="kuaidi_address" wx:if="{{rewardAddress}}" bindtap="address">
            <view class="detail_address">
               <view>云南昆明 <text></text> 大知闲闲</view>
               <text>配送至:{{rewardAddress.oneadr}}</text>
            </view>
            <image mode="aspectFit" src="/image/right.png"></image>
         </view>
-        <view wx:if="{{ifload && !rewardAddress.oneadr}}" bindtap="address">未添加收货地址，点击添加</view>
-        <view wx:if="{{!ifload}}">登陆后查看运费,点击登录</view>
+        <view wx:if="{{!rewardAddress}}" bindtap="address">未添加收货地址，点击添加</view>
+        <!-- <view wx:if="{{!ifload}}">登陆后查看运费,点击登录</view> -->
     </view>
     <view class="goods" wx:if="{{specCount>1}}">
         <view class="tit" >{{tid==2?'床型':name}}</view>
@@ -40,9 +40,7 @@
                 <image src="{{specList[typeid].surl}}" mode="aspectFit"></image>
             </view>
             <view class="price">
-                <view wx:if="{{tid==1}}">大知闲闲周边:{{specList[typeid].name}}</view>
-                <view wx:if="{{tid==2}}">床型：{{specList[typeid].name}}</view>
-                <view wx:else>{{specList[typeid].name}}</view>
+                <view>{{specList[typeid].name}}</view>
                 <view class="number"><text>￥</text>{{specList[typeid].newprice}} <text>￥{{specList[typeid].price}}</text></view>
                 <view class="kucun" >库存：{{specList[typeid].stock}}份</view>
                 <view class="yuyue" wx:if="{{tid==2}}">在线预约</view>
@@ -85,25 +83,14 @@
             <image src="/image/address.png"></image>
         </view>
         <view bindtap="callMe"><text>{{commodityDesc.phone }}</text>
-            <image src="/image/callme.png"></image>
+            <image src="/image/callme.png" mode="aspectFit"></image>
         </view>
     </view>
 
-    <!-- 热门推荐 -->
-    <!-- <view class="hotRecommend">
-        <view class="title">热门推荐</view>
-        <view class="cards">
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-            <GoodsCard></GoodsCard>
-        </view>
-    </view> -->
+
 
     <view class="goods_action">
-       <view class="order">
+       <view class="order" bindtap="goorder">
          <image src="/image/order.png"></image>
          <text>订单</text>
        </view>
@@ -113,6 +100,12 @@
          <view wx:if="{{myCartCount}}">{{myCartCount}}</view>
        </view>
        <view class="buycar" bindtap="addBuyCar">加入购物车</view>
-       <view class="buycar buy">立即购买</view>
+       <view class="buycar buy" catchtap="gopay">立即购买</view>
     </view>
+</view>
+
+
+<view class="slice_tips" wx:if="{{slice>0}}">
+  <view class="{{slice==1?'active':''}}" bindtap="changeSlice" data-slice="420">商品详情</view>
+  <view class="{{slice==2?'active':''}}" bindtap="changeSlice" data-slice="1220">使用条款</view>
 </view>

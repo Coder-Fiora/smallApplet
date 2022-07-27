@@ -1,23 +1,30 @@
 .container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 500;
-  transform: translate(-50%, -50%) scale(1.2);
   background: #ffffff;
   width: 600rpx;
-  height: 818rpx;
+  height: 800rpx;
   border-radius: 16rpx;
-  overflow-y: scroll;
-  transition: all 0.4s;
-  transform-origin: 50% 50% 0;
-  opacity: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.container.open{
+.contanner_box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 500;
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: all 0.4s;
+    transform-origin: 50% 50% 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contanner_box.open{
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
-.container.close{
+.contanner_box.close{
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.2);
 }
@@ -57,4 +64,46 @@
 }
 .container .info .gift{
     color: #333333;
+}
+.back_ground{
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.back_ground.active{
+    opacity:1;
+    z-index: 400;
+}
+::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+::-ms-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+::-moz-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.closebtn{
+    width: 60rpx;
+    height: 60rpx;
+    margin-top: 40rpx;
+}
+.closebtn image{
+    width: 100%;
+    height: 100%;
 }

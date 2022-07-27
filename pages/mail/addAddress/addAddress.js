@@ -1,6 +1,6 @@
 // pages/mail/addAddress/addAddress.js
-// let QQMapWX = require('./../../static/js/qqmap-wx-jssdk.js');
-// let qqmapsdk;
+let QQMapWX = require('../../../api/qqmap-wx-jssdk.min');
+let qqmapsdk;
 const App=getApp();
 import http from '../../../api/request'
 Page({
@@ -83,7 +83,7 @@ Page({
  creatAdress(name,phone,oneadr,twoadr,isdefault,aid){
      var data={
         aid:aid,
-        uid:App.globalData.uid,
+        uid:this.data.uid,
         name:name,
         phone:phone,
         oneadr:oneadr,
@@ -144,10 +144,11 @@ Page({
             id:obj.aid
           })
       }
-    //   qqmapsdk = new QQMapWX({
-    //     key: 'key'
-    //   });
-    //   this.moveToLocation();
+      var token=wx.getStorageSync('token');
+      var uid=token.uid;
+      this.setData({
+        uid
+      })
   },
   bindRegionChange: function (e) {
     this.setData({
@@ -156,19 +157,87 @@ Page({
   },
   //移动选点
   moveToLocation: function () {
-    var that = this;
+    var _this = this;
     wx.chooseLocation({
       success: function (res) {
-        app.globalData.lat = res.latitude,
-        app.globalData.lng = res.longitude
+        var regex = /^(北京市|天津市|重庆市|上海市|香港特别行政区|澳门特别行政区)/;  
+        var REGION_PROVINCE=[];
+        var addressBean = {  
+        REGION_PROVINCE:null,  
+        REGION_COUNTRY:null,  
+        REGION_CITY:null,  
+        ADDRESS:null
+        };  
+        function regexAddressBean(address, addressBean){  
+            regex = /^(.*?[市州]|.*?地区|.*?特别行政区)(.*?[市区县])(.*?)$/g;  
+            var addxress = regex.exec(address);  
+            addressBean.REGION_CITY=addxress[1];  
+            addressBean.REGION_COUNTRY=addxress[2];  
+            addressBean.ADDRESS=addxress[3]+"("+res.name+")";  
+        }
+        if(!(REGION_PROVINCE = regex.exec(res.address))){  
+            regex = /^(.*?(省|自治区))(.*?)$/;  
+            REGION_PROVINCE = regex.exec(res.address);  
+            addressBean.REGION_PROVINCE= REGION_PROVINCE[1];  
+            regexAddressBean(REGION_PROVINCE[3],addressBean);  
+          } else {  
+            addressBean.REGION_PROVINCE= REGION_PROVINCE[1];  
+            regexAddressBean(res.address, addressBean);  
+          }  
+          _this.setData({
+            region:[addressBean.REGION_PROVINCE,addressBean.REGION_CITY,addressBean.REGION_COUNTRY],
+            detailedAddress: addressBean.ADDRESS
+          })
       
         //选择地点之后返回的结果
       },
       fail: function (err) {
-        console.log(err)
-      }
+        wx.getSetting({
+            success: function(res) {
+              var statu = res.authSetting;
+              if (!statu['scope.userLocation']) {
+                wx.showModal({
+                  title: '是否授权当前位置',
+                  content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+                  success(tip) {
+                    if (tip.confirm) {
+                      wx.openSetting({
+                        success: function(data) {
+                          if (data.authSetting["scope.userLocation"] === true) {
+                            wx.showToast({
+                              title: '授权成功',
+                              icon: 'success',
+                              duration: 1000
+                            })
+                            setTimeout(()=>{
+                              wx.chooseLocation({
+                                success: function (res) {
+                                  _this.setData({
+                                    address: res.address,
+                                    lng: res.longitude,
+                                    lat:res.latitude ,
+                                  })
+                                }
+                              })
+                            })
+                          }
+                        }
+                      })
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'none',
+                        duration: 1000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+        });
+      },
     });
-  },
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -221,7 +290,7 @@ Page({
             if(res.confirm){
                 http.queryDeletaddress({
                     data:{
-                       uid:App.globalData.uid,
+                       uid:this.data.uid,
                        aid:this.data.id
                     },
                     success: res => {
@@ -252,8 +321,9 @@ Page({
  
   },
   getLocation(){
-      this.setData({
-          showmap:true
-      })
+    qqmapsdk = new QQMapWX({
+        key: 'FVCBZ-JIWC2-OPCUX-CKISQ-CFLTZ-JZFHE'
+      });
+      this.moveToLocation();
   }
 })

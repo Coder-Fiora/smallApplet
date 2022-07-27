@@ -63,7 +63,43 @@ function queryDefaultaddress(params) {
 }
 // 商城订单
 function getMallOrderList(params) { 
-    http('mall/getMallOrderList', 'post', params)  
+    http('personal/getMallOrder', 'post', params)  
+} 
+// 客房订单
+function getRoomOrderList(params) { 
+    http('/personal/getGuestRoomOrder', 'post', params)  
+} 
+// 客房订单详情
+function getRoomOrderDetail(params) { 
+    http('/personal/roomOrderDesc', 'post', params)  
+} 
+// 修改订单状态
+function CancelMallOrder(params) { 
+    http('order/updateOrderStatus', 'post', params)  
+} 
+// 商城订单新增
+function saveMallOrd(params) { 
+    http('order/saveOrderMall', 'post', params)  
+} 
+// 商城购物车订单新增
+function saveMallCarOrd(params) { 
+    http('order/saveOrderShoppingCart', 'post', params)  
+} 
+// 客房订单新增
+function saveRoomOrd(params) { 
+    http('order/saveOrderRoom', 'post', params)  
+} 
+// 订单删除
+function deleteOrder(params) { 
+    http('order/deleteOrder', 'post', params)  
+} 
+// 商城获取优惠券
+function getCoupon(params) { 
+    http('mall/getCoupon', 'post', params)  
+} 
+// 房间首页
+function guestRoomIndex(params) { 
+    http('guest/guestRoomIndex', 'post', params)  
 } 
 // 房间列表
 function guestRoomIndexLoad(params) { 
@@ -76,6 +112,38 @@ function guestRoomTypeDetails(params) {
 function queryDeletaddress(params) { 
     http('mall/delAddress', 'post', params)  
 } //删除地址
+// 美食列表
+function guestFoodlist(params) { 
+    http('food/getFoodIndexInfo', 'post', params)  
+} 
+// 美食详情
+function guestFoodDetail(params) { 
+    http('food/getFoodInfoDesc', 'post', params)  
+} 
+// 个人信息
+function guestPerson(params) { 
+    http('personal/personalIndex', 'post', params)  
+} 
+// 个人信息修改
+function changePerson(params) { 
+    http('personal/updateUserInfo', 'post', params)  
+} 
+// 获取发票列表
+function guestBill(params) { 
+    http('personal/getBillInfo', 'post', params)  
+} 
+// 获取优惠券列表
+function getCouponList(params) { 
+    http('personal/getCoupon', 'post', params)  
+} 
+// 新建保存发票
+function guestAddBill(params) { 
+    http('personal/saveBill', 'post', params)  
+} 
+// 修改发票
+function guestUpdateBill(params) { 
+    http('personal/updateBillInfo', 'post', params)  
+} 
 export default { // 暴露接口
     queryIndex,
     queryControdition,
@@ -100,5 +168,22 @@ export default { // 暴露接口
     queryDeletaddress,
     getMallOrderList,
     guestRoomIndexLoad,
-    guestRoomTypeDetails
+    guestRoomTypeDetails,
+    guestRoomIndex,
+    guestFoodlist,
+    guestFoodDetail,
+    guestPerson,
+    guestBill,
+    guestAddBill,
+    guestUpdateBill,
+    saveMallOrd,
+    changePerson,
+    getCoupon,
+    deleteOrder,
+    saveMallCarOrd,
+    getCouponList,
+    CancelMallOrder,
+    saveRoomOrd,
+    getRoomOrderList,
+    getRoomOrderDetail
 }

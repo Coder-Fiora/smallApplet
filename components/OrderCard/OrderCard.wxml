@@ -2,27 +2,37 @@
     <view wx:for="{{orderList}}" wx:key="key" class="orderCard">
         <view class="top">
             <view>订单编号：{{item.oid}}</view>
-            <!-- <view>待支付 {{'29:38'}}</view> -->
+            <view>
+              {{item.status==1?'待支付':item.status==12?'待发货':item.status==13?'待收货':item.status==11?'已完成':item.status==5?'待确认':''}}
+              <view class="delet_box" bindtap="deletOrder" data-oid="{{item.oid}}"><image src="/image/delet.png" mode="aspectFit"></image></view> 
+            </view>
         </view>
+
         <view class="middle">
-            <view class="middle">
-                <image src="{{item.gurl}}"></image>
+            <view class="middle" wx:if="{{item.listMap.length==1}}">
+                <image src="{{item.listMap[0].purl}}" mode="aspectFill"></image>
                 <view>
-                    <view class="title">{{item.gname}}</view>
+                    <view class="title">{{item.listMap[0].pname}}</view>
                     <view class="subTitle">{{item.sname}}</view>
                 </view>
             </view>
+            <view class="middle" wx:if="{{item.listMap.length>1}}">
+                <block wx:for="{{item.listMap}}">
+                  <image wx:if="{{index<2}}" src="{{item.purl}}" mode="aspectFill"></image>
+                </block>
+            </view>
             <view class="money">
                 <view>
-                    <text>￥</text>{{item.price}}
+                    <text>￥</text>{{item.amount}}
                 </view>
-                <view>共 {{item.quantity}} 分</view>
+                <view>共 {{item.count}} 份</view>
             </view>
         </view>
         <view class="handle">
             <!-- <view class="time">{{item.cretime}}</view> -->
-            <view wx:if="{{['1','2','3','4'].includes(item.status)}}">取消订单</view>
-            <van-button wx:if="{{item.status==1}}" type='danger' size='small' round>立即付款</van-button>
+            <view wx:if="{{item.status==1}}" bindtap="cancelOrder" data-oid="{{item.oid}}">取消订单</view>
+            <van-button wx:if="{{item.status==1}}" type='danger' size='small' round bindtap="buyNow" data-item="{{item}}">立即付款</van-button>
+            <van-button wx:if="{{item.status>=5}}" type='danger' size='small' round bindtap="addCar" data-item="{{item}}">再次购买</van-button>
         </view>
     </view>
 </view>

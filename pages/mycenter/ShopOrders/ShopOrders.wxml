@@ -4,5 +4,10 @@
         <van-tab wx:for="{{tabs}}" wx:key="key" title="{{item.title}}">
             <OrderCard orderList="{{orderList}}"></OrderCard>
         </van-tab>
+        <view wx:if="{{!orderList || orderList.length==0}}" class="empty">
+           <van-empty description="没有订单相关~" />
+           <view class="buy_btn" bindtap="gomail">去购物</view>
+        </view>
     </van-tabs>
+
 </view>

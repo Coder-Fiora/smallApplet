@@ -1,1 +1,25 @@
 /* pages/mycenter/ShopOrders/ShopOrders.wxss */
+.van-tabs__wrap{
+    box-shadow: 0 4rpx 2rpx 2rpx #f6f6f6;
+}
+.van-tabs__line{
+    width: 24rpx!important;
+    background-color: #333333!important;
+}
+page{
+    background-color: white;
+}
+.van-tab{
+    font-size: 30rpx!important;
+}
+.buy_btn{
+    width: 630rpx;
+    height: 90rpx;
+    border-radius: 45rpx;
+    background-color: #dd3113;
+    color: white;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 90rpx;
+    margin: 0 auto;
+}

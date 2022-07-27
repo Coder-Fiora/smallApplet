@@ -1,0 +1,56 @@
+<!--pages/mycenter/cardManerger/addBill.wxml-->
+<view class="redact-address">
+    <view class="possess-layout">
+        <view class="title">发票抬头</view>
+        <view class="menue">
+           <view catchtap="changetype" data-type='1' class="{{type==1?'active':''}}">个人</view>
+           <view catchtap="changetype" data-type='2' class="{{type==2?'active':''}}">单位</view>
+        </view>
+        <view class="mains">
+            <view class="address-msg">
+                <view class="item-msg">名称</view>
+                <view class="section">
+                    <input type="text" placeholder="{{type==2?'单位':''}}名称（必填）" value="{{consigneeName}}" bindblur="consigneeNameInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg" wx:if="{{type==2}}">
+                <view class="item-msg">税号</view>
+                <view class="section">
+                    <input type="text" placeholder="纳税人识别号" value="{{shuinum}}"  bindblur="shuiInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg" wx:if="{{type==2}}">
+                <view class="item-msg">单位地址</view>
+                <view class="section">
+                    <input type="text" placeholder="单位地址信息" value="{{detailedAddress}}"  bindblur="detailedAddressInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg" wx:if="{{type==2}}">
+                <view class="item-msg">电话号码</view>
+                <view class="section">
+                    <input type="number" placeholder="电话号码" value="{{phone}}"  bindblur="phoneInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg" wx:if="{{type==2}}">
+                <view class="item-msg">开户银行</view>
+                <view class="section">
+                    <input type="text" placeholder="开户银行名称" value="{{bankname}}"  bindblur="bankInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+            <view class="address-msg" wx:if="{{type==2}}">
+                <view class="item-msg">银行账户</view>
+                <view class="section">
+                    <input type="number" placeholder="银行账户号码" value="{{banknumber}}"  bindblur="banknumberInput" placeholder-class="phcolor"></input>
+                </view>
+            </view>
+
+            <!-- <view class="deletaddress" wx:if="{{consigneeName}}" bindtap="deletAddress">
+                删除发票抬头
+            </view> -->
+        </view>
+    </view>
+</view>
+<view class="btn" bindtap="submit">确定</view>
+
+
+

@@ -83,3 +83,6 @@ radio .wx-radio-input {
     width: 60%;
   }
   .label_add{display: flex;align-items: center;width: 95%;}
+  page{
+      padding-bottom: 140rpx;
+  }

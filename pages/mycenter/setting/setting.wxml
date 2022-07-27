@@ -1,0 +1,12 @@
+<!--pages/mycenter/setting/setting.wxml-->
+<view class="title">设置</view>
+<view class="infolist" catchtap="goperson" data-type="personinfo">
+    <view><image src="/image/info.png"></image>个人信息</view>
+    <image src="/image/right.png" mode="aspectFit"></image>
+</view>
+<view class="infolist" catchtap="goperson" data-type="getaddress">
+    <view><image src="/image/dz.png"></image>收货地址</view>
+    <image src="/image/right.png" mode="aspectFit"></image>
+</view>
+
+<view class="unload" bindtap="unLoad"><image src="/image/close.png" mode="aspectFit"></image> 退出登录</view>

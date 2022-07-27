@@ -1,0 +1,38 @@
+<view wx:if="{{orderList}}">
+    <view wx:for="{{orderList}}" wx:key="key" class="orderCard">
+        <view class="top">
+            <view>订单编号：{{item.oid}}</view>
+            <view>
+              {{item.status==1?'待支付':item.status==10?'已确认':item.status==11?'已完成':item.status==5?'待确认':''}}
+              <view class="delet_box" bindtap="deletOrder" data-oid="{{item.oid}}"><image src="/image/delet.png" mode="aspectFit"></image></view> 
+            </view>
+        </view>
+
+        <view class="middle">
+            <view class="middle" >
+                <image src="{{item.coverurl}}" mode="aspectFill"></image>
+                <view>
+                    <view class="title">{{item.name}}</view>
+                    <view class="subTitle">{{item.roomCount}}间 {{item.roomDay}}晚</view>
+                    <view class="subTitle">{{item.checkInDate}}</view>
+                </view>
+            </view>
+            <view class="money">
+                <view>
+                    <text>￥</text>{{item.amount}}
+                </view>
+            </view>
+        </view>
+        <view class="handle">
+            <view wx:if="{{item.status==1}}" bindtap="cancelOrder" data-oid="{{item.oid}}">取消订单</view>
+            <van-button wx:if="{{item.status==1}}" type='danger' size='small' round bindtap="buyNow" data-item="{{item}}">立即付款</van-button>
+            <van-button wx:if="{{item.status!=1}}" type='danger' size='small' round bindtap="godetail" data-item="{{item}}">订单详情</van-button>
+        </view>
+    </view>
+</view>
+<view wx:else class="empty">
+    <van-empty description="没有相关订单" />
+    <view style="margin:0 40rpx">
+        <van-button bindtap="confirmRoom" type="primary" block round="{{true}}" color='#e6212b'>去购物</van-button>
+    </view>
+</view>

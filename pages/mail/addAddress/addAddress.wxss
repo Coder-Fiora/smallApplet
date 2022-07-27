@@ -227,23 +227,24 @@
   }
 
   checkbox .wx-checkbox-input {
-    width: 28rpx;
-    height: 28rpx;
+    width: 32rpx;
+    height: 32rpx;
     border-radius: 50%;
   }
   
   /*checkbox选中后样式  */
   checkbox .wx-checkbox-input.wx-checkbox-input-checked {
     background: #dd3113;
+    border: 1px solid #dd3113;
   }
   
   /*checkbox选中后图标样式  */
   checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-    width: 28rpx;
-    height: 28rpx;
-    line-height: 28rpx;
+    width: 32rpx;
+    height: 32rpx;
+    line-height: 32rpx;
     text-align: center;
-    font-size: 18rpx;
+    font-size: 24rpx;
     color: #fff;
     background: transparent;
     transform: translate(-50%, -50%) scale(1);

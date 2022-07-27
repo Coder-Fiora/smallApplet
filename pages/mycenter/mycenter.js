@@ -1,4 +1,5 @@
 // pages/mycenter/mycenter.js
+import http from '../../api/request'
 Page({
 
     /**
@@ -8,16 +9,35 @@ Page({
 
     },
     goPage(e){
-      const type =  e.currentTarget.dataset.type
-      wx.navigateTo({
-        url: `/pages/mycenter/${type}/${type}`
-      })
+      const type =  e.currentTarget.dataset.type;
+      var token=this.data.token;
+      if(token && token.uid){
+          wx.navigateTo({
+            url: `/pages/mycenter/${type}/${type}`
+          })
+      }else{
+          wx.navigateTo({
+            url: '/pages/Login/Login',
+          })
+      }
+    },
+    gosetting(){
+        var token=this.data.token;
+        if(token && token.uid){
+            wx.navigateTo({
+              url: '/pages/mycenter/setting/setting',
+            })
+        }else{
+            wx.navigateTo({
+              url: '/pages/Login/Login',
+            })
+        }
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+      
     },
 
     /**
@@ -31,7 +51,29 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+      var token=wx.getStorageSync('token');
+      var that=this;
+        this.setData({
+            token
+        })
+        http.guestPerson({
+            data:{
+               uid:token.uid 
+            },
+            success: res => {
+                if(res.data){
+                    that.setData({
+                     userInfo:res.data.userInfo,
+                     mid:res.data.mid,
+                     vipNo:res.data.vipNo
+                   })
+                }
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })  
+      
     },
 
     /**
@@ -67,5 +109,11 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+    gologin(){
+        if(this.data.token){return false}
+        wx.navigateTo({
+          url: '/pages/Login/Login',
+        })
     }
 })

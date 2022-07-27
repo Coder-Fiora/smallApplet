@@ -8,8 +8,8 @@
 }
 .roomCard .topInfo image {
   flex-shrink: 0;
-  width: 160rpx;
-  height: 160rpx;
+  width: 180rpx;
+  height: 180rpx;
   margin-right: 20rpx;
 }
 .roomCard .topInfo .info {
@@ -19,7 +19,7 @@
   margin-bottom: 10rpx;
   display: flex;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 30rpx;
   font-weight: 500;
 }
 .roomCard .topInfo .info .title .arr {
@@ -28,19 +28,19 @@
 }
 .roomCard .topInfo .info .roomInfo {
   color: #a0a0a0;
-  font-size: 22rpx;
+  font-size: 24rpx;
   margin-bottom: 6rpx;
 }
 .roomCard .topInfo .info .tip {
   color: #f1b672;
-  font-size: 20rpx;
+  font-size: 24rpx;
 }
 .roomCard .topInfo .info .tip .icon {
   margin-right: 5rpx;
 }
 .roomCard .topInfo .collapse {
   width: 100%;
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #a1a1a1;
   text-align: right;
   letter-spacing: 2rpx;
@@ -83,13 +83,13 @@
   font-size: 28rpx;
 }
 .roomCard .bottomInfo .left .tip1 {
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #ee6770;
   margin: 10rpx 0;
   margin-top: 20rpx;
 }
 .roomCard .bottomInfo .left .tip2 {
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #989898;
 }
 .roomCard .bottomInfo .right view:nth-of-type(1) {
@@ -103,7 +103,7 @@
 .roomCard .bottomInfo .right .money > view:nth-of-type(1) {
   text-align: right;
   color: #fa0820;
-  font-size: 34rpx;
+  font-size: 38rpx;
   margin-right: 20rpx;
 }
 .roomCard .bottomInfo .right .money > view:nth-of-type(1) text {
@@ -129,7 +129,7 @@
     justify-content: space-between;
     align-items: center;
     color: #ee3e4f;
-    font-size: 26rpx;
+    font-size: 30rpx;
     font-weight: 600;
 }
 .yuding_price text{

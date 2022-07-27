@@ -10,6 +10,10 @@
     background-color: transparent!important;
     padding: 0;
 }
+.prev_btn{
+    border: 1px solid #f6f6f67a;
+    
+}
 .share_btn::after{
     content: none;
 }

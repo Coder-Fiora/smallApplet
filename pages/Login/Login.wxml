@@ -1,2 +1,18 @@
 <!--pages/Login/Login.wxml-->
-<text>pages/Login/Login.wxml</text>
+<view class="login_box">
+  <view class="logo_box">
+     <view><image mode="aspectFill" src="/image/test1.jpg"></image></view>
+     <text>大知闲闲民宿</text>
+     <text>请先登录后再操作</text>
+  </view>
+  <view class="tips">
+     <view>该程序将获取以下授权:</view>
+     <text>· 将获取您公开的信息 （昵称、头像等）</text>
+  </view>
+<view class="login_btn">
+   <view catchtap="backpreve">暂不登录</view>
+   <button class="btn"  open-type="getUserInfo"  lang="zh_CN" bindtap="wxLogin">立即登录</button>
+   <!-- <button class="btn" wx:else open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">手机号绑定</button> -->
+
+</view>
+</view>

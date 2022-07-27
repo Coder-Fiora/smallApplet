@@ -1,0 +1,499 @@
+/* pages/mycenter/RoomOrders/orderDetail.wxss */
+page{
+    background: #ec0f0f;
+    padding-bottom: 110rpx;
+}
+.bg_box{
+    background-color: #f6f6f6;
+    min-height: 76vh;
+    border-radius: 20rpx 20rpx 0 0 ;
+    overflow: hidden;
+    margin-top: 50rpx;
+}
+  .price{
+      display: flex;
+      justify-content: space-between;
+      width: 690rpx;
+      height: 80rpx;
+      padding: 0 18rpx;
+      box-sizing: border-box;
+      background: #f6f6f6;
+      border-radius: 12rpx;
+      align-items: center;
+      margin:  0 auto;
+      font-size: 24rpx;
+      color: #999999;
+      letter-spacing: 2rpx;
+      margin-top: 8rpx;
+  }
+  .price view{
+      color: #e74237;
+  }
+  .read_info{
+      height: auto;
+      flex-direction: column;
+      padding: 20rpx 18rpx;
+      margin-top: 15rpx;
+      align-items: flex-start;
+  }
+  .read_info .top_title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24rpx;
+      width: 100%;
+  }
+  .read_info  view:nth-of-type(2){
+      font-size: 28rpx;
+      font-weight: 600;
+      color: #333333;
+      margin: 12rpx 0 14rpx 0;
+  }
+  .read_info .top_title view{
+      display: flex;
+      align-items: center;
+      color: #333333;
+  }
+  .read_info .top_title text{
+      font-size: 22rpx;
+  }
+  .read_info > text{
+      color: #333333;
+      font-size: 26rpx;
+  }
+  .read_info .top_title view image{
+      width: 24rpx;
+      height: 24rpx;
+      margin-right: 8rpx;
+  }
+  .ruzhu_info{
+      background: white;
+      padding: 10rpx 30rpx 60rpx 30rpx;
+      border-bottom: 18rpx solid #f6f6f6;
+  }
+  .content_box{
+      background: white;
+      border-radius: 20rpx;
+      overflow: hidden;
+  }
+  .tips{
+      display: flex;
+      align-items: center;
+      font-size: 32rpx;
+      font-weight: 500;
+      padding: 20rpx 0;
+      justify-content: space-between;
+  }
+  .tips >view{
+      display: flex;
+      align-items: center;
+      color: #333333;
+  }
+  .ifcancel{
+      color: #f01e1e;
+      font-size: 24rpx; 
+  }
+  .tips image{
+      width: 40rpx;
+      height: 40rpx;
+      margin-right: 10rpx;
+  }
+  .info_item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 28rpx;
+      padding: 20rpx 0;
+      letter-spacing: 2rpx;
+  }
+  .info_item input{
+      text-align: right;
+  }
+  .flex{
+      display: flex;
+      align-items: center;
+  }
+  .left_name view{
+      font-size: 20rpx;
+      color: #999999;
+      margin-top: 16rpx;
+      letter-spacing: 2rpx;
+  }
+  .left_name view text{
+      color: #e74237;
+      letter-spacing: 2rpx;
+      margin-left: 6rpx;
+  }
+  .right_info{
+      display: flex;
+      align-items: center;
+  }
+  .right_info image{
+      width: 28rpx;
+      height: 28rpx;
+  }
+  .right_info .picker{
+      width: 80rpx;
+      height: 40rpx;
+      background: #f6f6f6;
+      text-align: center;
+      line-height: 40rpx;
+      margin: 0 8rpx;
+  }
+  .room_name{
+      color: #bbbbbb;
+  }
+  .pay_method{
+      background-color: white;
+      margin-top: 20rpx;
+      padding: 40rpx 30rpx;
+  }
+  checkbox .wx-checkbox-input {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+  }
+  
+  /*checkbox选中后样式  */
+  checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #dd3113;
+    border: 1px solid #dd3113;
+  }
+  
+  /*checkbox选中后图标样式  */
+  checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 32rpx;
+    height:32rpx;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+  }
+  .diss_card{
+      background-color: white;
+      padding: 20rpx 30rpx;
+      border-bottom: 1rpx solid #f6f6f6;
+  }
+  .youhui_choose{
+      display: flex;
+      align-items: center;
+      letter-spacing: 2rpx;
+  }
+  .youhui_choose image{
+      width: 20rpx;
+      height: 20rpx;
+      margin-left: 10rpx;
+  }
+  .all_price{
+      background-color: white;
+      padding: 20rpx 30rpx;
+      margin-top: 20rpx;
+      position: relative;
+      padding-bottom: 160rpx;
+  }
+  .pay_money{
+      position: absolute;
+      right: 30rpx;
+      bottom: 50rpx;
+      font-size: 28rpx;
+      display: flex;
+      align-items: center;
+  }
+  .copy{
+      width: 80rpx;
+      font-size: 24rpx;
+      text-align: center;
+      height: 40rpx;
+      line-height: 40rpx;
+      border-radius: 20rpx;
+      background-color: #f6f6f6;
+  }
+  .pay_money view{
+      color: #e91b1b;
+      font-weight: 600;
+      font-size: 34rpx;
+  }
+  .pay_money view text{
+      font-size: 24rpx;
+  }
+  .btn_submit{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background-color: white;
+      position: fixed;
+      bottom: 0;
+      z-index: 99;
+      height: 110rpx;
+      width: 100%;
+      padding: 0 30rpx;
+      box-sizing: border-box;
+      font-size: 28rpx;
+      box-shadow: 0 5rpx 4rpx 2rpx rgba(0,0,0,0.5);
+  }
+
+  .btn_submit .same_btn{
+      width: 160rpx;
+      height: 68rpx;
+      text-align: center;
+      border-radius: 34rpx;
+      line-height:68rpx;
+      font-size: 28rpx;
+      border: 1px solid #ededed;
+      margin-left: 20rpx;
+  }
+  .detail_zd{
+      margin-left: 140rpx;
+  }
+  .goods_detail{
+      display: flex;
+      font-size: 28rpx;
+      margin-top: 10rpx;
+      letter-spacing: 2rpx;
+      position: relative;
+  }
+  .room_number{
+      position: absolute;
+      right: 30rpx;
+      bottom: 30rpx;
+      font-size: 24rpx;
+  }
+  .goods_detail .img_box{
+      width: 180rpx;
+      height: 180rpx;
+      border-radius: 8rpx;
+      background: #f6f6f6;
+      margin-right: 20rpx;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+  }
+  .goods_price{
+      display: flex;
+      align-items: center;
+      font-size: 28rpx;
+      color: #f82020;
+      margin-top: 8rpx;
+      font-weight: 600;
+  }
+  .goods_price text{
+      font-size: 22rpx;
+  }
+  .goods_price image{
+      width: 30rpx;
+      height: 30rpx;
+      margin-left: 14rpx;
+  }
+  .send_type{
+      padding: 3rpx 6rpx;
+      width: 95rpx;
+      background-color: #dd3113;
+      color: white;
+      font-size: 20rpx;
+      text-align: center;
+      margin-top: 10rpx;
+      margin-right: 16rpx;
+      border-radius: 5rpx;
+  }
+  
+ 
+  .coupon_box{
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.6);
+      opacity: 0;
+      z-index: -1;
+      transition: all 0.3s;
+      overflow: hidden;
+  }
+  .coupon_box.active{
+      z-index: 99999;
+      opacity: 1;
+  }
+  .coupon{
+      width: 100%;
+      height: 60vh;
+      background-color: white;
+      border-radius: 24rpx;
+      position: absolute;
+      bottom: -50%;
+      transition: all 0.3s;
+      padding: 30rpx 0;
+      box-sizing: border-box;
+  }
+  .coupon_box.active .coupon{
+      bottom: 0;
+  }
+  .coupon .title{
+      font-size: 32rpx;
+      font-weight: 600;
+      text-align: center;
+  }
+  .coupon .ipt_get{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36rpx;
+  }
+  .coupon .ipt_get input{
+      width: 530rpx;
+      height: 70rpx;
+      background-color: #f6f6f6;
+      border-radius: 8rpx;
+      padding-left: 18rpx;
+      box-sizing: border-box;
+      font-size: 24rpx;
+      line-height: 70rpx;
+  }
+  .coupon .ipt_get  view{
+      width: 120rpx;
+      height: 70rpx;
+      border-radius: 8rpx;
+      background-color: #dd3113;
+      font-size: 24rpx;
+      color: white;
+      text-align: center;
+      line-height: 70rpx;
+      margin-left: 16rpx;
+  }
+   .close{
+      width: 670rpx;
+      height: 80rpx;
+      background-color: #dd3113;
+      color: white;
+      font-size: 28rpx;
+      text-align: center;
+      line-height: 80rpx;
+      border-radius: 40rpx;
+      box-shadow: 0 0 3rpx 3rpx rgba(235, 34, 34, 0.308);
+      margin: 0 auto;
+      position: absolute;
+      bottom: 30rpx;
+      left: 40rpx;
+  }
+ 
+  .van-empty__image{
+      width: 200rpx!important;
+      height: 200rpx!important;
+  }
+  .choosetab{
+      display:flex;
+      align-items: center;
+      border-bottom: 1px solid #f9f9f9;
+      justify-content: space-around;
+  }
+  .choosetab view{
+      font-size: 34rpx;
+      color: #999999;
+      position: relative;
+      transition: all 0.3s;
+      padding-bottom: 22rpx;
+      border-bottom: 8rpx solid #ffffff;
+  }
+  .choosetab view.active{
+      color: #333333;
+      border-bottom: 8rpx solid #333333;
+  }
+
+
+  .text_info{
+      padding: 30rpx;
+      max-height: 50vh;
+      overflow-y: auto;
+  }
+  .close_box{
+      width: 100%;
+      height: 130rpx;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+  }
+  .top_tips{
+      color: white;
+      font-size: 36rpx;
+      margin: 0 100rpx;
+      margin-top: -65rpx;
+      position: relative;
+      z-index: 3;
+  }
+  .pay_btn{
+      width: 240rpx;
+      height: 80rpx;
+      border-radius: 40rpx;
+      background-color: white;
+      text-align: center; 
+      line-height: 80rpx;
+      font-size: 32rpx;
+      color: #c40d0d;
+      margin: 0 auto;
+      margin-top: 20rpx;
+  }
+  .paynow{
+      background: #f11b1b;
+      color: white;
+  }
+  .top_tips view{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      letter-spacing: 2rpx;
+  }
+  .top_tips image{
+      width: 44rpx;
+      height: 44rpx;
+      margin-right: 20rpx;
+  }
+  .top_tips view:nth-of-type(2){
+      font-size: 30rpx;
+      font-weight: normal;
+      margin-top: 20rpx;
+  }
+  .van-hairline--bottom:after {
+    border-bottom-width: 0!important;
+}
+.mingxi_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666666;
+    padding: 50rpx 0 0 0;
+}
+.mingxi_title image{
+    width: 22rpx;
+    height: 22rpx;
+}
+.mingxi_box{
+    background-color: #f6f6f6;
+    padding: 0 24rpx;
+    margin-top: 14rpx;
+    border-radius: 12rpx;
+}
+.youhui_price{
+    font-size: 24rpx;
+    color: #555555;
+    margin: 5rpx 0;
+}
+.mingxi_box .item_mingxi{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #444444;
+  line-height: 68rpx;
+  padding: 20rpx 0;
+}
+.mingxi_box .item_mingxi view{
+    color: #eb2323;
+    font-size: 26rpx;
+}
+.mingxi_box .item_mingxi:nth-of-type(1){
+    border-bottom: 1px solid #e6e6e6;
+}

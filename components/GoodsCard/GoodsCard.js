@@ -20,10 +20,18 @@ Component({
      */
     methods: {
         godetail(){
-            var url=this.properties.url
-            wx.navigateTo({
-              url: url,
-            })
+            var token=wx.getStorageSync('token');
+            var url=this.properties.url;
+            if(token && token.uid){
+                 wx.navigateTo({
+                   url: url,
+                 })
+            }else{
+                wx.navigateTo({
+                    url: '/pages/Login/Login',
+                })
+            }
+           
         }
     }
 })

@@ -1,0 +1,5 @@
+<van-nav-bar title="" fixed="true" placeholder="{{notitle?false:true}}" z-index="2" custom-style="background:#ec0f0f">
+        <button slot="left" class="share_btn prev_btn" bindtap="bindprev">
+            <image src="/image/prev1.png"></image>
+        </button>
+</van-nav-bar>

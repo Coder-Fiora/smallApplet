@@ -1,16 +1,16 @@
 <view>
     <TopBar></TopBar>
-    <view class="noLogin">
+    <view class="noLogin" wx:if="{{ifload}}">
         <text>您还没有登录~</text>
-        <van-button plain type="danger" size="mini" bindtap="goLogin">去登陆</van-button>
+        <view bindtap="goLogin">去登录</view>
     </view>
     <view class="bgbox">
-        <image src="/image/test1.jpg" class="bg2" />
+        <image src="{{roomindexInfo.purl}}" mode="aspectFill" class="bg2" />
     </view>
     <view class="centerCard">
-        <view class="map">
+        <view class="map" bindtap="goMainpage">
             <view>
-                <image class="icon" src="/image/location.png"></image>
+                <image mode="aspectFit" class="icon" src="/image/location.png"></image>
                 <text>云南</text>
             </view>
             <view>
@@ -20,23 +20,23 @@
         <view class="date">
             <view class="startTime" data-type="start" bindtap="showTime">
                 <view>入住</view>
-                <view>2022-06-27</view>
+                <view>{{startDate}}</view>
             </view>
-            <view class="tag">共1晚</view>
+            <view class="tag">共{{day}}晚</view>
             <view class="endTime" data-type="end" bindtap="showTime">
                 <view>离店</view>
-                <view>2022-06-28</view>
+                <view>{{endDate}}</view>
             </view>
         </view>
         <view class="roomInfo" bindtap="showRoomConfig">
             <view>
-                <text>{{roomNum}}间客房</text> · <text>{{peopleNum}}客人</text>
+                <text>{{roomNum}}间客房</text> · <text>{{peopleNum+childNum}}客人</text>
             </view>
             <van-icon name="arrow" />
         </view>
-        <van-button type="primary" block round="{{true}}" color='#e6212b' bindtap="bindgosearch">查 询</van-button>
+        <view class="search_btn" bindtap="bindgosearch">查 询</view>
     </view>
-    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+    <van-calendar show="{{ show }}" default-date="{{dataRange}}" bind:close="onClose" bind:confirm="onConfirm" type="range" />
     <van-popup custom-class='popup' show="{{ roomShow }}" round position="bottom" custom-style="height: 600rpx" bind:close="onCloseRoom" closeable>
         <view class="roomConfig">
             <view class="title">

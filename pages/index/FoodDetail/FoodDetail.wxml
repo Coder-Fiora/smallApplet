@@ -1,5 +1,5 @@
 <view class="top_banner_box">
-    <swiper current="{{currentTab}}" duration="1000" bindchange="bindTouch" circular="true" class="swiper_box" previous-margin="150rpx">
+    <swiper current="{{currentTab}}" duration="1000" bindchange="bindTouch" circular="true" class="swiper_box" previous-margin="94rpx" next-margin="94rpx">
         <swiper-item wx:for="{{foodDescList}}" wx:key="index" class="banner_box">
             <view class="image_background">
                 <image class="banner_image {{currentTab==index?'active':''}}" src="{{item.coverurl}}" bindtap='godetail' data-obj="{{item}}"></image>

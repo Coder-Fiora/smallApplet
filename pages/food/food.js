@@ -1,4 +1,5 @@
 // pages/food/food.js
+import http from '../../api/request'
 Page({
 
     /**
@@ -6,6 +7,8 @@ Page({
      */
     data: {
         active: 0,
+        page:1,
+        foodInfolist:[]
     },
     onChange(event) {
         wx.showToast({
@@ -17,9 +20,37 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        this.getList(1)
     },
-
+     getList(page){
+        if(this.data.hasload){return false}
+        http.guestFoodlist({
+            data:{
+                pageSize:5,
+                pageNum:page
+            },
+            success: res => {
+              var list=this.data.foodInfolist;
+              var newlist=res.data.foodInfolist;
+              if(newlist && newlist.length>0){
+                  list=list.concat(newlist);
+                  page++;
+                  this.setData({
+                    foodInfolist:list,
+                    pictureList:res.data.pictureList,
+                    page
+                  })
+              }else{
+                  this.setData({
+                      hasload:true
+                  })
+              }
+            },
+            fail: err => {
+              console.log(err)
+            }
+      })
+     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -59,7 +90,8 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-
+       var page=this.data.page;
+       this.getList(page)   
     },
 
     /**
@@ -67,5 +99,12 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+    godetail(e){
+      var fid=e.currentTarget.dataset.id;
+      var name=e.currentTarget.dataset.name
+      wx.navigateTo({
+        url: '/pages/food/detail?fid='+fid+'&name='+name,
+      })
     }
 })

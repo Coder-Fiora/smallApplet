@@ -4,10 +4,10 @@
 <view class="index_box">
     <view style="position:relative;height:{{clientHeight?clientHeight+'px':'auto'}}">
         <view class="top_banner_box">
-            <swiper current="{{currentTab}}" duration="1000" style="height:{{clientHeight?clientHeight+'px':'auto'}};padding-top: {{statusHeight?statusHeight+'px':'auto'}};" bindchange="bindTouch" autoplay circular="true" class="banner_box">
+            <swiper current="{{currentTab}}" duration="1000" style="height:{{clientHeight?clientHeight+'px':'auto'}};padding-top: {{statusHeight?statusHeight+'px':'auto'}};" bindanimationfinish="bindTouch" autoplay circular="true" class="banner_box">
                 <swiper-item wx:for="{{newcarousel}}" wx:key="index">
                     <view class="image_background">
-                        <image class="banner_image" src="{{item.icurl}}" style="height:{{clientHeight?clientHeight+'px':'auto'}}" bindtap='topic_preview' data-id='{{item.id}}' data-url='{{item.src}}'></image>
+                        <image mode="aspectFill" lazy-load class="banner_image" src="{{item.icurl}}" style="height:{{clientHeight?clientHeight+'px':'auto'}}" bindtap='topic_preview' data-id='{{item.id}}' data-url='{{item.src}}'></image>
                     </view>
                 </swiper-item>
             </swiper>
@@ -15,7 +15,7 @@
             <view class="indicator_box">
                 <view wx:for="{{newcarousel}}" wx:key="index" class="{{currentTab==index?'active':''}}"></view>
             </view>
-            <image class="bottom_array" src="/image/bottomArray.png"></image>
+            <image class="bottom_array" lazy-load src="/image/bottomArray.png"></image>
         </view>
     </view>
 
@@ -37,12 +37,12 @@
                 <text class="index_more">了解更多</text>
             </view>
             <view class="info_image">
-                <image src="{{dindexFood.coverurl}}" mode="aspectFill"></image>
+                <image src="{{dindexFood.coverurl}}" lazy-load mode="aspectFill"></image>
             </view>
         </view>
         <view class="left_image" data-type="room" bindtap="goDetailList">
             <view class="info_image">
-                <image src="{{indexRoom.coverurl}}" mode="aspectFill"></image>
+                <image src="{{indexRoom.coverurl}}" lazy-load mode="aspectFill"></image>
             </view>
             <view class="info_box">
                 <view class="index_title">{{indexRoom.title}}</view>
@@ -61,12 +61,12 @@
                 <text class="index_more">了解更多</text>
             </view>
             <view class="info_image">
-                <image src="{{indexThree.coverurl}}" mode="aspectFill"></image>
+                <image src="{{indexThree.coverurl}}" lazy-load mode="aspectFill"></image>
             </view>
         </view>
         <view class="left_image" data-type="spa" bindtap="goDetailList">
             <view class="info_image">
-                <image src="{{indexFour.coverurl}}" mode="aspectFill"></image>
+                <image src="{{indexFour.coverurl}}" lazy-load mode="aspectFill"></image>
             </view>
             <view class="info_box">
                 <view class="index_title">{{indexFour.title}}</view>

@@ -1,0 +1,20 @@
+<!--pages/mycenter/setting/getaddress/getaddress.wxml-->
+<view class="chooseaddress">收货地址</view>
+<block wx:if="{{rewardAddressList.length>0}}">
+    <view class="address_list" wx:for="{{rewardAddressList}}" wx:key="{{index}}">
+       
+        <view class="address_info">
+            <view class="province">{{item.province}}{{item.twoadr}}</view>
+            <view class="user_info">{{item.name}} {{item.phone}}</view>
+            <view wx:if="{{item.isdefault==2}}" class="default_label">默认地址</view>
+        </view>
+
+        <image src="/image/edit.png" class="changestate" bindtap="confirmRoom" data-obj="{{item}}"></image>
+    </view>
+</block>
+<view class="empty" wx:else>
+    <van-empty description="还没有添加收货地址~" />
+</view>
+    <view class="add_address">
+        <van-button bindtap="confirmRoom" type="primary" block round="{{true}}" color='#e6212b'>+ 新增地址</van-button>
+    </view>

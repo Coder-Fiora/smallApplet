@@ -1,5 +1,6 @@
-<van-overlay show="{{ visible }}" bind:click="close">
-    <view class="container {{visible?'open':'close'}}">
+<view class="{{visible?'back_ground active':'back_ground'}}">
+    <view class="contanner_box {{visible?'open':'close'}}">
+    <view class="container ">
         <Swipper list="{{data.roomtypePictureList}}" height="400"/>
         <view class="info">
             <view class="title">{{data.roomType.name}}</view>
@@ -18,4 +19,6 @@
             </view>
         </view>
     </view>
-</van-overlay>
+    <view class="closebtn" bindtap="close"><image mode="aspectFit" src="/image/guan.png"></image></view>
+    </view>
+</view>

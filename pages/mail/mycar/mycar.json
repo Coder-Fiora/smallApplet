@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "TopBar":"/components/TopBar/TopBar"
+        "TopBar":"/components/TopBar/TopBar",
+        "van-empty": "@vant/weapp/empty/index"
     },
     "navigationStyle": "custom"
 }

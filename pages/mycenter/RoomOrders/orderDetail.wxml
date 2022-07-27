@@ -1,0 +1,84 @@
+<!--pages/mycenter/RoomOrders/orderDetail.wxml-->
+<TopBar wx:if="{{nav_title=='订单详情'}}" notitle="{{nav_title}}"></TopBar>
+<another wx:if="{{nav_title==true}}"></another>
+<view class="top_tips">
+   <view><image src="/image/money.png" mode="aspectFit"></image> {{orderList.status<=4?'待付款':orderList.status==6 || orderList.status==7?'已取消':orderList.status==5?'待确认':orderList.status==10?'已确认':orderList.status==11?'已完成':'待退款'}}</view>
+   <view>{{orderList.status<=4?'需付款:'+orderList.amount:'期待您的下次购买~'}}</view>
+   <view class="pay_btn" wx:if="{{orderList.status<=4}}" bindtap="gopay">立即付款</view>
+</view>
+<view class="bg_box">
+<view class="content_box">
+<view class="ruzhu_info">
+  <view class="tips">
+     <view><image src="/image/store.png"></image>大知闲闲民宿</view>
+     <image src="/image/more.png"></image>
+  </view>
+  <view class="goods_detail">
+     <view class="img_box"><image mode="aspectFit" src="{{orderList.coverurl}}"></image></view>
+     <view>
+       <view>{{orderList.name}}</view>
+       <view class="youhui_price">{{orderList.dazhiHousePrice.name}}</view>
+       <view wx:if="{{orderList.dazhiHousePrice.iscancel==2}}" class="ifcancel">
+            <van-icon style="margin-right: 6rpx;" name="close" />不可取消
+        </view>
+        <view wx:else class="ifcancel">
+            <van-icon style="margin-right: 6rpx;" name="passed" />可取消
+        </view>
+       <view class="goods_price" bindtap="lookDetail"><text>￥</text>{{orderList.dazhiHousePrice.nowprice}} <image mode="aspectFit" src="/image/ask.png"></image></view>
+     </view>
+     <view class="room_number">{{orderList.roomCount}}间 {{orderList.roomDay}}晚</view>
+  </view>
+
+  <view class="mingxi_title">
+    <view>每晚明细</view>
+    <view bindtap="changestate" wx:if="{{orderList.timeList.length>1}}">{{ifshou?'展开':'收起'}} <image src="/image/down.png" mode="aspectFit"></image></view>
+  </view>
+  <view class="mingxi_box" wx:if="{{!ifshou}}">
+     <view class="item_mingxi" wx:for="{{orderList.timeList}}">
+       <text>{{item.time}}</text>
+       <view>￥{{item.unitprice}}</view>
+     </view>
+  </view>
+</view>
+
+
+
+<view class="diss_card">
+   <view class="info_item">
+     <view>订单编号：<text>{{orderList.oid}}</text></view>
+     <view class="copy" bindtap="copy_btn">复制</view>
+   </view>
+   <view class="info_item">
+     <view>下单时间：<text>{{orderList.cretime}}</text></view>
+   </view>
+</view>
+<view class="diss_card">
+   <view class="info_item">
+     <view>支付方式：<text>微信支付</text></view>
+   </view>
+   <!-- <view class="info_item">
+     <view>支付时间：<text>2022-7-25</text></view>
+   </view> -->
+</view>
+<view class="all_price">
+    <view class="info_item">
+     <view>房价总额</view>
+     <input type="text" value="￥{{orderList.amount}}"/>
+  </view>
+  <view class="info_item">
+     <view>服务费</view>
+     <input type="text" value="￥0"/>
+  </view>
+
+  <view class="pay_money">需付款：<view><text>￥</text>{{orderList.amount}}</view></view>
+</view>
+
+<view class="btn_submit">
+  <view class="same_btn paynow" bindtap="gopay" wx:if="{{orderList.status<=4}}">立即付款</view>
+  <view class="same_btn cancel_btn" bindtap="cancelOrder" wx:if="{{orderList.status<=4}}">取消订单</view>
+  <view class="same_btn" wx:if="{{orderList.status>4}}" bindtap="deletOrder">删除订单</view>
+  <view class="same_btn" bindtap="callme">联系酒店</view>
+</view>
+
+</view>
+</view>

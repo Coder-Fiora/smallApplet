@@ -1,0 +1,45 @@
+/* pages/mycenter/setting/setting.wxss */
+.title{
+    font-size: 36rpx;
+    font-weight: 600;
+    margin: 30rpx 0 60rpx 30rpx;
+}
+.infolist{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36rpx 30rpx;
+}
+.infolist >image{
+    width: 20rpx;
+    height: 20rpx;
+}
+.infolist view{
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+}
+.infolist view image{
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 20rpx;
+}
+.unload{
+    width: 690rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26rpx;
+    border-radius: 12rpx;
+    background-color: #ee352b;
+    position: fixed;
+    bottom: 10rpx;
+    left: 30rpx;
+}
+.unload image{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 8rpx;
+}

@@ -32,7 +32,23 @@ Page({
             this.getfourdetail(obj.fdid);
         }
     },
-
+    callMe(){
+       wx.makePhoneCall({
+         phoneNumber: this.data.detailinfo.phone,
+       }) 
+    },
+    gohere(){
+        wx.openLocation({
+            latitude: 24.560139,
+            longitude: 102.841751,
+            scale:8,
+            name:'大知闲闲民宿',
+            address:this.data.detailinfo.address,
+            success:(r)=>{
+               console.log(r)
+            }
+          })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -85,11 +101,6 @@ Page({
         }
     },
     
-    bindcallphone(){
-        wx.makePhoneCall({
-          phoneNumber: '0773-8883999',
-        })
-    },
     getControditon(){
         http.queryControdition({
             success: res => {

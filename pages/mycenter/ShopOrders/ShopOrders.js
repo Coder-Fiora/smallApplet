@@ -11,24 +11,20 @@ Page({
             key: '0'
         },
         {
-            title: '待付款',
-            key: '1'
-        },
-        {
             title: '待发货',
-            key: '2'
+            key: '12'
         },
         {
             title: '待收货',
-            key: '3'
+            key: '13'
         },
         {
             title: '待使用',
-            key: '4'
+            key: '14'
         },
         {
             title: '已完成',
-            key: '5'
+            key: '11'
         },
         ]
     },
@@ -36,13 +32,21 @@ Page({
         const { pageSize, pageNum, status } = this.data
         this.getList({ pageSize, pageNum, status })
     },
+    gomail(){
+      wx.reLaunch({
+        url: '/pages/mail/mail',
+      })
+    },
     getList(data) {
+        var token=wx.getStorageSync('token');
+        var uid=token.uid;
         http.getMallOrderList({
-            data: { ...data, uid: '1' },
+            data: { ...data, uid: uid },
             success: (res) => {
-                const { orderList } = res?.data || {}
+                const orderList = res?.data || {};
                 this.setData({
-                    orderList
+                    orderList,
+                    uid
                 })
             }
         })
@@ -57,23 +61,36 @@ Page({
         this.setData({ ...obj })
         this.getList({ ...obj })
     },
-    onPullDownRefresh() {
-        const { status } = this.data
-        this.setData({ pageSize: 10, pageNum: 1 })
-        this.getList({ pageSize: 10, pageNum: 1, status })
-    },
+
     onReachBottom() {
+        if(this.data.hasload){return false}
         const { status, pageNum, pageSize, orderList } = this.data
         const newPageNumber = pageNum + 1
         http.getMallOrderList({
-            data: { status, pageNum: newPageNumber, pageSize, uid: '1' },
+            data: { status, pageNum: newPageNumber, pageSize, uid: this.data.uid },
             success: (res) => {
-                const { orderList: newOrderList } = res?.data || {}
-                this.setData({
-                    orderList: [...orderList, ...newOrderList],
-                    pageNum: newPageNumber
-                })
+                var newOrderList= res.data.newOrderList;
+                if(newOrderList && newOrderList.length>0){
+                    this.setData({
+                        orderList: [...orderList, ...newOrderList],
+                        pageNum: newPageNumber
+                    })
+                }else{
+                    this.setData({
+                        hasload:true
+                    })
+                }
             }
         })
     },
+    onPullDownRefresh: function () {
+        this.onRefresh();
+    },
+    onRefresh(){ 
+        wx.showNavigationBarLoading();
+        wx.stopPullDownRefresh();
+        this.setData({ pageSize: 10, pageNum: 1 })
+        const { pageSize, pageNum, status } = this.data
+        this.getList({ pageSize, pageNum, status })
+      },
 })

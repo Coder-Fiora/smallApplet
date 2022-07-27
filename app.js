@@ -1,6 +1,8 @@
 // app.js
 App({
-    globalData: {
-        uid: 'u001'
-      },
+  onLaunch(){
+    wx.cloud.init({
+        env:'dazhi-pay-9ggnwgpg44474021'
+    })
+  }
 })

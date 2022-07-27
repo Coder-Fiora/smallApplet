@@ -1,0 +1,45 @@
+<!--pages/room/Main/main.wxml-->
+<view class="menue">
+   <view class="info">
+     <text>桂林</text>
+     <view class="time">
+        <view>入住 07-21</view>
+        <view>离店 07-22</view>
+     </view>
+     <view class="during">1晚</view>
+     <view class="people">1间房 · 1客人</view>
+   </view>
+   <view class="check" bindtap="chooseMap">
+      <image src="{{showmap==1?'/image/list.png':'/image/dz.png'}}" mode="aspectFit"></image>
+      <text>{{showmap==1?'列表':'地图'}}</text>
+   </view>
+</view>
+
+<view wx:if="{{showmap==0}}">
+   <image class="img_logo" src="/image/test1.jpg" mode="aspectFit" lazy-load="true"></image>
+   <view class="detail_info">
+      <view class="address">
+        <view>大知闲闲民宿</view>
+        <view bindtap="gomap"><image src="/image/location.png" mode="aspectFit"></image><text>云南省昆明市</text></view>
+      </view>
+      <view class="price">
+        <view><text>￥</text>2927</view>
+        <text>每晚起</text>
+      </view>
+   </view>
+</view>
+
+<view wx:if="{{showmap==1}}" class="map_box">
+   <map id="map"  name="" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{mark}}">
+   </map>
+   <view class="hotel_info">
+      <image src="/image/test1.jpg" mode="aspectFill"></image>
+      <view class="msg">
+        <view>大知闲闲民宿</view>
+        <view><image src="/image/daohang.png" mode="aspectFit"></image><text>广西壮族自治区桂林市阳朔县</text></view>
+        <view><image src="/image/phone2.png" mode="aspectFit"></image><text>0773-889-83999</text></view>
+        <view class="price"><text>￥</text>2927 <text>每晚起</text></view>
+      </view>
+   </view>
+</view>
+

@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "TopBar": "/components/TopBar/TopBar",
+        "another":"/components/TopBar/anotherBar",
+        "van-icon": "@vant/weapp/icon/index"
+    },
+    "navigationStyle": "custom"
+}

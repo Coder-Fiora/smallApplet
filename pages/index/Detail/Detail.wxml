@@ -28,16 +28,16 @@
 <view class="content" wx:if="{{detailpage=='live'}}">
     <view class="duanluo">{{detailinfo.area}}</view>
 </view>
-<view class="icon_phone" wx:if="{{detailpage=='room'|| detailpage=='live'|| detailpage=='canting'}}" bindtap="bindcallphone">
+<view class="icon_phone" wx:if="{{detailpage=='room'|| detailpage=='live'|| detailpage=='canting'}}" bindtap="callMe">
     <image src="/image/phone.png"></image>
 </view>
 
 <view class="address" wx:if="{{detailpage=='main'}}">
-   <view>
+   <view catchtap="callMe">
       <text>{{detailinfo.phone}}</text> 
-      <image src="/image/call.png"></image>  
+      <image src="/image/call.jpg" mode="aspectFit"></image>  
    </view>
-   <view>
+   <view catchtap="gohere">
       <text>{{detailinfo.address}}</text> 
       <image src="/image/dh.png"></image>  
    </view>

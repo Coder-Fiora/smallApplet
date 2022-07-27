@@ -1,0 +1,135 @@
+<!--pages/mail/goodsdetail/pay.wxml-->
+<view class="choose_sendtype" wx:if="{{tid==1}}">
+  <view class="left_title"><image src="{{sdtype==1?'/image/getgoods.png':'/image/ziti.png'}}"></image>{{sdtype==1?'收货地址':'到店自提'}}<image wx:if="{{sdtype==1}}" src="/image/zhuyi.png"></image></view>
+  <view class="type">
+     <view class="{{sdtype==0?'active':''}}" catchtap="changetype" data-type="0">自提</view>
+     <view class="{{sdtype==1?'active':''}}" catchtap="changetype" data-type="1">快递</view>
+  </view>
+</view>
+<view class="address" bindtap="address" wx:if="{{sdtype==1 && tid==1}}">
+  <view wx:if="{{rewardAddress}}">
+    <view>{{rewardAddress.oneadr}}</view>
+    <text>{{rewardAddress.name}} {{rewardAddress.phone}}</text>
+  </view>
+  <view wx:else>未添加收货地址，点击添加</view>
+  <image src="/image/right.png" mode="aspectFit"></image>
+</view>
+<view class="ruzhu_info">
+    <view class="info_item">
+     <view>姓名</view>
+     <view><input type="text" value="" bindinput="getName" placeholder-class="room_name" placeholder="请输入姓名"/></view>
+  </view>
+  <view class="info_item">
+     <view>手机号</view>
+     <view><input type="text" value="" bindinput="getPhone" maxlength="11" placeholder-class="room_name" placeholder="请输入手机号"/></view>
+  </view>
+</view>
+
+<view class="ruzhu_info">
+  <view class="tips">
+     <view><image src="/image/store.png"></image>大知闲闲民宿</view>
+     <image src="/image/more.png"></image>
+  </view>
+  <view class="goods_detail">
+     <view class="img_box"><image mode="aspectFit" src="{{specList[typeid].surl}}"></image></view>
+     <view>
+       <view>{{specList[typeid].name}}</view>
+       <view class="goods_price" bindtap="lookDetail"><text>￥</text>{{specList[typeid].newprice}} <image mode="aspectFit" src="/image/ask.png"></image></view>
+       <view class="flex">
+         <view wx:if="{{tid==1}}" class="send_type">快递邮寄</view>
+         <view wx:if="{{tid==2}}" class="send_type">在线预约</view>
+         <view wx:if="{{tid!=2 && tid!=1}}" class="send_type">电话预约</view>
+         <view wx:if="{{tid!=1}}" class="send_type">到店消费</view>
+       </view>
+     </view>
+  </view>
+
+  <view class="info_item">
+     <view class="left_name">
+       数量
+     </view>
+     <view class="right_info">
+       <image src="/image/reduce.png" bindtap="handleNumber" data-type="reducechild" mode="aspectFit"></image>
+       <picker bindchange="bindPickerChange" value="{{child_idx}}" range="{{childnumber}}">
+                <view class="picker">
+                    {{number}}
+                </view>
+        </picker>
+        <image bindtap="handleNumber" data-type="addchild" mode="aspectFit" src="/image/add.png"></image>
+     </view>
+  </view>
+
+  <view class="info_item">
+     <view>备注</view>
+     <view><input type="text" bindinput="getBeizhu" placeholder-class="room_name" placeholder="请填写备注信息"/></view>
+  </view>
+  <!-- <view class="info_item" wx:if="{{tid==2}}">
+     <view>预约</view>
+     <view class="youhui_choose">请填写预约信息 <image src="/image/right.png"></image></view>
+   </view> -->
+</view>
+
+
+
+<view class="diss_card">
+   <view class="info_item">
+     <view>优惠券</view>
+     <view class="youhui_choose" bindtap="chooseyouhui">{{count==0?'暂无可用优惠券':'有可使用的优惠券'}} <image src="/image/right.png"></image></view>
+   </view>
+</view>
+
+<view class="all_price">
+    <view class="info_item">
+     <view>商品总额</view>
+     <input type="text" value="￥{{specList[typeid].newprice * number}}"/>
+  </view>
+  <view class="info_item">
+     <view>服务费</view>
+     <input type="text" value="￥0"/>
+  </view>
+  <view class="info_item">
+     <view>运费</view>
+     <input type="text" value="￥0"/>
+  </view>
+  <view class="info_item">
+     <view>支付方式</view>
+     <input type="text" placeholder="微信支付" disabled="true"/>
+  </view>
+</view>
+
+<view class="btn_submit">
+  <view class="total_price"><text>￥</text>{{specList[typeid].newprice * number}}</view>
+  <view class="btn" bindtap="createOrder">提交订单</view>
+</view>
+<view class="coupon_box {{showCoupon?'active':''}}" catchtap="closecoupon">
+   <view class="coupon" catchtap="!closecoupon">
+      <view class="title">选择优惠券</view>
+      <view class="ipt_get">
+         <input type="text" placeholder-style="color:#999999" placeholder="请输入兑换码（区分大小写）"/>
+         <view>兑换</view>
+      </view>
+      <view class="coupon_list" wx:if="{{returnList && returnList.length>0}}">
+      
+      </view>
+      <view wx:else class="empty">
+         <van-empty description="暂无可用优惠券~"></van-empty>
+      </view>
+      <view class="close" bindtap="closecoupon">关闭</view>
+   </view>
+</view>
+
+<view class="coupon_box {{showDetail?'active':''}}" catchtap="closeDetail">
+   <view class="coupon" catchtap="!closeDetail" style="height: 70vh;">
+      <view class="title choosetab">
+         <view class="{{detail_tab==0?'active':'gray'}}" catchtap="changeTab" data-tab="0">商品详情</view>
+         <view class="{{detail_tab==1?'active':'gray'}}" catchtap="changeTab" data-tab="1">使用条款</view>
+      </view>
+     <view class="text_info"> 
+        <rich-text wx:if="{{detail_tab==0}}" nodes="{{commodityDesc.desc}}"></rich-text>
+        <rich-text wx:else nodes="{{commodityDesc.terms}}"></rich-text>
+     </view>
+     <view class="close_box">
+      <view class="close" bindtap="closeDetail">确定</view>
+     </view>
+   </view>
+</view>

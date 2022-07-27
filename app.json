@@ -16,6 +16,7 @@
         "pages/mycenter/RoomOrders/RoomOrders",
         "pages/mycenter/Coupons/History/History",
         "components/OrderCard/OrderCard",
+        "components/roomOrderCard/roomOrderCard",
         "components/HotRecommend/HotRecommend",
         "components/Coupons/Coupons",
         "components/CardCoupons/CardCoupons",
@@ -27,13 +28,25 @@
         "pages/mycenter/RefundRecords/RefundRecords",
         "pages/mail/mycar/mycar",
         "pages/mail/address/address",
-        "pages/mail/addAddress/addAddress"
+        "pages/mail/addAddress/addAddress",
+        "pages/food/detail",
+        "pages/mycenter/setting/setting",
+        "pages/mycenter/setting/personinfo/personinfo",
+        "pages/mycenter/setting/getaddress/getaddress",
+        "pages/mycenter/cardManerger/cardManerger",
+        "pages/mycenter/cardManerger/addBill",
+        "pages/room/order/order",
+        "pages/mail/goodsdetail/pay",
+        "pages/room/Main/main",
+        "pages/mail/mycar/Carpay",
+        "pages/mycenter/RoomOrders/orderDetail"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "大知闲闲民宿",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#fff"
     },
     "tabBar": {
         "color": "#333333",
@@ -47,13 +60,13 @@
             },
             {
                 "pagePath": "pages/room/room",
-                "text": "糖Room",
+                "text": "客房",
                 "iconPath": "image/room.png",
                 "selectedIconPath": "image/room1.png"
             },
             {
                 "pagePath": "pages/mail/mail",
-                "text": "糖Mail",
+                "text": "周边",
                 "iconPath": "image/mail.png",
                 "selectedIconPath": "image/mail1.png"
             },

@@ -1,7 +1,7 @@
 {
     "usingComponents": {
         "TopBar": "/components/TopBar/TopBar",
-        "OrderCard": "/components/OrderCard/OrderCard",
+        "roomOrderCard": "/components/roomOrderCard/roomOrderCard",
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index",
         "van-empty": "@vant/weapp/empty/index"

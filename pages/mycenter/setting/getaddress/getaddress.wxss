@@ -1,0 +1,88 @@
+/* pages/mycenter/setting/getaddress/getaddress.wxss */
+.chooseaddress{
+    font-size: 28rpx;
+    color: #999999;
+    padding: 50rpx 30rpx;
+}
+.add_address{
+    margin: 0 40rpx;
+    position: fixed;
+    bottom: 0;
+    width: 670rpx;
+    background-color: white;
+    padding: 20rpx 0;
+}
+.address_list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40rpx;
+    letter-spacing: 2rpx;
+}
+.address_list .address_info{
+    width: 95%;
+    padding: 30rpx 40rpx 30rpx 10rpx;
+    border-bottom: 1px solid #f6f6f6;
+    line-height: 42rpx;
+    box-sizing: border-box;
+}
+.address_list .address_info .province{
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.address_list .address_info .user_info{
+    display: flex;
+    align-items: center;
+    color: #999999;
+    font-size: 22rpx;
+}
+.address_list .address_info .default_label{
+    width: 100rpx;
+    height: 34rpx;
+    background-color: #e92720;
+    color: white;
+    font-size: 20rpx;
+    text-align: center;
+    line-height: 34rpx;
+}
+.changestate{
+    width: 40rpx;
+    height: 40rpx;
+}
+radio .wx-radio-input {
+    height: 30rpx;/* 对勾大小 */
+    width: 30rpx;
+    margin-top: -4rpx;
+    /* border-radius: 50%; */
+    /* background: transparent; */
+  }
+  /* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+  radio .wx-radio-input.wx-radio-input-checked::before {
+    border-radius: 50%; /* 圆角 */
+    width: 30rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 30rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    line-height: 30rpx;/* 选中后对勾的垂直方向，等于radio的高度 */
+    text-align: center;
+    font-size: 24rpx; /* 对勾大小 30rpx */
+    color: #fff; /* 对勾颜色 白色 */
+    background: #f31c1c;
+    border: 2rpx solid #f31c1c;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+  }
+   
+  .radio-text {
+    font-size: 13px;
+    flex: 1;
+  }
+  .radio-label {
+    display:flex;
+  }
+   
+  .radio-group-width {
+    width: 60%;
+  }
+  .label_add{display: flex;align-items: center;width: 95%;}
+  page{
+    padding-bottom: 140rpx;
+  }

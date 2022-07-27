@@ -1,6 +1,7 @@
 Component({
     properties: {
-        isHistory: Boolean
+        isHistory: Boolean,
+        list:Array
     },
     methods:{
         goHistory() {

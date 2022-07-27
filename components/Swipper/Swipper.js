@@ -25,7 +25,8 @@ Component({
             let previewImgArr = [];
             let data = that.properties.list;
             for (let i in data) {
-                previewImgArr.push(data[i].src);
+                var src=data[i].purl || data[i].murl || data[i].fcurl;
+                previewImgArr.push(src);
             }
             wx.previewImage({
                 current: url, // 当前显⽰图⽚的http链接

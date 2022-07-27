@@ -1,1 +1,105 @@
 /* pages/Login/Login.wxss */
+.login_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.logo_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32rpx;
+    font-weight: 500;
+    margin-top: 200rpx;
+    letter-spacing: 2rpx;
+}
+.logo_box text:nth-of-type(2){
+  color: #999999;
+  font-size: 20rpx;
+  margin-top: 8rpx;
+}
+.logo_box image{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius:50%;
+    margin-bottom: 20rpx;
+}
+.login_btn{
+    margin-top: 150rpx;
+    display: flex;
+    justify-content: center;
+}
+.login_btn view{
+    width: 240rpx;
+    height: 64rpx;
+    background-color: #f6f6f6;
+    border-radius: 32rpx;
+    text-align: center;
+    line-height: 64rpx;
+    font-size: 28rpx;
+    color: #16c94b;
+    margin-right: 50rpx;
+}
+.login_btn .btn{
+    width: 240rpx;
+    height: 64rpx;
+    background: linear-gradient(to right,rgb(64,219,72),rgb(58, 202, 159));
+    color: white;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 64rpx;
+    border-radius: 40rpx;
+}
+.login_btn .yinsi{
+    display: flex;
+    align-items: center;
+    margin-top: 40rpx;
+    font-size: 24rpx;
+    justify-content: center;
+}
+.login_btn .yinsi text{
+    color: rgb(46, 134, 216);
+}
+.login_btn .yinsi checkbox{
+    margin-right: 10rpx;
+}
+checkbox .wx-checkbox-input {
+    width: 30rpx;
+    height:30rpx;
+    border-radius: 50%;
+  }
+  
+  /*checkbox选中后样式  */
+  checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #16c94b;
+  }
+  
+  /*checkbox选中后图标样式  */
+  checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+    font-size: 18rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+  }
+  .tips{
+      font-size: 24rpx;
+      margin-top: 100rpx;
+      width: 100%;
+      padding-left: 120rpx;
+      box-sizing: border-box;
+      letter-spacing: 2rpx;
+  }
+  .tips text{
+      color: #999999;
+      font-size: 22rpx;
+      margin-top: 14rpx;
+      display: block;
+  }

@@ -1,11 +1,23 @@
 <view>
     <TopBar></TopBar>
-    <Swipper></Swipper>
-    <van-tabs active="{{ active }}" bind:change="onChange">
+    <Swipper list="{{pictureList}}"></Swipper>
+    <!-- <van-tabs active="{{ active }}" bind:change="onChange">
         <van-tab title="全部">
-            <view class="empty">
-                <van-empty description="暂无餐饮列表，敬请期待" />
-            </view>
         </van-tab>
-    </van-tabs>
+    </van-tabs> -->
+    <view class="empty" wx:if="{{foodInfolist.length==0}}">
+        <van-empty description="暂无餐饮列表，敬请期待" />
+    </view>
+    <view class="foodlist" wx:else>
+        <view class="food_item" wx:for="{{foodInfolist}}" wx:key="{{index}}" catchtap="godetail" data-id="{{item.fid}}" data-name="{{item.name}}">
+            <view class="img_box">
+                <image mode="aspectFill" lazy-load src="{{item.coverurl}}"></image>
+            </view>
+            <view class="content">
+                <view class="name">{{item.name}}</view>
+                <view class="desc">{{item.desc}}</view>
+                <text class="cuisine">{{item.cuisine}}</text>
+            </view>
+        </view>
+    </view>
 </view>

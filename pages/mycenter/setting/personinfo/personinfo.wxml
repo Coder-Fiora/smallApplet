@@ -1,0 +1,57 @@
+<!--pages/mycenter/setting/personinfo/personinfo.wxml-->
+<view class="item_table">
+    <text>头像</text>
+    <view class="headimg">
+        <image src="{{userInfo.avatarurl}}" mode=""></image>
+    </view>
+</view>
+<view class="item_table">
+    <text>昵称</text>
+    <view class="same_ipt"><input placeholder="昵称" bindinput="getNickname" value="{{userInfo.nikename}}" placeholder-class="place" type="text" />
+        <image src="/image/right.png" mode="aspectFill"></image>
+    </view>
+</view>
+<view class="item_table">
+    <text>邮箱</text>
+    <view class="same_ipt"><input placeholder="邮箱" bindinput="getEmail" value="{{userInfo.email}}" placeholder-class="place" type="text" />
+        <image src="/image/right.png" mode="aspectFill"></image>
+    </view>
+</view>
+<view class="item_table">
+    <text>姓名</text>
+    <view class="same_ipt"><input bindinput="getname" placeholder="姓名" value="{{userInfo.name}}" placeholder-class="place" type="text" />
+        <image src="/image/right.png" mode="aspectFill"></image>
+    </view>
+</view>
+<view class="item_table">
+    <text>电话</text>
+    <view class="same_ipt"><input bindinput="getphone" placeholder="电话"  value="{{userInfo.phone}}" placeholder-class="place" type="text" />
+        <image src="/image/right.png" mode="aspectFill"></image>
+    </view>
+</view>
+<view class="item_table">
+    <text>称谓</text>
+    <view class="same_ipt">
+        <picker bindchange="bindPickerChange" value="{{sex_index}}" range="{{sex}}">
+            <view class="picker">
+                {{sex[sex_index]}}
+            </view>
+        </picker>
+        <image src="/image/right.png" mode="aspectFill"></image>
+    </view>
+</view>
+
+<view class="item_table">
+    <text>生日</text>
+    <view class="same_ipt">
+        <picker  mode="date" value="{{date}}" start="1900-01-01" end="2050-01-01" bindchange="bindDateChange">
+            <view class="picker" wx:if="{{date}}">
+                {{date}}
+            </view>
+            <input wx:else type="text" placeholder="生日"/>
+        </picker>
+        <image src="/image/right.png" mode="aspectFill"></image>
+    </view>
+</view>
+
+<view class="sure" bindtap="changepeosoninfo">确定</view>

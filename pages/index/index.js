@@ -79,5 +79,8 @@ Page({
         wx.navigateTo({
           url: '/pages/index/FoodDetail/FoodDetail'
         })
+    },
+    onHide(){
+        clearInterval()
     }
 })

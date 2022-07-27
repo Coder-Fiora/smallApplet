@@ -1,0 +1,45 @@
+/* pages/mycenter/setting/personinfo/personinfo.wxss */
+.item_table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36rpx 60rpx;
+}
+.item_table>text{
+    font-size: 24rpx;
+}
+.item_table .headimg{
+    width: 80rpx;
+    height: 80rpx;
+}
+.item_table .headimg image{
+    width: 100%;
+    height: 100%;
+}
+.item_table .same_ipt{
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    text-align: right;
+}
+.item_table .same_ipt image{
+    width: 22rpx;
+    height: 22rpx;
+    margin-left: 10rpx;
+}
+.place{
+    color: #999999;
+}
+.sure{
+    width: 690rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    background: #ee352b;
+    color: white;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 80rpx;
+    position: fixed;
+    bottom: 10rpx;
+    left: 30rpx;
+}

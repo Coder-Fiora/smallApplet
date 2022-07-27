@@ -7,9 +7,20 @@ Page({
      */
     data: {
         page:1,
-        tid:0
+        tid:0,
+        ifload:true
     },
-
+    getkeyword(e){
+      var keyword=e.detail.value;
+      this.setData({
+        keyword
+      })
+    },
+    goLogin(){
+      wx.navigateTo({
+        url: '/pages/Login/Login',
+      })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -28,7 +39,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        var token=wx.getStorageSync('token');
+        if(token && token.uid){
+            this.setData({
+              ifload:false
+            })
+        }
     },
 
     /**
@@ -58,8 +74,9 @@ Page({
     onReachBottom() {
        var page=this.data.page;
        var tid=this.data.tid;
+       var keyword=this.data.keyword;
        page++;
-       this.getMallList(tid,page)
+       this.getMallList(tid,page,keyword)
     },
 
     /**
@@ -93,15 +110,15 @@ Page({
             }
       })
     },
-    getMallList(tid,page){
+    getMallList(tid,page,name){
         if(this.data.hasload){return false};
         var that=this;
-        console.log(tid)
         http.queryMallList({
             data:{
                 tid:tid+'',
                 pageNum:page?page:1,
                 pageSize:4,
+                name:name?name:''
             },
             success: res => {
               var data=res.data;
@@ -128,14 +145,15 @@ Page({
       })
     },
     checkType(e){
-        var tid=e.currentTarget.dataset.id;
+        var tid=e.currentTarget.dataset.id || this.data.tid;
+        var name=this.data.keyword;
         this.setData({
             tid:tid,
             page:1,
             commodList:[],
             hasload:false
         },()=>{
-            this.getMallList(tid,1)
+            this.getMallList(tid,1,name)
         })
     }
 })

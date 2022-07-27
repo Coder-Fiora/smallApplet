@@ -1,4 +1,4 @@
-<van-nav-bar title="大知闲闲民宿" fixed="true" placeholder="true" z-index="66">
+<van-nav-bar title="{{notitle && notitle=='订单详情'?notitle:notitle?'':'大知闲闲民宿'}}" fixed="true" placeholder="{{notitle?false:true}}" z-index="66">
     <block wx:if="{{tabs}}">
         <view slot="left" class="back_share">
             <image src="/image/prev.png" bindtap="bindprev"></image>
@@ -7,9 +7,14 @@
             </button>
         </view>
     </block>
-    <block wx:else>
+    <block wx:if="{{!notitle && !tabs}}">
         <button slot="left" class="share_btn" open-type="share">
             <image src="/image/share.png"></image>
+        </button>
+    </block>
+    <block wx:if="{{notitle}}">
+        <button slot="left" class="share_btn {{notitle=='订单详情'?'':'prev_btn'}}" bindtap="bindprev">
+            <image src="{{notitle=='订单详情'?'/image/prev.png':'/image/prev1.png'}}"></image>
         </button>
     </block>
 </van-nav-bar>
